@@ -5,6 +5,7 @@ router.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../client/public/index.html"))
 })
 
+//***Don't uncomment code below until the routes have been created */
 // const apiRoutes = require("./api");
 
 // // API Routes
