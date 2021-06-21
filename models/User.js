@@ -67,6 +67,6 @@ UserSchema.methods.setFullName = function() {
     return this.fullName;
   };
 
-const Users = mongoose.model("Users", userSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = Users;
+module.exports = User;

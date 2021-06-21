@@ -10,13 +10,13 @@ function App() {
     return (
         <>
             <Router>
-                <h1>Project Enlistment <NavTabs></NavTabs></h1>
-
-
+                <h1 id="navTitle">Project Enlistment <NavTabs></NavTabs></h1>
 
                 <Route exact path="/" component={Home} />
-                <Route exact path="/" component={Signin} />
+                <Route exact path="/signin" component={Signin} />
                 <Route exact path="/developer" component={Developer} />
+
+                <NavTabs></NavTabs>
 
             </Router>
         </>
