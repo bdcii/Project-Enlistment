@@ -1,9 +1,22 @@
 const router = require('express').Router();
+const { Router } = require('express');
 const Project = require('../models/Project.js');
 // const projectsController = require('../controllers/projectControllers')
 
 //route for project by id
 //get, put,post & delete (with authorization)
+
+
+// get all projects //
+Router.get("/"), (req, res) => {
+    Project.findaAll({})
+}
+
+// get project by id //
+Router.get("/"), (req, res) => {
+    Project.findById({})
+}
+
 
 // create project //
 Router.post('api/projects/', (req, res) => {
