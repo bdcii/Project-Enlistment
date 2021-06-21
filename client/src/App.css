@@ -1,1 +1,12 @@
-/* Format Style */
+#navTitle {
+    text-align: center;
+}
+
+.nav {
+    display: grid;
+    text-align: center;
+    grid-template-areas: 
+        "nav1 nav2 nav3";
+    padding: 2%;
+    margin: 0 10%;
+}
