@@ -5,11 +5,9 @@ import './NavTabs.css';
 function NavTabs() {
     return (
       <div className="nav">
-        <navbar>
-          <Link className="button" to="/"><button>Home</button></Link>
-          <Link to="/work"><button>Profile</button></Link>
-          <Link to="/work"><button>Sign In / Sign Up</button></Link>
-        </navbar>
+          <Link to="/"><button id="nav1">Home</button></Link>
+          <Link to="/work"><button id="nav2">Profile</button></Link>
+          <Link to="/work"><button id="nav3">Sign In / Sign Up</button></Link>
       </div>
     )
 }

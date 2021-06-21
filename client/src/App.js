@@ -10,7 +10,7 @@ function App() {
     return (
         <>
             <Router>
-                <h1>Project Enlistment <NavTabs></NavTabs></h1>
+                <h1 id="navTitle">Project Enlistment <NavTabs></NavTabs></h1>
 
 
 
