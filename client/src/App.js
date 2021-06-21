@@ -15,8 +15,10 @@ function App() {
 
 
                 <Route exact path="/" component={Home} />
-                <Route exact path="/" component={Signin} />
+                <Route exact path="/signin" component={Signin} />
                 <Route exact path="/developer" component={Developer} />
+
+                <NavTabs></NavTabs>
 
             </Router>
         </>
