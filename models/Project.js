@@ -20,26 +20,20 @@ open: {
 dev_Need: {
     type: Number
 },
-manager: {
-    type: Boolean
-},
 comment: {
     type: String
 },
 
-User_id: {
+user_id: {
     type: Number
-}
+},
 
+date: { 
+    type: Date, default: Date.now 
+}
 });
 
 
-// const bookSchema = new Schema({
-//   title: { type: String, required: true },
-//   author: { type: String, required: true },
-//   synopsis: String,
-//   date: { type: Date, default: Date.now }
-// });
 
 const Project = mongoose.model("Project", projectSchema);
 

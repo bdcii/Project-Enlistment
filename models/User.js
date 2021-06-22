@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
- 
+    id: { 
+      type: Number,
+    },
     firstName: {
         type: String,
         trim: true,
@@ -56,16 +58,16 @@ const userSchema = new Schema({
         }
       ],
 
-      fullName: String
+      // fullName: String
      
 
 });
 
-UserSchema.methods.setFullName = function() {
-    this.fullName = `${this.firstName} ${this.lastName}`;
+// UserSchema.methods.setFullName = function() {
+//     this.fullName = `${this.firstName} ${this.lastName}`;
   
-    return this.fullName;
-  };
+//     return this.fullName;
+//   };
 
 const User = mongoose.model("User", userSchema);
 
