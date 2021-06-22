@@ -1,3 +1,12 @@
-h2, p, .button {
+p, .button {
     text-align: center;
+}
+
+h2 {
+    font-size: 35px;
+    text-align: center;
+}
+
+body {
+    font-size: 20px;
 }
