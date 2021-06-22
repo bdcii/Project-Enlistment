@@ -16,8 +16,9 @@ function App() {
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/developer" component={Developer} />
 
-                <NavTabs></NavTabs>
-
+                <div id="footer">
+                    <NavTabs></NavTabs>
+                </div>
             </Router>
         </>
     )

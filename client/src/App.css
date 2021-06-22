@@ -10,3 +10,17 @@
     padding: 2%;
     margin: 0 10%;
 }
+
+h1 {
+    font-size: 35px;
+    text-align: center;
+    background-color: rgb(0, 121, 107);
+    color: whitesmoke;
+    margin: 5% 0;
+    padding: 2%;
+    border-radius: 5px;
+  }
+
+  #footer {
+      background-color: rgb(178, 223, 219);
+  }
