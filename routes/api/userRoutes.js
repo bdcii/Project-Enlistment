@@ -1,6 +1,6 @@
 //Dependencies
 const router = require('express').Router();
-const User = require('../models/User.js');
+const User = require('../../models/User.js');
 // const projectsController = require('../controllers/projectControllers')
 
 

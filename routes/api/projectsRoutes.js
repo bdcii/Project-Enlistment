@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Project = require('../models/Project.js');
+const Project = require('../../models/Project.js');
 // const projectsController = require('../controllers/projectControllers')
 
 //route for project by id
@@ -7,7 +7,7 @@ const Project = require('../models/Project.js');
 
 
 // get all projects //
-router.get("/api/projects", (req, res) => {
+router.get("/", (req, res) => {
     Project.find({})
     .then((dbProject) => {
         res.json(dbProject);
@@ -18,13 +18,13 @@ router.get("/api/projects", (req, res) => {
 });
 
 // get project by id //
-router.get("/api/projects/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     Project.findById({})
 })
 
 
 // create project //
-router.post('api/projects/', (req, res) => {
+router.post('/', (req, res) => {
     Project.create({})
         .then((dbProject) => {
             res.json(dbProject);
@@ -35,7 +35,7 @@ router.post('api/projects/', (req, res) => {
 });
 
 // update only the description of project - wll add all the other updates after we get this seeded //
-router.put('api/projects/:id', ({ body, params }, res) => {
+router.put('/:id', ({ body, params }, res) => {
     Project.findByIdAndUpdate(
     params.id,
     { $push: { description: body }},
@@ -51,7 +51,7 @@ router.put('api/projects/:id', ({ body, params }, res) => {
 });
 
 //delete object by ID //
-router.delete('/api/projects', ({ body }, res) => {
+router.delete('/:id', ({ body }, res) => {
     Project.findByIdAndDelete(body.id)
     .then(()=> {
         res.json(true);
