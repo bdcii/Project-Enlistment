@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Router } = require('express');
 const Project = require('../models/Project.js');
 // const projectsController = require('../controllers/projectControllers')
 
@@ -8,18 +7,24 @@ const Project = require('../models/Project.js');
 
 
 // get all projects //
-Router.get("/"), (req, res) => {
-    Project.findaAll({})
-}
+router.get("/api/projects", (req, res) => {
+    Project.find({})
+    .then((dbProject) => {
+        res.json(dbProject);
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+});
 
 // get project by id //
-Router.get("/"), (req, res) => {
+router.get("/api/projects/:id", (req, res) => {
     Project.findById({})
-}
+})
 
 
 // create project //
-Router.post('api/projects/', (req, res) => {
+router.post('api/projects/', (req, res) => {
     Project.create({})
         .then((dbProject) => {
             res.json(dbProject);
