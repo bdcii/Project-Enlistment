@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavTabs from "./components/NavTabs/NavTabs.js";
 import Home from "./pages/Home/Home.js";
 import Signin from "./pages/Signin/Signin.js";
-import Developer from "./pages/Developer/Developer.js";
+import Developer from "./pages/Profile/Profile.js";
+import Project from "./pages/Project/Project"
 
 function App() {
     return (
@@ -14,7 +15,8 @@ function App() {
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/signin" component={Signin} />
-                <Route exact path="/developer" component={Developer} />
+                <Route exact path="/profile" component={Profile} />
+                <Route exact path="/Project" component={Project} />
 
                 <div id="footer">
                     <NavTabs></NavTabs>
