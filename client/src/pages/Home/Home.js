@@ -26,6 +26,11 @@ function Home() {
               <a href={"/projects/" + project._id}>
                 <strong>{project.title}</strong>
               </a>
+              <p>{project.description}</p>
+              <p>Developers Needed: {project.dev_Need}</p>
+              <a href={"/users/" + project.user_id}>
+                <strong>Link to the Project Manager's Page</strong>
+              </a>
               </ListItem>
             )}
     )}
