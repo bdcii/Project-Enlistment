@@ -1,7 +1,7 @@
 import React from "react";
-import "./Developer.css";
+import "./Profile.css";
 
-function Developer() {
+function Profile() {
     return (
         <>
             <hr />
@@ -30,4 +30,4 @@ function Developer() {
     )
 }
 
-export default Developer;
+export default Profile;
