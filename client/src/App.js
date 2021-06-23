@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavTabs from "./components/NavTabs/NavTabs.js";
 import Home from "./pages/Home/Home.js";
 import Signin from "./pages/Signin/Signin.js";
-import Developer from "./pages/Profile/Profile.js";
+import Profile from "./pages/Profile/Profile.js";
 import Project from "./pages/Project/Project"
 
 function App() {
