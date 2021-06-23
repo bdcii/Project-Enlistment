@@ -7,35 +7,35 @@ const userSchema = new Schema({
     firstName: {
         type: String,
         trim: true,
-        required: "Enter your first name"
+        // required: "Enter your first name"
       },
       lastName: {
         type: String,
         trim: true,
-        required: "Enter your last name"
+        // required: "Enter your last name"
       },
       email: {
           type: String,
           trim: true,
           unique: true,
-          required: "Enter your email address",
+          // required: "Enter your email address",
           match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
       },
       password: {
         type: String,
         trim: true,
-        required: "Password is Required",
+        // required: "Password is Required",
         validate: [({ length }) => length >= 6, "Password should be longer."]
       },
       github: {
           type: String,
           trim: true,
-          required: "Enter your GitHub page"
+          // required: "Enter your GitHub page"
       },
       linkedin:{
           type: String,
           trim: true,
-          required: "Enter your LinkedIn page"
+          // required: "Enter your LinkedIn page"
       },
       // projects: [
       //   {

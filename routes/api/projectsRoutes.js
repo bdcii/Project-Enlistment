@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
 
 // create project //
 router.post('/', (req, res) => {
-    Project.create({})
+    Project.create(req.body)
         .then((dbProject) => {
             res.json(dbProject);
         })
@@ -42,10 +42,9 @@ router.post('/', (req, res) => {
 
 // update only the description of project - wll add all the other updates after we get this seeded //
 router.put('/:id', (req, res) => {
-    Project.findByIdAndUpdate(
-    params.id,
-    { $push: { description: body }},
-    
+    let updates = req.body
+    Project.findByIdAndUpdate({_id: req.params.id}, 
+    updates,
     {new: true, runValidators: true}
     )
     .then((dbProject) => {
