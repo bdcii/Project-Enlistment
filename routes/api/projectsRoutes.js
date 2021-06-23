@@ -19,7 +19,13 @@ router.get("/", (req, res) => {
 
 // get project by id //
 router.get("/:id", (req, res) => {
-    Project.findById({})
+    Project.findById(req.params.id)
+    .then((dbProject) => {
+        res.json(dbProject);
+    })
+    .catch((err) => {
+        res.json(err);
+    })
 })
 
 
@@ -35,7 +41,7 @@ router.post('/', (req, res) => {
 });
 
 // update only the description of project - wll add all the other updates after we get this seeded //
-router.put('/:id', ({ body, params }, res) => {
+router.put('/:id', (req, res) => {
     Project.findByIdAndUpdate(
     params.id,
     { $push: { description: body }},
@@ -51,15 +57,13 @@ router.put('/:id', ({ body, params }, res) => {
 });
 
 //delete object by ID //
-router.delete('/:id', ({ body }, res) => {
-    Project.findByIdAndDelete(body.id)
-    .then(()=> {
-        res.json(true);
-    })
-    .catch((err) => {
-        res.json(err);
+router.delete('/:id', (req, res) => {
+    Project.findById({_id: req.params.id})
+    .then(dbProject => dbProject.remove())
+    .then(dbProject => res.json(dbProject))
+    .catch(err => 
+        res.statsus(422).json(err));
     });
-});
 
 
 module.exports = router;

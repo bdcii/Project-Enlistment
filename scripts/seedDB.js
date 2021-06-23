@@ -10,7 +10,6 @@ mongoose.connect(
 
 const projectSeed = [
   {
-    id: 1,
     title: "Project-Enlistment",
     description: "An application to find developers that are interested in working on a project.",
     open: true,
@@ -19,7 +18,6 @@ const projectSeed = [
     user_id: 1
   },
   {
-    id: 2,
     title: "Weather application",
     description: "An application that diplays weather information.",
     open: true,
@@ -28,7 +26,6 @@ const projectSeed = [
     user_id: 2
   },
   {
-    id: 3,
     title: "Portfolio Website",
     description: "An application to display portfolios",
     open: true,
@@ -37,7 +34,6 @@ const projectSeed = [
     user_id: 3
   },
   {
-    id: 5,
     title: "Tech Blog",
     description: "A website that one can discuss topics in technology.",
     open: true,
@@ -46,7 +42,6 @@ const projectSeed = [
     user_id: 5
   },
   {
-    id: 3,
     title: "Game Website",
     description: "A webite for games.",
     open: true,
@@ -58,7 +53,6 @@ const projectSeed = [
 
 const userSeed = [
   {
-    id: 1,
     firstName: "Sean",
     lastName: "Fitzmartin",
     email: "sfitzmartin22@gmail.com",
@@ -67,7 +61,6 @@ const userSeed = [
     linkedin: "sfitzmartin"
   },
   {
-    id: 2,
     firstName: "Tim",
     lastName: "Smith",
     email: "tsmith@gmail.com",
@@ -76,7 +69,6 @@ const userSeed = [
     linkedin: "tsmith"
   },
   {
-    id: 3,
     firstName: "Scott",
     lastName: "Jones",
     email: "sjones@gmail.com",
@@ -85,7 +77,6 @@ const userSeed = [
     linkedin: "sjones"
   },
   {
-    id: 4,
     firstName: "Theresa",
     lastName: "Jacobs",
     email: "tjacobs@gmail.com",
@@ -94,7 +85,6 @@ const userSeed = [
     linkedin: "tjacobs"
   },
   {
-    id: 5,
     firstName: "Sally",
     lastName: "Sugar",
     email: "ssugar@gmail.com",
