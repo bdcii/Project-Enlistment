@@ -18,11 +18,16 @@ const app = express()
 require("dotenv").config()
 const bodyParser = require("body-parser")
 const cors = require("cors")
+
+
 const nodemailer = require("nodemailer")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
+
+
+
 
 //Post Route
 app.post("/send_mail", cors(), async (req, res) => {
@@ -104,3 +109,27 @@ function App() {
 
 export default App;
 //=======================================================
+
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: '',
+        pass: ''
+    }
+});
+
+let mailOptions = {
+    from: '', //email sending account
+    to: '', // where email is being sent
+    subject: '', //email subject
+    text: ''
+};
+
+transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+        console.log('Error Occurs');
+    } else {
+        console.log('Email sent!!!');
+    }
+});

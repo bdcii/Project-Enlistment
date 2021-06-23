@@ -5,7 +5,7 @@ import NavTabs from "./components/NavTabs/NavTabs.js";
 import Home from "./pages/Home/Home.js";
 import Signin from "./pages/Signin/Signin.js";
 import Profile from "./pages/Profile/Profile.js";
-import Project from "./pages/Project/Project"
+import Project from "./pages/Project/createProject/Project"
 
 function App() {
     return (
