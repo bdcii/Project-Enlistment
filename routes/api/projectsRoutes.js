@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Router } = require('express');
-const Project = require('../models/Project.js');
+const Project = require('../../models/Project.js');
 // const projectsController = require('../controllers/projectControllers')
 
 //route for project by id
@@ -8,18 +7,30 @@ const Project = require('../models/Project.js');
 
 
 // get all projects //
-Router.get("/"), (req, res) => {
-    Project.findaAll({})
-}
+router.get("/", (req, res) => {
+    Project.find({})
+    .then((dbProject) => {
+        res.json(dbProject);
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+});
 
 // get project by id //
-Router.get("/"), (req, res) => {
-    Project.findById({})
-}
+router.get("/:id", (req, res) => {
+    Project.findById(req.params.id)
+    .then((dbProject) => {
+        res.json(dbProject);
+    })
+    .catch((err) => {
+        res.json(err);
+    })
+})
 
 
 // create project //
-Router.post('api/projects/', (req, res) => {
+router.post('/', (req, res) => {
     Project.create({})
         .then((dbProject) => {
             res.json(dbProject);
@@ -30,7 +41,7 @@ Router.post('api/projects/', (req, res) => {
 });
 
 // update only the description of project - wll add all the other updates after we get this seeded //
-router.put('api/projects/:id', ({ body, params }, res) => {
+router.put('/:id', (req, res) => {
     Project.findByIdAndUpdate(
     params.id,
     { $push: { description: body }},
@@ -46,15 +57,13 @@ router.put('api/projects/:id', ({ body, params }, res) => {
 });
 
 //delete object by ID //
-router.delete('/api/projects', ({ body }, res) => {
-    Project.findByIdAndDelete(body.id)
-    .then(()=> {
-        res.json(true);
-    })
-    .catch((err) => {
-        res.json(err);
+router.delete('/:id', (req, res) => {
+    Project.findById({_id: req.params.id})
+    .then(dbProject => dbProject.remove())
+    .then(dbProject => res.json(dbProject))
+    .catch(err => 
+        res.statsus(422).json(err));
     });
-});
 
 
 module.exports = router;

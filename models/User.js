@@ -3,9 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    id: { 
-      type: Number,
-    },
+
     firstName: {
         type: String,
         trim: true,
@@ -39,24 +37,24 @@ const userSchema = new Schema({
           trim: true,
           required: "Enter your LinkedIn page"
       },
-      projects: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Project"
-        }
-      ],
-      skills: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Skill"
-        }
-      ],
-      availability: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Availability"
-        }
-      ],
+      // projects: [
+      //   {
+      //     type: Schema.Types.ObjectId,
+      //     ref: "Project"
+      //   }
+      // ],
+      // skills: [
+      //   {
+      //     type: Schema.Types.ObjectId,
+      //     ref: "Skill"
+      //   }
+      // ],
+      // availability: [
+      //   {
+      //     type: Schema.Types.ObjectId,
+      //     ref: "Availability"
+      //   }
+      // ],
 
       // fullName: String
      

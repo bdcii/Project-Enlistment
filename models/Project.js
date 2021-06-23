@@ -3,9 +3,7 @@ const Schema = mongoose.Schema;
 
 const projectSchema = new Schema(
     {
-id: {
-    type: Number
-},
+
 title: {
     type: String, 
     required: true 
