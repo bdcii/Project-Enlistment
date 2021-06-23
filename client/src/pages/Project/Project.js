@@ -1,17 +1,18 @@
+// eslint-disable-next-line
 import React, { useState } from "react";
 import "./Project.css";
-import DatePicker from "react-datepicker";
+//import DatePicker from "react-datepicker";
 
-export default function MyComponent() {
+ //function MyComponent() {
     
-      const [date, setDate] = useState(new Date());
+      //const [date, setDate] = useState(new Date());
     
-      const handleChange = date => setDate(date);
+     // const handleChange = date => setDate(date);
     
     
-      return <DatePicker selected={date} onChange={handleChange} />;
+     // return <DatePicker selected={date} onChange={handleChange} />;
 
-    }
+   // }
 
 function Project() {
     return (
