@@ -30,11 +30,11 @@ router.get("/", (req, res) => {
 
 
 //Create user
-router.post('/', ({body}, res) => {
+router.post('/', (req, res) => {
     // const user = new User(body);
     // user.setFullName();
 
-    User.create({})
+    User.create(req.body)
         .then((dbProject) => {
             res.json(dbProject);
         })
