@@ -26,8 +26,8 @@ class Profile extends Component {
         const { user } = this.state;
         return (
             <>
+                <h2 id="devProfile">Developer Profile</h2>
                 <hr />
-                <h2>Developer Profile</h2>
                 <section id="profile">
                     <div className="name"><strong>Name: First {user.firstName} Last {user.lastName}</strong></div>
                     {/* <div className="name">Last Name - login info</div> */}
@@ -40,33 +40,96 @@ class Profile extends Component {
                     </div>
                     <hr />
 
-                    <div className="skillSet"><strong>Skill Set</strong></div>
-                    <ul className="skillList">
-                        <li className="skills">display all skills for user in list format</li>
+                    <div className="set"><strong>Skill Set</strong></div>
+                    <ul className="list">
+                        <li className="item">display all skills for user in list format</li>
                     </ul>
                     <hr />
                 </section>
                 <section id="userProjects">
-                    <div>Current Projects</div>
-                    <ul>
-                        <li>display list of current projects working on</li>
+                    <div className="set"><strong>Current Projects</strong></div>
+                    <ul className="list">
+                        <li className="item">display list of current projects working on</li>
                     </ul>
-                    <div>Requested Projects</div>
-                    <ul>
-                        <li>display list of projects applied for</li>
+                    <div className="set"><strong>Requested Projects</strong></div>
+                    <ul className="list">
+                        <li className="item">display list of projects applied for</li>
                     </ul>
-                    <div>Completed Projects</div>
-                    <ul>
-                        <li>display list of projects participated on</li>
+                    <div className="set"><strong>Completed Projects</strong></div>
+                    <ul className="list">
+                        <li className="item">display list of projects participated on</li>
                     </ul>
-                    <div>Managed Projects</div>
-                    <ul>
-                        <li>display list of current projects initiated</li>
+                    <div className="set"><strong>Managed Projects</strong></div>
+                    <ul className="list">
+                        <li className="item">display list of current projects initiated</li>
                     </ul>
                     <hr />
 
-                    <div>User Rating</div>
+                    <div className="set"><strong>User Rating</strong></div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <p># average based on ## reviews</p>
                     <hr />
+                    <div className="row">
+                        <div className="side">
+                            <div>5 star</div>
+                        </div>
+                        <div className="middle">
+                            <div className="barContainer">
+                                <div className="bar-5"></div>
+                            </div>
+                        </div>
+                        <div className="side right">
+                            <div>100</div>
+                        </div>
+                        <div className="side">
+                            <div>4 star</div>
+                        </div>
+                        <div className="middle">
+                            <div className="barContainer">
+                                <div className="bar-4"></div>
+                            </div>
+                        </div>
+                        <div className="side right">
+                            <div>12</div>
+                        </div>
+                        <div className="side">
+                            <div>3 star</div>
+                        </div>
+                        <div className="middle">
+                            <div className="barContainer">
+                                <div className="bar-3"></div>
+                            </div>
+                        </div>
+                        <div className="side right">
+                            <div>8</div>
+                        </div>
+                        <div className="side">
+                            <div>2 star</div>
+                        </div>
+                        <div className="middle">
+                            <div className="barContainer">
+                                <div className="bar-2"></div>
+                            </div>
+                        </div>
+                        <div className="side right">
+                            <div>2</div>
+                        </div>
+                        <div className="side">
+                            <div>1 star</div>
+                        </div>
+                        <div className="middle">
+                            <div className="barContainer">
+                                <div className="bar-1"></div>
+                            </div>
+                        </div>
+                        <div className="side right">
+                            <div>1</div>
+                        </div>
+                    </div>
                 </section>
                 <br />
             </>
