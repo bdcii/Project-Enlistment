@@ -5,7 +5,7 @@ const skillsSchema = new Schema(
     {
         skills: {
             type: String,
-            required: true
+            required: false
         }
     });
 

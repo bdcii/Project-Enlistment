@@ -31,7 +31,7 @@ const projectSeed = [
     description: "An application to display portfolios. Please only apply if you are a React guru and have strong communication skills.",
     open: true,
     dev_Need: 3,
-    comment: "Call me the King of React! And don't get me started on communication - I love to communicate!",
+    // comment: "Call me the King of React! And don't get me started on communication - I love to communicate!",
     date: new Date(Date.now()),
     user_id: 3
   },
@@ -40,7 +40,7 @@ const projectSeed = [
     description: "A website that one can discuss topics in technology.",
     open: true,
     dev_Need: 3,
-    comment: "My skills include React bootstrap, React, JS, and project management.",
+    // comment: "My skills include React bootstrap, React, JS, and project management.",
     date: new Date(Date.now()),
     user_id: 5
   },
@@ -70,7 +70,7 @@ const userSeed = [
     password: "22seanfitz22",
     github: "tsmith1",
     linkedin: "tsmith",
-    skills: ["Bootstrap", "React", "React-bootstrap", "Python", "JavaScript", "Project management"]
+    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"]
   },
   {
     firstName: "Scott",
@@ -99,6 +99,53 @@ const userSeed = [
   },
 ];
 
+const skillSeed = [
+  {
+    skills: "HTML"
+  },
+  {
+    skills: "CSS"
+  },
+  {
+    skills: "JavaScript"
+  },
+  {
+    skills: "Bootstrap"
+  },
+  {
+    skills: "Python"
+  },
+  {
+    skills: "SQL"
+  },
+  {
+    skills: "React"
+  },
+  {
+    skills: "React-Bootstrap"
+  },
+  {
+    skills: "MongoDB"
+  },
+  {
+    skills: "Angular"
+  },
+  {
+    skills: "Express"
+  },
+  {
+    skills: "Communication"
+  },
+  {
+    skills: "Project Management"
+  },
+  {
+    skills: "Time Management"
+  },
+  {
+    skills: "Organization"
+  }
+]
 
 db.Project
   .remove({})
@@ -124,14 +171,14 @@ db.User
     process.exit(1);
   });
 
-// db.Skills
-//   .remove({})
-//   .then(() => db.Skills.collection.insertMany(skillsSeed))
-//   .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+db.Skills
+  .remove({})
+  .then(() => db.Skills.collection.insertMany(skillsSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
