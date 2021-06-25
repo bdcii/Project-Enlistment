@@ -66,16 +66,18 @@ class Profile extends Component {
                     <hr />
 
                     <div className="set"><strong>User Rating</strong></div>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <p># average based on ## reviews</p>
+                    <div id="stars">
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star"></span>
+                    </div>
+                    <p id="average"># average based on ## reviews</p>
                     <hr />
                     <div className="row">
                         <div className="side">
-                            <div>5 star</div>
+                            <div>5 stars</div>
                         </div>
                         <div className="middle">
                             <div className="barContainer">
@@ -86,7 +88,7 @@ class Profile extends Component {
                             <div>100</div>
                         </div>
                         <div className="side">
-                            <div>4 star</div>
+                            <div>4 stars</div>
                         </div>
                         <div className="middle">
                             <div className="barContainer">
@@ -94,10 +96,10 @@ class Profile extends Component {
                             </div>
                         </div>
                         <div className="side right">
-                            <div>12</div>
+                            <div>54</div>
                         </div>
                         <div className="side">
-                            <div>3 star</div>
+                            <div>3 stars</div>
                         </div>
                         <div className="middle">
                             <div className="barContainer">
@@ -108,7 +110,7 @@ class Profile extends Component {
                             <div>8</div>
                         </div>
                         <div className="side">
-                            <div>2 star</div>
+                            <div>2 stars</div>
                         </div>
                         <div className="middle">
                             <div className="barContainer">
@@ -130,6 +132,7 @@ class Profile extends Component {
                             <div>1</div>
                         </div>
                     </div>
+                    <hr />
                 </section>
                 <br />
             </>
