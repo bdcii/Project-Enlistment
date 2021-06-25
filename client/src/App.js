@@ -11,7 +11,7 @@ function App() {
     return (
         <>
             <Router>
-                <h1 id="navTitle">Project Enlistment <NavTabs></NavTabs></h1>
+                <h1 id="navTitle">Smart Project Recruiter <NavTabs></NavTabs></h1>
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/signin" component={Signin} />
