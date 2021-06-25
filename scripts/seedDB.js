@@ -70,7 +70,7 @@ const userSeed = [
     password: "22seanfitz22",
     github: "tsmith1",
     linkedin: "tsmith",
-    skills: ["React", "React-Bootstrap", "JavaScript", "MongoDB", "Project Management"]
+    skills: ["Bootstrap", "React", "React-bootstrap", "Python", "JavaScript", "Project management"]
   },
   {
     firstName: "Scott",

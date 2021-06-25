@@ -23,11 +23,7 @@ const projectSchema = new Schema(
             references: {
                 model: 'user',
                 key: 'id'
-<<<<<<< HEAD
-            },
-=======
             }
->>>>>>> 272d8070ade893748364291a5be315a61ab4a5bc
         },
 
         user_id: {
@@ -37,16 +33,7 @@ const projectSchema = new Schema(
         date: {
             type: Date, default: Date.now
         }
-<<<<<<< HEAD
-
-
-
     });
-
-
-=======
-    });
->>>>>>> 272d8070ade893748364291a5be315a61ab4a5bc
 
 const Project = mongoose.model("Project", projectSchema);
 
