@@ -1,15 +1,9 @@
 const User = require('./User');
 const Project = require('./Project');
-
-Project.hasOne(User, {
-  foreignKey: 'user_id'
-});
-
-User.hasMany(Project, {
-  foreignKey: 'project_id'
-});
+const Skills = require('./Skills');
 
 module.exports = {
   Project: require("./Project"),
-  User: require("./User")
+  User: require("./User"),
+  Skills: require("./Skills")
 };
