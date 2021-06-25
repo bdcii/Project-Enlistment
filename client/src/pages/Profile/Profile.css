@@ -1,8 +1,75 @@
 body {
-    margin-left: 20px;
-    margin-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 body {
-    font-size: 20px;
+  font-size: 20px;
+}
+
+hr {
+  border: 2px solid rgb(0, 121, 107);
+  border-radius: 5px;
+}
+
+.name {
+  margin: 5px;
+  margin-left: 45px;
+  padding: 5px 5px 0px 45px;
+}
+
+.contact nav ul {
+  list-style-type: none;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  align-content: center;
+}
+
+.contact nav ul li {
+  /* display: flex; */
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  align-content: center;
+  justify-content: center;
+}
+
+a .contact nav ul li {
+  color: rgb(0, 121, 107);
+  text-decoration: none;
+}
+
+a:link .contact nav ul li {
+  color: rgb(0, 121, 107);
+  text-decoration: none;
+}
+
+a:visited .contact nav ul li {
+  color: rgb(51, 2, 51);
+  text-decoration: none;
+}
+
+#email {
+  display: inline-flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 5px 5px 0px 45px;
+}
+
+a[href^="mailto"] {
+  color: rgb(0, 121, 107);
+}
+
+#github {
+  display: inline-flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 5px 5px 0px 45px;
+}
+
+#linked {
+  display: inline-flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  margin: 5px;
+  padding: 5px 5px 0px 45px;
 }
