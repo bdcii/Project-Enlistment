@@ -25,9 +25,9 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/profile" component={Profile} />
-                <Route exact path="/projects/:id">
-                    {/* <Project /> */}
-                </Route>
+                {/* <Route exact path="/projects/:id">
+                    <Project />
+                </Route> */}
 
                 <div id="footer">
                     <NavTabs></NavTabs>
