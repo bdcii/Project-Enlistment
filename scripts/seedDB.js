@@ -66,7 +66,8 @@ const userSeed = [
     email: "tsmith@gmail.com",
     password: "22seanfitz22",
     github: "tsmith1",
-    linkedin: "tsmith"
+    linkedin: "tsmith",
+    skills: ["React", "React-Bootstrap", "JavaScript", "MongoDB", "Project Management"]
   },
   {
     firstName: "Scott",
@@ -74,7 +75,8 @@ const userSeed = [
     email: "sjones@gmail.com",
     password: "22seanfitz22",
     github: "sjones2",
-    linkedin: "sjones"
+    linkedin: "sjones",
+    skills: ["React", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"]
   },
   {
     firstName: "Theresa",
@@ -106,7 +108,7 @@ db.Project
     process.exit(1);
   });
 
-  db.User
+db.User
   .remove({})
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
