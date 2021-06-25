@@ -1,15 +1,20 @@
 body {
   margin-left: 20px;
   margin-right: 20px;
-}
-
-body {
   font-size: 20px;
 }
 
 hr {
   border: 2px solid rgb(0, 121, 107);
   border-radius: 5px;
+}
+
+#devProfile {
+  background-color: rgb(0, 121, 107);
+  color: white;
+  border-radius: 5px;
+  padding: 2px;
+  margin-top: -45px;
 }
 
 .name {
@@ -21,8 +26,9 @@ hr {
 .contact nav ul {
   list-style-type: none;
   border-radius: 2px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  /* box-shadow: 0 3px 6px #999, 0 3px 6px #999; */
   align-content: center;
+  margin-left: 45px;
 }
 
 .contact nav ul li {
@@ -31,6 +37,7 @@ hr {
   /* flex-wrap: wrap; */
   align-content: center;
   justify-content: center;
+  margin-left: 45px;
 }
 
 a .contact nav ul li {
@@ -69,7 +76,93 @@ a[href^="mailto"] {
 #linked {
   display: inline-flex;
   flex-direction: row;
-  /* justify-content: center; */
   margin: 5px;
   padding: 5px 5px 0px 45px;
+}
+
+.set,
+.list,
+.userProjects {
+  margin: 5px;
+  margin-left: 45px;
+  padding: 5px 5px 0px 45px;
+}
+
+.item {
+  margin-left: 45px;
+}
+
+.fa {
+  font-size: 18px;
+}
+
+.checked {
+  color: orange;
+}
+
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+.right {
+  text-align: right;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.barContainer {
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
+  color: white;
+}
+
+/* Need to write code to automatically update width based on number of starts*/
+.bar-5 {
+  width: 60%;
+  height: 18px;
+  background-color: #04aa6d;
+}
+
+.bar-4 {
+  width: 40%;
+  height: 18px;
+  background-color: #2c97f0;
+}
+
+.bar-3 {
+  width: 30%;
+  height: 18px;
+  background-color: #26bae7;
+}
+
+.bar-2 {
+  width: 20%;
+  height: 18px;
+  background-color: #fde82c;
+}
+
+.bar-1 {
+  width: 10%;
+  height: 18px;
+  background-color: #f84d40;
+}
+
+@media (max-width: 400px) {
+  .side,
+  .middle {
+    width: 100%;
+  }
 }
