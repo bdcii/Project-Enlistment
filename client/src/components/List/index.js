@@ -1,20 +1,16 @@
 import React from "react";
-// import "./style.css";
+import { Container } from "react-bootstrap";
+import "./style.css";
 
 // This file exports both the List and ListItem components
 
 export function List({ children }) {
   return (
-    <div className="container">
-        <div class="card"> 
-        <div class="card-header">
-            <h1>{children}</h1>
-        </div>
-        </div>
-    </div>
+
+    <Container className="container">{children}</Container>
   );
 }
 
 export function ListItem({ children }) {
-  return <h1 className="title">{children}</h1>;
+  return <div>{children}</div>;
 }
