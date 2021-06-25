@@ -37,12 +37,12 @@ const userSchema = new Schema({
     trim: true,
     required: "Enter your LinkedIn page"
   },
-  projects: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Project"
-    }
-  ],
+  // projects: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Project"
+  //   }
+  // ],
   comment: [
     {
       type: Schema.Types.ObjectId,
