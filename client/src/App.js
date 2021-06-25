@@ -5,7 +5,7 @@ import NavTabs from "./components/NavTabs/NavTabs.js";
 import Home from "./pages/Home/Home.js";
 import Signin from "./pages/Signin/Signin.js";
 import Profile from "./pages/Profile/Profile.js";
-import Project from "./pages/Project/dashboard/Project"
+// import Project from "./pages/Project/dashboard/Project"
 
 function App() {
     return (
@@ -16,9 +16,9 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/profile" component={Profile} />
-                <Route exact path="/projects/:id">
+                {/* <Route exact path="/projects/:id">
                     <Project />
-                </Route>
+                </Route> */}
 
                 <div id="footer">
                     <NavTabs></NavTabs>
