@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './Project.css';
-import { List, ListItem } from "../../components/List";
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
+// import { List, ListItem } from "../../../components/List";
+import API from "../../../utils/API";
+import { Link, useParams } from "react-router-dom";
 
 function Project() {
     const [project, setProject] = useState({})
@@ -20,7 +20,7 @@ function Project() {
             <h1>{project.title}</h1>
             <p>About:{project.description}</p>
             <p>Developers needed: {project.dev_Need}</p>
-            <Link to={"/users/" + project.user._id}>
+            <Link to={"/users/" + project.user_id}>
                 View Project Owner's Profile</Link> 
             
             
