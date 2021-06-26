@@ -19,7 +19,7 @@ const projectSeed = [
   },
   {
     title: "Weather application",
-    description: "An application that diplays weather information. In need of developers who are skilled at API and styling.",
+    description: "An application that displays weather information. In need of developers who are skilled at API and styling.",
     open: true,
     dev_Need: 5,
     comment: "I love working with API's and front-end development.",
@@ -72,7 +72,7 @@ const userSeed = [
     github: "tsmith1",
     linkedin: "tsmith",
     skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
-    projects: ["Weather application"]
+    projects: ["60d7609c584a4642a4b7111b"]
   },
   {
     firstName: "Scott",

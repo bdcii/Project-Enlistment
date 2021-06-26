@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema(
     {
 
+        _creator: [{
+            type: Schema.ObjectID,
+            ref: 'User'
+        }],
         title: {
             type: String,
             required: true
@@ -18,17 +22,14 @@ const projectSchema = new Schema(
         dev_Need: {
             type: Number
         },
-        comment: {
+        comment: [{
             type: String,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
-
-        user_id: {
-            type: Number
-        },
+            ref: 'Comment'
+        }],
+        apply: [{
+            type: Schema.ObjectID,
+            ref: 'User'
+        }],
 
         date: {
             type: Date, default: Date.now

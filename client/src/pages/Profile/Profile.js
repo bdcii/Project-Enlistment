@@ -13,12 +13,13 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        fetch('/api/users/60d758fee0cb303daca272c5')
+        fetch('/api/users/60d76389cce3113ed8fd2c12')
             .then(res => res.json())
             .then(data => {
                 this.setState({
                     isLoaded: true,
-                    users: data
+                    users: data,
+                    projects: data
                 });
             });
     }
@@ -51,8 +52,8 @@ class Profile extends Component {
                 <section id="userProjects">
                     <div className="set"><strong>Current Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.toString().split(',').map((data) => {
-                            return <li>{data}</li>
+                        {users.projects ? users.projects.split(',').map((title) => {
+                            return <li>{title}</li>
                         }) : 'loading'}
                     </ul>
                     <div className="set"><strong>Requested Projects</strong></div>
@@ -65,8 +66,8 @@ class Profile extends Component {
                     </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.toString().split(',').map((data) => {
-                            return <li>{data}</li>
+                        {users.projects ? users.projects.split(',').map((title) => {
+                            return <li>{title}</li>
                         }) : 'loading'}
                     </ul>
                     <hr />
