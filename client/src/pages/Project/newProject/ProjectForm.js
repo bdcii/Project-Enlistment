@@ -18,7 +18,7 @@ import "./ProjectForm.css";
             constructor(props) {
               super(props);
               this.state = {
-                value: 'Create your project idea down below'
+                value: 'Project Description'
               };
           
               this.handleChange = this.handleChange.bind(this);
@@ -38,7 +38,8 @@ import "./ProjectForm.css";
               return (
                 <form onSubmit={this.handleSubmit}>
                   <label>
-                    Project:
+                    Project Creation:
+                    <input type="text" value="Project Name"></input>
                     <textarea value={this.state.value} onChange={this.handleChange} />
                   </label>
                   <input type="submit" value="Submit" />
