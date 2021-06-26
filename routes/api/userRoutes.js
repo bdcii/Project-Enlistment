@@ -9,6 +9,7 @@ const User = require('../../models/User.js');
 //Get all users
 router.get("/", (req, res) => {
   User.find({})
+    .populate("projects")
     .then(dbProject => {
       res.json(dbProject);
     })

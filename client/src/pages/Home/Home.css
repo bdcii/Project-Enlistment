@@ -1,3 +1,7 @@
+body {
+    font-size: 20px;
+}
+
 p, .button {
     text-align: center;
 }
@@ -7,16 +11,33 @@ h2 {
     text-align: center;
 }
 
-body {
-    font-size: 20px;
+.projTitle {
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(0, 121, 107);
 }
 
-  .card {
-    border-radius: 2px;
-    height: 400px;
-    margin: 1rem;
-    width: 325px;
-    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-    text-align: center;
-    padding: 5px;
-  }
+.projDesc, .projDev {
+    font-size: 22px;
+    padding: 0 5px;
+}
+
+.projMan {
+    font-size: 22px;
+    padding: 0 5px;
+    color: slategrey;
+}
+
+.card {
+border-radius: 2px;
+height: 400px;
+margin: 1rem;
+width: 325px;
+box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+text-align: center;
+padding: 5px;
+}
+
+@media screen (min-width: 600px) {
+    
+}
