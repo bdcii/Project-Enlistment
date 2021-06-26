@@ -6,13 +6,13 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: [],
+            users: '',
             isLoaded: false,
         };
     }
 
     componentDidMount() {
-        fetch('./api')
+        fetch('/api/users/60d5dc751e2b484660e76ecb')
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -21,28 +21,29 @@ class Profile extends Component {
                 });
             });
     }
-    //Need to display user data based on logged in user
+    //Need to display user data based on logged in user; login in not yet ready
     render() {
-        const { user } = this.state;
+        const { users } = this.state;
+        // console.log(users.skills ? users.skills.split(',') : '');
         return (
             <>
                 <h2 id="devProfile">Developer Profile</h2>
                 <hr />
                 <section id="profile">
-                    <div className="name"><strong>Name: First {user.firstName} Last {user.lastName}</strong></div>
-                    {/* <div className="name">Last Name - login info</div> */}
+                    <div className="name"><strong>Name: First {users.firstName} Last {users.lastName}</strong></div>
                     <div>
                         <ul className="contact">
-                            <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{user.email}'>{user.email}</a></li>
-                            <li id="github"><strong>GitHub:</strong>&nbsp; <a href={user.github}>{user.github}</a></li>
-                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={user.linkedin}>LinkedIn</a></li>
+                            <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{user.email}'>{users.email}</a></li>
+                            <li id="github"><strong>GitHub:</strong>&nbsp; <a href={users.github}>{users.github}</a></li>
+                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={users.linkedin}>LinkedIn</a></li>
                         </ul>
                     </div>
                     <hr />
 
                     <div className="set"><strong>Skill Set</strong></div>
-                    <ul className="list">
-                        <li className="item">display all skills for user in list format</li>
+                    <ul className="list">{users.skills ? users.skills.toString().split(',').map((data) => {
+                        return <li>{data}</li>
+                    }) : 'loading'}
                     </ul>
                     <hr />
                 </section>
