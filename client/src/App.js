@@ -28,6 +28,7 @@ function App() {
                 <Route exact path="/projects/:id">
                     <Project />
                 </Route>
+                <Route exact path="/projectsform" component={ProjectForm} />
 
                 <div id="footer">
                     <NavTabs></NavTabs>
