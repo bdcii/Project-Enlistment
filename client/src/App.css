@@ -24,3 +24,7 @@ h1 {
   #footer {
       background-color: rgb(178, 223, 219);
   }
+
+@media screen (min-width: 600px) {
+        
+}
