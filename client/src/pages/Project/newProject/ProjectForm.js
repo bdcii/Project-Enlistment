@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+
 import React, { useState } from "react";
 import "./ProjectForm.css";
 //import DatePicker from "react-datepicker";
@@ -13,9 +13,7 @@ import "./ProjectForm.css";
      // return <DatePicker selected={date} onChange={handleChange} />;
 
    // }
-
-function ProjectForm() {
-    return (
+        
         class ProjectForm extends React.Component {
             constructor(props) {
               super(props);
@@ -35,7 +33,7 @@ function ProjectForm() {
               alert('Your Project was created!: ' + this.state.value);
               event.preventDefault();
             }
-          
+           
             render() {
               return (
                 <form onSubmit={this.handleSubmit}>
@@ -49,9 +47,9 @@ function ProjectForm() {
             }
           }
         
+          
         
-        
-    )
-}
+    
+
 
 export default ProjectForm;
