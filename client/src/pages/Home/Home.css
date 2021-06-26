@@ -1,3 +1,7 @@
+body {
+    font-size: 20px;
+}
+
 p, .button {
     text-align: center;
 }
@@ -7,8 +11,21 @@ h2 {
     text-align: center;
 }
 
-body {
-    font-size: 20px;
+.projTitle {
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(0, 121, 107);
+}
+
+.projDesc, .projDev {
+    font-size: 22px;
+    padding: 0 5px;
+}
+
+.projMan {
+    font-size: 22px;
+    padding: 0 5px;
+    color: slategrey;
 }
 
   .card {

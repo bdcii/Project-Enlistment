@@ -16,13 +16,13 @@ export function ProjectListItem({ project }) {
           <Row>
             <Card className="card" style={{ width: "18rem" }}>
               <Card.Body>
-                <Card.Link href={"/projects/" + project._id}>{project.title}</Card.Link>
+                <Card.Link href={"/projects/" + project._id} className="projTitle">{project.title}</Card.Link>
                 <Card.Text>
-                  <p>{project.description}</p>
-                  <p>Developers Needed: {project.dev_Need}</p>
+                  <p className="projDesc">{project.description}</p>
+                  <p className="projDev">Developers Needed: {project.dev_Need}</p>
                 </Card.Text>
-                <Card.Link href={"/users/" + project.user_id}>
-                  <strong>Link to the Project Manager's Page</strong>
+                <Card.Link href={"/users/" + project.user_id} className="projMan">
+                  <strong>Project Manager</strong>
                 </Card.Link>
               </Card.Body>
             </Card>
