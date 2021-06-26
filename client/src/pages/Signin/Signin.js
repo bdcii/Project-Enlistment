@@ -6,6 +6,7 @@ function Signin() {
     return( 
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <form>
+            <div className="container">
             <div className="form-group text-left">
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input type="email" 
@@ -38,7 +39,8 @@ function Signin() {
             >
                 Register
             </button>
-
+            </div>
+            <div className="Container">
             <div className="form-group text-left">
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input type="email" 
@@ -71,6 +73,7 @@ function Signin() {
             >
                 Login
             </button>
+            </div>
         </form>
     </div>
 )
