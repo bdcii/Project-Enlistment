@@ -6,13 +6,14 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: '',
+            users: [],
+            projects: [],
             isLoaded: false,
         };
     }
 
     componentDidMount() {
-        fetch('/api/users/60d5dc751e2b484660e76ecb')
+        fetch('/api/users/60d758fee0cb303daca272c5')
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -21,6 +22,7 @@ class Profile extends Component {
                 });
             });
     }
+
     //Need to display user data based on logged in user; login in not yet ready
     render() {
         const { users } = this.state;
