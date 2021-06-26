@@ -40,7 +40,7 @@ function ProjectForm() {
               return (
                 <form onSubmit={this.handleSubmit}>
                   <label>
-                    Essay:
+                    Project:
                     <textarea value={this.state.value} onChange={this.handleChange} />
                   </label>
                   <input type="submit" value="Submit" />

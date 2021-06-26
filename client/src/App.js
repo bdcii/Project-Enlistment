@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/Profile.js";
 // import Login from './components/Login/Login';
 // import useToken from './components/App/useToken';
 import Project from "./pages/Project/dashboard/Project"
+import ProjectForm from "./pages/Project/newProject/ProjectForm"
 
 
 
@@ -28,7 +29,7 @@ function App() {
                 <Route exact path="/projects/:id">
                     <Project />
                 </Route>
-                <Route exact path="/projectsform" component={ProjectForm} />
+                <Route exact path="/projectform" component={ProjectForm} />
 
                 <div id="footer">
                     <NavTabs></NavTabs>
