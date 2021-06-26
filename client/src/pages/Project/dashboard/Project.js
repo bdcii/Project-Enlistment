@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import './Project.css';
-// import { List, ListItem } from "../../../components/List";
+import { List, ListItem } from "../../../components/List";
 import API from "../../../utils/API";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../../components/Form";
-import { List, ListItem } from "../components/List";
+
 
 function Project() {
     //sets project component's initial state
