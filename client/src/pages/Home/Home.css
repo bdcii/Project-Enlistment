@@ -28,12 +28,16 @@ h2 {
     color: slategrey;
 }
 
-  .card {
-    border-radius: 2px;
-    height: 400px;
-    margin: 1rem;
-    width: 325px;
-    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-    text-align: center;
-    padding: 5px;
-  }
+.card {
+border-radius: 2px;
+height: 400px;
+margin: 1rem;
+width: 325px;
+box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+text-align: center;
+padding: 5px;
+}
+
+@media screen (min-width: 600px) {
+    
+}
