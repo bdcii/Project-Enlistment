@@ -24,18 +24,17 @@ class Profile extends Component {
     //Need to display user data based on logged in user; login in not yet ready
     render() {
         const { users } = this.state;
-        // console.log(users.skills ? users.skills.split(',') : '');
         return (
             <>
                 <h2 id="devProfile">Developer Profile</h2>
                 <hr />
                 <section id="profile">
-                    <div className="name"><strong>Name: First {users.firstName} Last {users.lastName}</strong></div>
+                    <div className="name"><strong>Name: {users.firstName} {users.lastName}</strong></div>
                     <div>
                         <ul className="contact">
                             <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{user.email}'>{users.email}</a></li>
                             <li id="github"><strong>GitHub:</strong>&nbsp; <a href={users.github}>{users.github}</a></li>
-                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={users.linkedin}>LinkedIn</a></li>
+                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={users.linkedin}>{users.linkedin}</a></li>
                         </ul>
                     </div>
                     <hr />
@@ -50,7 +49,9 @@ class Profile extends Component {
                 <section id="userProjects">
                     <div className="set"><strong>Current Projects</strong></div>
                     <ul className="list">
-                        <li className="item">display list of current projects working on</li>
+                        {users.projects ? users.projects.toString().split(',').map((data) => {
+                            return <li>{data}</li>
+                        }) : 'loading'}
                     </ul>
                     <div className="set"><strong>Requested Projects</strong></div>
                     <ul className="list">
@@ -62,7 +63,9 @@ class Profile extends Component {
                     </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
-                        <li className="item">display list of current projects initiated</li>
+                        {users.projects ? users.projects.toString().split(',').map((data) => {
+                            return <li>{data}</li>
+                        }) : 'loading'}
                     </ul>
                     <hr />
 
