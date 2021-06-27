@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Project = require('../../models/Project.js');
+const Project = require('../../models/Project');
 // const projectsController = require('../controllers/projectControllers')
 
 //route for project by id
