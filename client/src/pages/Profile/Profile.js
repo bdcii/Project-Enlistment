@@ -52,9 +52,9 @@ class Profile extends Component {
                 <section id="userProjects">
                     <div className="set"><strong>Current Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.split(',').map((title) => {
+                        {/* {users.projects ? users.projects.split(',').map((title) => {
                             return <li>{title}</li>
-                        }) : 'loading'}
+                        }) : 'loading'} */}
                     </ul>
                     <div className="set"><strong>Requested Projects</strong></div>
                     <ul className="list">
@@ -66,11 +66,13 @@ class Profile extends Component {
                     </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.split(',').map((title) => {
+                        {/* {users.projects ? users.projects.split(',').map((title) => {
                             return <li>{title}</li>
-                        }) : 'loading'}
+                        }) : 'loading'} */}
                     </ul>
                     <hr />
+                    <div className="star">
+                    </div>
 
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">

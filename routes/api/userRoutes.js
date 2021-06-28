@@ -29,6 +29,15 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//working on potential route for getting project by user/creator ID
+// router.get('/profile', async (req, res) => {
+//   req.params.project = Schema.ObjectId(req.params.creator)
+
+//   const project = await Project.FindbyId(req.params.project)
+//   project.creator = req.params.creator
+//   project.save()
+//   res.json(project)
+// });
 
 //Create user
 router.post('/', (req, res) => {
