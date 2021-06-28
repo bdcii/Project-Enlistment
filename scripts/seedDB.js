@@ -24,7 +24,8 @@ const projectSeed = [
     dev_Need: 5,
     comment: "I love working with API's and front-end development.",
     date: new Date(Date.now()),
-    user_id: 2
+    _creator: "",
+    apply: []
   },
   {
     title: "Portfolio Website",

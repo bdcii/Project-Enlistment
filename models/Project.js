@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema(
     {
 
-        _creator: [{
+        _creator: {
             type: Schema.Types.ObjectID,
             ref: 'User'
-        }],
+        },
         title: {
             type: String,
             required: true
