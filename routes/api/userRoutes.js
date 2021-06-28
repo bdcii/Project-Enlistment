@@ -21,6 +21,7 @@ router.get("/", (req, res) => {
 //Get individual user
 router.get("/:id", (req, res) => {
   User.findById(req.params.id)
+    .populate("projects")
     .then(dbProject => {
       res.json(dbProject);
     })
