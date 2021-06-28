@@ -5,7 +5,7 @@ const projectSchema = new Schema(
     {
 
         _creator: [{
-            type: Schema.ObjectID,
+            type: Schema.Types.ObjectID,
             ref: 'User'
         }],
         title: {
@@ -27,7 +27,7 @@ const projectSchema = new Schema(
             ref: 'Comment'
         }],
         apply: [{
-            type: Schema.ObjectID,
+            type: Schema.Types.ObjectID,
             ref: 'User'
         }],
 

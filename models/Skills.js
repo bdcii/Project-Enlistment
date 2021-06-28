@@ -5,7 +5,11 @@ const skillsSchema = new Schema(
     {
         skills: {
             type: String,
-            required: false
+            required: false,
+            user: [{
+                type: Schema.ObjectId,
+                ref: 'User'
+            }]
         }
     });
 
