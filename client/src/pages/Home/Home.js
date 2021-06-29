@@ -15,7 +15,7 @@ export function ProjectListItem({ project }) {
         <CardColumns>
           <Row>
             <Card className="card" style={{ width: "18rem" }}>
-              <Card.Body>
+              <Card.Body className="cardBody">
                 <Card.Link href={"/projects/" + project._id} className="projTitle">{project.title}</Card.Link>
                 <Card.Text>
                   <p className="projDesc">{project.description}</p>
