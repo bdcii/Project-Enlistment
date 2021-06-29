@@ -4,7 +4,6 @@ import "./Signin.css";
 
 function Signin() {
     return( 
-        <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <form>
             <div className="container">
             <div className="form-group text-left">
@@ -75,7 +74,6 @@ function Signin() {
             </button>
             </div>
         </form>
-    </div>
 )
 
 
