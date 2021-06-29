@@ -9,7 +9,7 @@ import Creator from "./Creator";
 import Developer from "./Developer";
 
 //This is a test value to see if I can get the Creator and Developer views to toggle
-const loggedIn = true;
+const loggedIn = false;
 
 function Project() {
     //sets project component's initial state
