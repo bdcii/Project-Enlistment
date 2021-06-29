@@ -6,7 +6,7 @@
     display: grid;
     text-align: center;
     grid-template-areas: 
-        "nav1 nav2 nav3";
+        "nav1 nav2 nav3 nav4";
     padding: 2%;
     margin: 0 10%;
 }
@@ -16,15 +16,37 @@ h1 {
     text-align: center;
     background-color: rgb(0, 121, 107);
     color: whitesmoke;
-    margin: 5% 0;
+    margin: 2% 0;
     padding: 2%;
     border-radius: 5px;
   }
 
   #footer {
-      background-color: rgb(178, 223, 219);
+      background-color: rgb(0, 121, 107);
+      margin: 2% 0;
+      border-radius: 5px;
   }
 
-@media screen (min-width: 600px) {
-        
+@media only screen and (min-width: 600px) {
+    #navTitle {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    #navTitle {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    #navTitle {
+        font-size: 85px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #navTitle {
+        font-size: 100px;
+    }
 }

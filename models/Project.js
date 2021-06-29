@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema(
     {
 
-        _creator: [{
-            type: Schema.ObjectId,
+        _creator: {
+            type: Schema.Types.ObjectId,
             ref: 'User'
-        }],
+        },
         title: {
             type: String,
             required: true
@@ -28,13 +28,8 @@ const projectSchema = new Schema(
         }],
         apply: [{
             type: Schema.ObjectId,
-            ref: 'User'
-        }],
-
-        date: {
-            type: Date, default: Date.now
-        }
-    });
+        }]
+    })
 
 const Project = mongoose.model("Project", projectSchema);
 

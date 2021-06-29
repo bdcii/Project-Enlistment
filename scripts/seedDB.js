@@ -15,7 +15,8 @@ const projectSeed = [
     open: true,
     dev_Need: 5,
     date: new Date(Date.now()),
-    user_id: 1
+    _creator: "",
+    apply: []
   },
   {
     title: "Weather application",
@@ -24,7 +25,8 @@ const projectSeed = [
     dev_Need: 5,
     comment: "I love working with API's and front-end development.",
     date: new Date(Date.now()),
-    user_id: 2
+    _creator: "",
+    apply: []
   },
   {
     title: "Portfolio Website",
@@ -33,7 +35,8 @@ const projectSeed = [
     dev_Need: 3,
     // comment: "Call me the King of React! And don't get me started on communication - I love to communicate!",
     date: new Date(Date.now()),
-    user_id: 3
+    _creator: "",
+    apply: []
   },
   {
     title: "Tech Blog",
@@ -42,7 +45,8 @@ const projectSeed = [
     dev_Need: 3,
     // comment: "My skills include React bootstrap, React, JS, and project management.",
     date: new Date(Date.now()),
-    user_id: 5
+    _creator: "",
+    apply: []
   },
   {
     title: "Game Website",
@@ -50,7 +54,8 @@ const projectSeed = [
     open: true,
     dev_Need: 4,
     date: new Date(Date.now()),
-    user_id: 4
+    _creator: "",
+    apply: []
   },
 ];
 
@@ -60,8 +65,8 @@ const userSeed = [
     lastName: "Fitzmartin",
     email: "sfitzmartin22@gmail.com",
     password: "22seanfitz22",
-    github: "sfitzmartin22",
-    linkedin: "sfitzmartin",
+    github: "https://github.com/sfitzmartin22",
+    linkedin: "https://www.linkedin.com/in/sfitzmartin",
     skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"]
   },
   {
@@ -69,18 +74,17 @@ const userSeed = [
     lastName: "Smith",
     email: "tsmith@gmail.com",
     password: "22seanfitz22",
-    github: "tsmith1",
-    linkedin: "tsmith",
-    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
-    projects: ["60d7609c584a4642a4b7111b"]
+    github: "https://github.com/tsmith1",
+    linkedin: "https://www.linkedin.com/in/tsmith",
+    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"]
   },
   {
     firstName: "Scott",
     lastName: "Jones",
     email: "sjones@gmail.com",
     password: "22seanfitz22",
-    github: "sjones2",
-    linkedin: "sjones",
+    github: "https://github.com/sjones2",
+    linkedin: "https://www.linkedin.com/in/sjones",
     skills: ["React", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"]
   },
   {
@@ -88,16 +92,18 @@ const userSeed = [
     lastName: "Jacobs",
     email: "tjacobs@gmail.com",
     password: "22seanfitz22",
-    github: "tjacobs1",
-    linkedin: "tjacobs"
+    github: "https://github.com/tjacobs1",
+    linkedin: "https://www.linkedin.com/in/tjacobs",
+    skills: ["HTML", "CSS", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"]
   },
   {
     firstName: "Sally",
     lastName: "Sugar",
     email: "ssugar@gmail.com",
     password: "22seanfitz22",
-    github: "ssugar1",
-    linkedin: "ssugar"
+    github: "https://github.com/ssugar1",
+    linkedin: "https://www.linkedin.com/in/ssugar",
+    skills: ["HTML", "CSS", "Bootstrap", "Angular", "SQL", "NoSQL", "Project Management"]
   },
 ];
 

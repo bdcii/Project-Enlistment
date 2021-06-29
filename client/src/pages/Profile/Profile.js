@@ -9,11 +9,32 @@ class Profile extends Component {
             users: [],
             projects: [],
             isLoaded: false,
+            stars: 3
         };
     }
 
+    renderStars() {
+        let stars = [];
+        for (let i = 1; i <= 5; i++) {
+            if (i <= this.state.stars) {
+                stars.push(<span className="fa fa-star checked" onClick={
+                    () => {
+                        this.setState({ stars: i })
+                    }
+                }></span>)
+            } else {
+                stars.push(<span className="fa fa-star" onClick={
+                    () => {
+                        this.setState({ stars: i })
+                    }
+                }></span>)
+            }
+        }
+        return stars
+    }
+
     componentDidMount() {
-        fetch('/api/users/60d76389cce3113ed8fd2c12')
+        fetch('/api/users/60db5a323eb4a94cb4c2f5f7')
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -27,6 +48,9 @@ class Profile extends Component {
     //Need to display user data based on logged in user; login in not yet ready
     render() {
         const { users } = this.state;
+        const { projects } = this.state;
+
+        console.log(this.state);
         return (
             <>
                 <h2 id="devProfile">Developer Profile</h2>
@@ -52,13 +76,15 @@ class Profile extends Component {
                 <section id="userProjects">
                     <div className="set"><strong>Current Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.split(',').map((title) => {
-                            return <li>{title}</li>
+                        {projects._creator ? projects._creator.toString().split(',').map((data) => {
+                            return <li>{data.title}</li>
                         }) : 'loading'}
                     </ul>
                     <div className="set"><strong>Requested Projects</strong></div>
                     <ul className="list">
-                        <li className="item">display list of projects applied for</li>
+                        {projects.apply ? projects.apply.map((data) => {
+                            return <li>{data.title}</li>
+                        }) : 'loading'}
                     </ul>
                     <div className="set"><strong>Completed Projects</strong></div>
                     <ul className="list">
@@ -66,19 +92,17 @@ class Profile extends Component {
                     </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.split(',').map((title) => {
-                            return <li>{title}</li>
+                        {users.projects ? users.projects.map((data) => {
+                            return <li>{data.title}</li>
                         }) : 'loading'}
                     </ul>
                     <hr />
+                    <div className="star">
+                    </div>
 
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star"></span>
+                        {this.renderStars()}
                     </div>
                     <p id="average"># average based on ## reviews</p>
                     <hr />
