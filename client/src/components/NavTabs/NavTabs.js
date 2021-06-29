@@ -8,7 +8,7 @@ function NavTabs() {
           <Link to="/"><button id="nav1">Home</button></Link>
           <Link to="/signin"><button id="nav2">Login</button></Link>
           <Link to="/profile"><button id="nav3">Profile</button></Link>
-          <Link to="/projectform"><button id="nav4">Project Form</button></Link>
+          <Link to="/projectform"><button id="nav4">Project</button></Link>
       </div>
     )
 }

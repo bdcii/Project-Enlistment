@@ -6,7 +6,7 @@
     display: grid;
     text-align: center;
     grid-template-areas: 
-        "nav1 nav2 nav3";
+        "nav1 nav2 nav3 nav4";
     padding: 2%;
     margin: 0 10%;
 }
