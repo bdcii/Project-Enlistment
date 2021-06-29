@@ -39,6 +39,20 @@ padding: 15px 5px;
 background-color: rgb(178, 223, 219);
 }
 
-@media screen (min-width: 600px) {
-    
+@media only screen and (min-width: 600px) {
+    button {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    button {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    button {
+        font-size: 36px;
+    }
 }
