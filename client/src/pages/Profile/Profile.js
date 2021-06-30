@@ -16,10 +16,13 @@ class Profile extends Component {
     renderStars() {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
+            //state.users[currentUserIndex].stars
             if (i <= this.state.stars) {
                 stars.push(<span key={i} className="fa fa-star checked" onClick={
                     () => {
                         this.setState({ ...this.state, stars: i })
+                        //state.users[state.currentUsersIndex].stars
+                        //this.setState({...this.State, users: [...state.users]})
                     }
                 }></span>)
             } else {
@@ -34,25 +37,26 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        fetch('/api/users/60dba14537b42f1d0070c620')
+        fetch('/api/users/')
             .then(res => res.json())
             .then(data => {
                 this.setState({
                     isLoaded: true,
-                    user: data
-                });
+                    users: data,
+                    currentUserIndex: data.findIndex((user) => { return user._id === '60dba14537b42f1d0070c620' })
+                })
             });
     }
 
     //pull in projects
     renderProjects() {
-        const { user } = this.state;
-        if (user) {
-            const projects = user.projects.reduce((listProject, project) => {
-                if (project._creator = user._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
+        const { users, currentUserIndex } = this.state;
+        const currentUser = users && users[currentUserIndex];
+        if (currentUser) {
+            const projects = currentUser.projects.reduce((listProject, project) => {
+                if (project._creator === currentUser._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
                 return listProject
             }, [])
-            console.log(projects);
             return projects
         }
         return 'loading';
@@ -60,8 +64,8 @@ class Profile extends Component {
 
     //Need to display user data based on logged in user; login in not yet ready
     render() {
-        const { user } = this.state;
-        // const { projects } = this.state;
+        const { users, currentUserIndex } = this.state;
+        const currentUser = users && users[currentUserIndex];
 
         console.log(this.state);
         return (
@@ -69,18 +73,18 @@ class Profile extends Component {
                 <h2 id="devProfile">Developer Profile</h2>
                 <hr />
                 <section id="profile">
-                    <div className="name"><strong>Name: {user && user.firstName} {user && user.lastName}</strong></div>
+                    <div className="name"><strong>Name: {currentUser && currentUser.firstName} {currentUser && currentUser.lastName}</strong></div>
                     <div>
                         <ul className="contact">
-                            <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{user.email}'>{user && user.email}</a></li>
-                            <li id="github"><strong>GitHub:</strong>&nbsp; <a href={user && user.github}>{user && user.github}</a></li>
-                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={user && user.linkedin}>{user && user.linkedin}</a></li>
+                            <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{currentUser.email}'>{currentUser && currentUser.email}</a></li>
+                            <li id="github"><strong>GitHub:</strong>&nbsp; <a href={currentUser && currentUser.github}>{currentUser && currentUser.github}</a></li>
+                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={currentUser && currentUser.linkedin}>{currentUser && currentUser.linkedin}</a></li>
                         </ul>
                     </div>
                     <hr />
 
                     <div className="set"><strong>Skill Set</strong></div>
-                    <ul className="list">{user && user.skills ? user.skills.toString().split(',').map((data, i) => {
+                    <ul className="list">{currentUser && currentUser.skills ? currentUser.skills.toString().split(',').map((data, i) => {
                         return <li key={i}>{data}</li>
                     }) : 'loading'}
                     </ul>
@@ -89,8 +93,8 @@ class Profile extends Component {
                 <section id="userProjects">
                     <div className="set"><strong>Projects</strong></div>
                     <ul className="list">
-                        {user && user.projects ? user.projects.map((data, i) => {
-                            return <li key={i}>{data.title}</li>
+                        {currentUser && currentUser.projects ? currentUser.projects.map((data, _id) => {
+                            return <li key={data._id}>{data.title}</li>
                         }) : 'loading'}
                     </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
