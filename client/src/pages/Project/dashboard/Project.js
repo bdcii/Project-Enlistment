@@ -9,12 +9,12 @@ import Creator from "./Creator";
 import Developer from "./Developer";
 
 //This is a test value to see if I can get the Creator and Developer views to toggle
-const loggedIn = true;
+const test = false;
 
 function Project() {
     //sets project component's initial state
     const [project, setProject] = useState({})
-   
+
 
     const { id } = useParams()
     useEffect(() => {
@@ -23,7 +23,7 @@ function Project() {
             .catch(err => console.log(err));
     }, [])
 
-   
+
 
     return (
         <Container fluid>
@@ -36,9 +36,10 @@ function Project() {
                     <Link to={"/users/" + project.user_id}>
                         View Project Owner's Profile</Link>
                 </Col>
-               
-       
-  {loggedIn === true ? Creator : Developer}
+                <Col size="md-6 sm-12">
+
+                   {test === true ? <Creator /> : <Developer />}
+                </Col>
             </Row>
         </Container>
     )
