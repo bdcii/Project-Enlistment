@@ -1,1 +1,55 @@
 /* Format Style */
+.CreateButton {
+    margin-left: 480px;
+    background-color: teal;
+}
+
+.Name {
+    text-align: center;
+}
+
+.Name-input {
+    align-items: center;
+}
+
+.Project-Description {
+    text-align: center;
+}
+.Desription-text {
+    align-items: center;
+}
+
+.Technologies {
+    text-align: center;
+}
+.Tech-text {
+    align-items: center;
+}
+
+.Start-Date {
+    text-align: center;
+}
+
+.End-Date {
+    text-align: center;
+}
+
+.Status {
+    text-align: center;
+}
+
+.Team-Size {
+    text-align: center;
+}
+
+.Team-input {
+    align-items: center;
+}
+
+.Skills {
+    text-align: center;
+}
+
+.Skills-text {
+    align-items: center;
+}

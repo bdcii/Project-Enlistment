@@ -24,41 +24,41 @@ import "react-datepicker/dist/react-datepicker.css";
       return(
 <form>
             <div className="Container-1">
-            <div className="form-group text-left">
+            <div className="Name">
             <label htmlFor="ProjectName">Project Name</label>
             <input type="Text" 
-                   className="form-control" 
+                   className="Name-input" 
                    id="Name" 
                    aria-describedby="ProjectName" 
                    placeholder="Enter Project Name"
             />
             
             </div>
-            <div className="form-group text-left">
+            <div className="Project-Description">
                 <label htmlFor="ProjectDescription">Project Description</label>
                 <textarea type="text" 
-                    className="form-control" 
+                    className="Description-text" 
                     id="ProjectDescription" 
                     placeholder="Project Description"
                 />
             </div>
-            <div className="form-group text-left">
+            <div className="Technologies">
                 <label htmlFor="Technologies">Technologies</label>
                 <textarea type="Text" 
-                    className="form-control" 
+                    className="Tech-text" 
                     id="Technologies" 
                     placeholder="Enter technologies you would like to use on project"
                 />
             </div>
-            <div className="form-group text-left">
+            <div className="Start-Date">
                 <label htmlFor="ProjectStartDate">Project Start Date</label>
                 <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
             </div>
-            <div className="form-group text-left">
+            <div className="End-Date">
                 <label htmlFor="ProjectEndDate">Project End Date</label>
                 <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
             </div>
-            <div className="form-group text-left">
+            <div className="Status">
                 <label htmlFor="Status">Status</label>
                 <input
           type="checkbox"
@@ -75,25 +75,25 @@ import "react-datepicker/dist/react-datepicker.css";
         />
         Closed
             </div>
-            <div className="form-group text-left">
+            <div className="Team-Size">
                 <label htmlFor="Technologies">Team Size</label>
                 <input type="Text" 
-                    className="form-control" 
+                    className="Team-input" 
                     id="Team Size" 
                     placeholder="Enter team Size"
                 />
             </div>
-            <div className="form-group text-left">
+            <div className="Skills">
                 <label htmlFor="Skillsneeded">Skills Needed</label>
                 <textarea type="Text" 
-                    className="form-control" 
+                    className="Skills-text" 
                     id="Skills Needed" 
                     placeholder="List the skills you need for project"
                 />
             </div>
             <button 
                 type="submit" 
-                className="btn btn-primary"
+                className="CreateButton"
             >
                 Create project
             </button>
