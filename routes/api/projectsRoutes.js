@@ -10,6 +10,7 @@ const Project = require('../../models/Project');
 router.get("/", (req, res) => {
     Project.find({})
         .then((dbProject) => {
+            console.log(dbProject);
             res.json(dbProject);
         })
         .catch((err) => {
@@ -22,12 +23,25 @@ router.get("/:id", (req, res) => {
     Project.findById(req.params.id)
         .populate("users")
         .then((dbProject) => {
+
             res.json(dbProject);
         })
         .catch((err) => {
             res.json(err);
         })
 })
+
+// router.get("/:id", (req, res) => {
+//     Project.find({ _creator: req.params.id })
+//         .populate("users")
+//         .then((dbProject) => {
+
+//             res.json(dbProject);
+//         })
+//         .catch((err) => {
+//             res.json(err);
+//         })
+// })
 
 
 // create project //
