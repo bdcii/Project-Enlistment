@@ -1,21 +1,12 @@
-import React, {useState}  from "react";
+import React, { useState}  from "react";
 import "./ProjectForm.css";
-//import DatePicker from "react-datepicker";
+import DatePicker, {setStartDate, startdate } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
- //function MyComponent() {
-    
-      //const [date, setDate] = useState(new Date());
-    
-     // const handleChange = date => setDate(date);
-    
-    
-     // return <DatePicker selected={date} onChange={handleChange} />;
 
-   // }
-
+ 
+  function ProjectForm() {
    
-        
-   function ProjectForm() {
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         setState({
@@ -24,8 +15,12 @@ import "./ProjectForm.css";
         })
       }
       const [state, setState] = useState({
-        isChecked: false,
+        Open: false,
+        Closed: false,
       });
+    
+     
+
       return(
 <form>
             <div className="Container-1">
@@ -56,44 +51,44 @@ import "./ProjectForm.css";
                 />
             </div>
             <div className="form-group text-left">
-                <label htmlFor="Technologies">Project Start Date</label>
-                <textarea type="Text" 
-                    className="form-control" 
-                    id="Technologies" 
-                    placeholder="Enter technologies you would like to use on project"
-                />
+                <label htmlFor="ProjectStartDate">Project Start Date</label>
+                <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
             </div>
             <div className="form-group text-left">
-                <label htmlFor="Technologies">Project End Date</label>
-                <textarea type="Text" 
-                    className="form-control" 
-                    id="Technologies" 
-                    placeholder="Enter technologies you would like to use on project"
-                />
+                <label htmlFor="ProjectEndDate">Project End Date</label>
+                <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
             </div>
             <div className="form-group text-left">
-                <label htmlFor="Technologies">Status</label>
+                <label htmlFor="Status">Status</label>
                 <input
           type="checkbox"
-          name="isChecked"
-          checked={state.isChecked}
+          name="Open"
+          checked={state.Open}
           onChange={handleChange}
         />
+        Open
+        <input
+          type="checkbox"
+          name="Closed"
+          checked={state.Closed}
+          onChange={handleChange}
+        />
+        Closed
             </div>
             <div className="form-group text-left">
                 <label htmlFor="Technologies">Team Size</label>
-                <textarea type="Text" 
+                <input type="Text" 
                     className="form-control" 
-                    id="Technologies" 
-                    placeholder="Enter technologies you would like to use on project"
+                    id="Team Size" 
+                    placeholder="Enter team Size"
                 />
             </div>
             <div className="form-group text-left">
-                <label htmlFor="Technologies">Skills Wanted</label>
+                <label htmlFor="Skillsneeded">Skills Needed</label>
                 <textarea type="Text" 
                     className="form-control" 
-                    id="Technologies" 
-                    placeholder="Enter technologies you would like to use on project"
+                    id="Skills Needed" 
+                    placeholder="List the skills you need for project"
                 />
             </div>
             <button 
