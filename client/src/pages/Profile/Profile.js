@@ -116,13 +116,13 @@ class Profile extends Component {
 
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">
-                        {this.renderStars()} */}
-                        {/* <ReactStars
+                        {/* {this.renderStars()} */}
+                        {<ReactStars
                             count={5}
                             onChange={ratingChanged}
                             size={28}
                             edit={true}
-                        />
+                        />}
                     </div>
                     <hr />
                     <div className="row">
