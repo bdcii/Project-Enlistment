@@ -55,6 +55,9 @@ const userSchema = new Schema({
       ref: "Skills"
     }
   ],
+  // rating: {
+  //   type: Number
+  // }
   // availability: [
   //   {
   //     type: Schema.Types.ObjectId,

@@ -4,7 +4,6 @@ import "./Profile.css";
 
 const ratingChanged = (newRating) => {
     console.log(newRating)
-
 }
 
 // function Profile() {
@@ -15,10 +14,20 @@ class Profile extends Component {
             user: null,
             projects: [],
             isLoaded: false,
-            stars: 3
+            stars: [],
+            // rating: 0,
         };
     }
 
+    // ratingChanged = (newRating) => {
+    //     console.log(newRating)
+    //     let rating = [];
+    //     this.setState({
+    //         rating: newRating
+    //     });
+    //     if (this.props.onChange)
+    //         this.props.onChange(rating);
+    // }
     // renderStars() {
     //     let stars = [];
     //     for (let i = 1; i <= 5; i++) {
@@ -75,7 +84,7 @@ class Profile extends Component {
     render() {
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
-
+        // const { rating, stars, ratingChanged } = this.state;
         console.log(this.state);
         return (
             <>
@@ -123,6 +132,7 @@ class Profile extends Component {
                             size={28}
                             edit={true}
                         />}
+                        {/* <span onClick={() => { this.ratingChanged(stars) }}></span> */}
                     </div>
                     <hr />
                     <div className="row">
