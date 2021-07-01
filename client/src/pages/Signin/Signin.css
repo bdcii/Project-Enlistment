@@ -1,12 +1,4 @@
-/* .signup, .login {
-    font-size: x-large;
-    background-color: rgb(210, 255, 255);
-    border-radius: 5px;
-} */
-
-
-
-.signUpHeading {
+.signupHeading, .loginHeading {
     color: rgb(0, 121, 107);
     text-align: left;
     text-decoration: underline;
