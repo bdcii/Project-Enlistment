@@ -1,5 +1,51 @@
-#navTitle {
+.header {
+    background-color: rgb(0, 121, 107);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+.logoTitleButtons {
+    display: grid;
     text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    grid-template-areas: 
+        "appLogo navTitle navTitle navTitle navTitle navTitle"
+        "appLogo navTitle navTitle navTitle navTitle navTitle";
+}
+
+.logo {
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    margin: 2%;
+}
+
+.appLogo {
+    display: flex;
+    margin: 5%;
+    padding: 2%;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 5px;
+    max-width: 90%;
+    height: auto;
+}
+
+#navTitle {
+    display: flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
 }
 
 .nav {
@@ -7,25 +53,41 @@
     text-align: center;
     grid-template-areas: 
         "nav1 nav2 nav3 nav4";
-    padding: 2%;
-    margin: 0 10%;
+    padding: 2px;
+    margin: 5px;
 }
 
 h1 {
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(0, 121, 107);
     color: whitesmoke;
-    margin: 2% 0;
-    padding: 2%;
+    margin: 10px 3px 3px 3px;
+    padding: 2px 2px 0 2px;
     border-radius: 5px;
   }
 
   #footer {
       background-color: rgb(0, 121, 107);
-      margin: 2% 0;
+      margin: 2px 0;
       border-radius: 5px;
   }
+
+@media only screen and (min-width: 400px) {
+    #navTitle {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    #navTitle {
+        font-size: 40px;
+    }
+}
 
 @media only screen and (min-width: 600px) {
     #navTitle {
