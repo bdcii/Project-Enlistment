@@ -1,17 +1,12 @@
-require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
-const bodyParser = require("bodyParser");
-const jwt = require("jsonwebtoken");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const utils = require("./utils/auth");
 
 
 // Define middleware here
-app.use(cors());
-app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

@@ -32,5 +32,8 @@ export default {
   // Saves a project to the database
   saveUser: function(userData) {
   return axios.post("/api/users", userData);
-  }
+  },
+  userLogin: function(userData) {
+    return axios.post('/api/users/login', userData)
+}
 };
