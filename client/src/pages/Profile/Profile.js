@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactStars from 'react-stars';
+// import ReactStars from 'react-stars';
 import "./Profile.css";
 
 const ratingChanged = (newRating) => {
@@ -117,12 +117,12 @@ class Profile extends Component {
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">
                         {/* {this.renderStars()} */}
-                        {<ReactStars
+                        {/* {<ReactStars
                             count={5}
                             onChange={ratingChanged}
                             size={28}
                             edit={true}
-                        />}
+                        />} */}
                     </div>
                     <hr />
                     <div className="row">
