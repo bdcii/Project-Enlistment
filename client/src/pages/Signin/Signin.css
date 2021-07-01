@@ -1,8 +1,23 @@
-.container{
-    font-size: x-large;
+.signupHeading, .loginHeading {
+    color: rgb(0, 121, 107);
+    text-align: left;
+    text-decoration: underline;
+    font-size: 26px;
 }
 
-.Container {
-    font-size: x-large;
-    margin-left: 400px;
+.register {
+    justify-content: left;
+}
+
+::placeholder {
+    font-size: 18px;
+    justify-content: left;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+input {
+    width: 200px;
+    height: 30px;
 }

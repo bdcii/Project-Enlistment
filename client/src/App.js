@@ -9,7 +9,7 @@ import Profile from "./pages/Profile/Profile.js";
 // import useToken from './components/App/useToken';
 import Project from "./pages/Project/dashboard/Project"
 import ProjectForm from "./pages/Project/newProject/ProjectForm"
-
+import sprlogo from "./assets/sprlogo.png"
 
 
 function App() {
@@ -21,8 +21,13 @@ function App() {
     return (
         <>
             <Router>
-                <h1 id="navTitle">Smart Project Recruiter <NavTabs></NavTabs></h1>
-
+                <div className="header">
+                    <div className="logoTitleButtons">
+                        <img src={sprlogo} alt="App logo" className="appLogo" id="appLogo" />
+                        <h1 id="navTitle">Smart Project Recruiter</h1>
+                    </div>
+                    <NavTabs></NavTabs>
+                </div>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/profile" component={Profile} />
