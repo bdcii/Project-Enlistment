@@ -3,6 +3,10 @@ import "./Signin.css";
 import API from "../../utils/API";
 
 
+import Container from 'react-bootstrap/Container';
+import CardColumns from 'react-bootstrap/CardColumns';
+import Row from 'react-bootstrap/Row';
+import { Card } from 'react-bootstrap';
 
 
 function Signin() {
@@ -64,8 +68,12 @@ function Signin() {
 
     return( 
         <>
+            <Container>
+            <CardColumns>
+            <Row>
+            <Card className="card" style={{ width: "18rem" }}>
             <form>
-                <div className="container">
+                <div className="container login">
                 <div className="form-group text-left">
                 <h2>Sign Up</h2>
                 <label for="first-name">First Name:</label>
@@ -147,18 +155,25 @@ function Signin() {
                     type="submit" 
                     className="btn btn-primary register"
                 >
-                    Click to Register
+
                 </button>
                 </div>
                 </div>
             </form>
+            </Card>
+            </Row>
+            </CardColumns>
 
-            <hr />
-            
+
+
+            <CardColumns>
+            <Row>
+            <Card className="card" style={{ width: "18rem" }}>
             <form>
-                <div className="container">
+                <div className="container signup">
                 <div className="form-group text-left">
-                <h2>Login</h2>
+                <div className="signupHeading">Sign Up: New User</div>
+                <br />
                 <label htmlFor="exampleInputEmail1">Email Address</label>
                 <input type="email" 
                     className="form-control" 
@@ -166,17 +181,17 @@ function Signin() {
                     aria-describedby="emailHelp" 
                     placeholder="Enter Email"
                 />
-                
                 </div>
                 <br />
                 <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Enter Password</label>
+                    <label htmlFor="exampleInputPassword1">Create Password</label>
                     <input type="password" 
                         className="form-control" 
                         id="password" 
-                        placeholder="Enter Password"
+                        placeholder="Create Password"
                     />
                 </div>
+                <div></div>
                 <br />
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputPassword1">Confirm Password</label>
@@ -185,23 +200,27 @@ function Signin() {
                         id="confirmPassword" 
                         placeholder="Confirm Password"
                     />
-                <br />
-                <br />
+                    <br/>
+                    <br/>
                 </div>
-                <br />
                 <div>
                 <button 
                     type="submit" 
-                    className="btn btn-primary"
+                    className="btn btn-primary register"
                 >
-                    Login
+                    Register
                 </button>
-                <br />
                 </div>
                 <br />
                 <br />
                 </div>
             </form>
+            </Card>
+            </Row>
+            </CardColumns>
+            </Container>
+
+
     </>
 )
 }      
