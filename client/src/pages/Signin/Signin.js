@@ -69,6 +69,63 @@ function Signin() {
     return( 
         <>
             <Container>
+
+
+
+
+            <CardColumns>
+            <Row>
+            <Card className="card" style={{ width: "18rem" }}>
+            <form>
+                <div className="container signup">
+                <div className="form-group text-left">
+                <div className="signupHeading">Login</div>
+                <br />
+                <label htmlFor="exampleInputEmail1">Email Address</label>
+                <input type="email" 
+                    className="form-control" 
+                    id="email" 
+                    aria-describedby="emailHelp" 
+                    placeholder="Enter Email"
+                />
+                </div>
+                <br />
+                <div className="form-group text-left">
+                    <label htmlFor="exampleInputPassword1">Create Password</label>
+                    <input type="password" 
+                        className="form-control" 
+                        id="password" 
+                        placeholder="Create Password"
+                    />
+                </div>
+                <div></div>
+                <br />
+                <div className="form-group text-left">
+                    <label htmlFor="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" 
+                        className="form-control" 
+                        id="confirmPassword" 
+                        placeholder="Confirm Password"
+                    />
+                    <br/>
+                    <br/>
+                </div>
+                <div>
+                <button 
+                    type="submit" 
+                    className="btn btn-primary register"
+                >
+                    Register
+                </button>
+                </div>
+                <br />
+                <br />
+                </div>
+            </form>
+            </Card>
+            </Row>
+            </CardColumns>
+            
             <CardColumns>
             <Row>
             <Card className="card" style={{ width: "18rem" }}>
@@ -155,69 +212,16 @@ function Signin() {
                     type="submit" 
                     className="btn btn-primary register"
                 >
-
-                </button>
-                </div>
-                </div>
-            </form>
-            </Card>
-            </Row>
-            </CardColumns>
-
-
-
-            <CardColumns>
-            <Row>
-            <Card className="card" style={{ width: "18rem" }}>
-            <form>
-                <div className="container signup">
-                <div className="form-group text-left">
-                <div className="signupHeading">Sign Up: New User</div>
-                <br />
-                <label htmlFor="exampleInputEmail1">Email Address</label>
-                <input type="email" 
-                    className="form-control" 
-                    id="email" 
-                    aria-describedby="emailHelp" 
-                    placeholder="Enter Email"
-                />
-                </div>
-                <br />
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Create Password</label>
-                    <input type="password" 
-                        className="form-control" 
-                        id="password" 
-                        placeholder="Create Password"
-                    />
-                </div>
-                <div></div>
-                <br />
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" 
-                        className="form-control" 
-                        id="confirmPassword" 
-                        placeholder="Confirm Password"
-                    />
-                    <br/>
-                    <br/>
-                </div>
-                <div>
-                <button 
-                    type="submit" 
-                    className="btn btn-primary register"
-                >
                     Register
                 </button>
                 </div>
-                <br />
-                <br />
                 </div>
             </form>
             </Card>
             </Row>
             </CardColumns>
+            
+            
             </Container>
 
 
