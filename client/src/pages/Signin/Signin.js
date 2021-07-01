@@ -14,9 +14,66 @@ function Signin() {
             <Row>
             <Card className="card" style={{ width: "18rem" }}>
             <form>
+                <div className="container login">
+                <div className="form-group text-left">
+                    <div className="loginHeading">Login: Returning User</div>
+                    <br />
+                    <div><label htmlFor="exampleInputEmail1">Email Address </label></div>
+                        <div><input type="email" 
+                            className="form-control" 
+                            id="email" 
+                            aria-describedby="emailHelp" 
+                            placeholder="Enter Email"
+                        /></div>
+                    <br />
+                    </div>
+                <br />
+                <div className="form-group text-left">
+                    <div><label htmlFor="exampleInputPassword1">Enter Password</label></div>
+                    <div><input type="password" 
+                        className="form-control" 
+                        id="password" 
+                        placeholder="Enter Password"
+                    /></div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div className="form-group text-left">
+                    <div><label htmlFor="exampleInputPassword1">Confirm Password</label></div>
+                    <div><input type="password" 
+                        className="form-control" 
+                        id="confirmPassword" 
+                        placeholder="Confirm Password"
+                    /></div>
+                <br />
+                </div>
+                <br />
+                <div>
+                    <button 
+                        type="submit" 
+                        className="btn btn-primary"
+                        >Login
+                    </button>
+                    <br />
+                </div>
+                <br />
+                <br />
+                </div>
+            </form>
+            </Card>
+            </Row>
+            </CardColumns>
+
+
+
+            <CardColumns>
+            <Row>
+            <Card className="card" style={{ width: "18rem" }}>
+            <form>
                 <div className="container signup">
                 <div className="form-group text-left">
-                <div className="signUpHeading">Sign Up</div>
+                <div className="signupHeading">Sign Up: New User</div>
                 <br />
                 <label htmlFor="exampleInputEmail1">Email Address</label>
                 <input type="email" 
@@ -63,57 +120,8 @@ function Signin() {
             </Row>
             </CardColumns>
             </Container>
-            <hr />
-            
-            <form>
-                <div className="container login">
-                <div className="form-group text-left">
-                    <h2>Login</h2>
-                    <div><label htmlFor="exampleInputEmail1">Email Address </label></div>
-                        <div><input type="email" 
-                            className="form-control" 
-                            id="email" 
-                            aria-describedby="emailHelp" 
-                            placeholder="Enter Email"
-                        /></div>
-                    <br />
-                    </div>
-                <br />
-                <div className="form-group text-left">
-                    <div><label htmlFor="exampleInputPassword1">Enter Password</label></div>
-                    <div><input type="password" 
-                        className="form-control" 
-                        id="password" 
-                        placeholder="Enter Password"
-                    /></div>
-                </div>
-                <br />
-                <br />
-                <br />
-                <div className="form-group text-left">
-                    <div><label htmlFor="exampleInputPassword1">Confirm Password</label></div>
-                    <div><input type="password" 
-                        className="form-control" 
-                        id="confirmPassword" 
-                        placeholder="Confirm Password"
-                    /></div>
-                <br />
-                <br />
-                </div>
-                <br />
-                <br />
-                <div>
-                    <button 
-                        type="submit" 
-                        className="btn btn-primary"
-                        >Login
-                    </button>
-                    <br />
-                </div>
-                <br />
-                <br />
-                </div>
-            </form>
+
+
     </>
 )
 }      
