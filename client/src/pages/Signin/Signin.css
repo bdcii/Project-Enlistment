@@ -1,15 +1,31 @@
-.container{
+/* .signup, .login {
     font-size: x-large;
     background-color: rgb(210, 255, 255);
     border-radius: 5px;
-}
+} */
 
-h2 {
-    color: rgb(48, 147, 132);
+
+
+.signUpHeading {
+    color: rgb(0, 121, 107);
     text-align: left;
     text-decoration: underline;
+    font-size: 26px;
 }
 
 .register {
     justify-content: left;
+}
+
+::placeholder {
+    font-size: 18px;
+    justify-content: left;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+input {
+    width: 200px;
+    height: 30px;
 }
