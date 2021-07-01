@@ -1,5 +1,11 @@
 import React, { Component } from "react";
+import ReactStars from 'react-stars';
 import "./Profile.css";
+
+const ratingChanged = (newRating) => {
+    console.log(newRating)
+
+}
 
 // function Profile() {
 class Profile extends Component {
@@ -13,28 +19,31 @@ class Profile extends Component {
         };
     }
 
-    renderStars() {
-        let stars = [];
-        for (let i = 1; i <= 5; i++) {
-            //state.users[currentUserIndex].stars
-            if (i <= this.state.stars) {
-                stars.push(<span key={i} className="fa fa-star checked" onClick={
-                    () => {
-                        this.setState({ ...this.state, stars: i })
-                        //state.users[state.currentUsersIndex].stars
-                        //this.setState({...this.State, users: [...state.users]})
-                    }
-                }></span>)
-            } else {
-                stars.push(<span key={i} className="fa fa-star" onClick={
-                    () => {
-                        this.setState({ ...this.state, stars: i })
-                    }
-                }></span>)
-            }
-        }
-        return stars
-    }
+    // renderStars() {
+    //     let stars = [];
+    //     for (let i = 1; i <= 5; i++) {
+    //         // for (let userIndex = 0; userIndex >= 0; userIndex++) {
+    //         //     state.users[currentUserIndex].stars;
+    //         // }
+
+    //         if (i <= this.state.stars) {
+    //             stars.push(<span key={i} className="fa fa-star checked" onClick={
+    //                 () => {
+    //                     this.setState({ ...this.state, stars: i })
+    //                     // state.users[state.currentUsersIndex].stars
+    //                     // this.setState({ ...this.State, users: [...state.users] })
+    //                 }
+    //             }></span>)
+    //         } else {
+    //             stars.push(<span key={i} className="fa fa-star" onClick={
+    //                 () => {
+    //                     this.setState({ ...this.state, stars: i })
+    //                 }
+    //             }></span>)
+    //         }
+    //     }
+    //     return stars
+    // }
 
     componentDidMount() {
         fetch('/api/users/')
@@ -107,9 +116,14 @@ class Profile extends Component {
 
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">
-                        {this.renderStars()}
+                        {this.renderStars()} */}
+                        {/* <ReactStars
+                            count={5}
+                            onChange={ratingChanged}
+                            size={28}
+                            edit={true}
+                        />
                     </div>
-                    <p id="average"># average based on ## reviews</p>
                     <hr />
                     <div className="row">
                         <div className="side">

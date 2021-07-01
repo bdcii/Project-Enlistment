@@ -28,6 +28,7 @@
     "mongoose": "^5.12.14",
     "react-bootstrap": "^1.6.1",
     "react-datepicker": "^4.1.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-stars": "^2.2.5"
   }
 }
