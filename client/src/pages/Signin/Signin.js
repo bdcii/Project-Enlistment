@@ -91,25 +91,15 @@ function Signin() {
                 </div>
                 <br />
                 <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Create Password</label>
+                    <label htmlFor="exampleInputPassword1">Enter Password</label>
                     <input type="password" 
                         className="form-control" 
                         id="password" 
-                        placeholder="Create Password"
+                        placeholder="Enter Password"
                     />
                 </div>
                 <div></div>
                 <br />
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" 
-                        className="form-control" 
-                        id="confirmPassword" 
-                        placeholder="Confirm Password"
-                    />
-                    <br/>
-                    <br/>
-                </div>
                 <div>
                 <button 
                     type="submit" 
