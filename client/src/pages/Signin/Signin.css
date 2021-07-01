@@ -1,8 +1,15 @@
 .container{
     font-size: x-large;
+    background-color: rgb(210, 255, 255);
+    border-radius: 5px;
 }
 
-.Container {
-    font-size: x-large;
-    margin-left: 400px;
+h2 {
+    color: rgb(48, 147, 132);
+    text-align: left;
+    text-decoration: underline;
+}
+
+.register {
+    justify-content: left;
 }

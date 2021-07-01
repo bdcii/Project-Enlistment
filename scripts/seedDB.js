@@ -67,7 +67,8 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/sfitzmartin22",
     linkedin: "https://www.linkedin.com/in/sfitzmartin",
-    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"]
+    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
+    projects: []
   },
   {
     firstName: "Tim",
@@ -76,7 +77,8 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/tsmith1",
     linkedin: "https://www.linkedin.com/in/tsmith",
-    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"]
+    skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
+    projects: []
   },
   {
     firstName: "Scott",
@@ -85,7 +87,8 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/sjones2",
     linkedin: "https://www.linkedin.com/in/sjones",
-    skills: ["React", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"]
+    skills: ["React", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"],
+    projects: []
   },
   {
     firstName: "Theresa",
@@ -94,7 +97,8 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/tjacobs1",
     linkedin: "https://www.linkedin.com/in/tjacobs",
-    skills: ["HTML", "CSS", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"]
+    skills: ["HTML", "CSS", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"],
+    projects: []
   },
   {
     firstName: "Sally",
@@ -103,7 +107,8 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/ssugar1",
     linkedin: "https://www.linkedin.com/in/ssugar",
-    skills: ["HTML", "CSS", "Bootstrap", "Angular", "SQL", "NoSQL", "Project Management"]
+    skills: ["HTML", "CSS", "Bootstrap", "Angular", "SQL", "NoSQL", "Project Management"],
+    projects: []
   },
 ];
 

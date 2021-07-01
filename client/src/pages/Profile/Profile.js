@@ -6,7 +6,7 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            user: null,
             projects: [],
             isLoaded: false,
             stars: 3
@@ -16,16 +16,19 @@ class Profile extends Component {
     renderStars() {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
+            //state.users[currentUserIndex].stars
             if (i <= this.state.stars) {
-                stars.push(<span className="fa fa-star checked" onClick={
+                stars.push(<span key={i} className="fa fa-star checked" onClick={
                     () => {
-                        this.setState({ stars: i })
+                        this.setState({ ...this.state, stars: i })
+                        //state.users[state.currentUsersIndex].stars
+                        //this.setState({...this.State, users: [...state.users]})
                     }
                 }></span>)
             } else {
-                stars.push(<span className="fa fa-star" onClick={
+                stars.push(<span key={i} className="fa fa-star" onClick={
                     () => {
-                        this.setState({ stars: i })
+                        this.setState({ ...this.state, stars: i })
                     }
                 }></span>)
             }
@@ -34,21 +37,35 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        fetch('/api/users/60db5a323eb4a94cb4c2f5f7')
+        fetch('/api/users/')
             .then(res => res.json())
             .then(data => {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    projects: data
-                });
+                    currentUserIndex: data.findIndex((user) => { return user._id === '60dba14537b42f1d0070c620' })
+                })
             });
+    }
+
+    //pull in projects
+    renderProjects() {
+        const { users, currentUserIndex } = this.state;
+        const currentUser = users && users[currentUserIndex];
+        if (currentUser) {
+            const projects = currentUser.projects.reduce((listProject, project) => {
+                if (project._creator === currentUser._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
+                return listProject
+            }, [])
+            return projects
+        }
+        return 'loading';
     }
 
     //Need to display user data based on logged in user; login in not yet ready
     render() {
-        const { users } = this.state;
-        const { projects } = this.state;
+        const { users, currentUserIndex } = this.state;
+        const currentUser = users && users[currentUserIndex];
 
         console.log(this.state);
         return (
@@ -56,45 +73,33 @@ class Profile extends Component {
                 <h2 id="devProfile">Developer Profile</h2>
                 <hr />
                 <section id="profile">
-                    <div className="name"><strong>Name: {users.firstName} {users.lastName}</strong></div>
+                    <div className="name"><strong>Name: {currentUser && currentUser.firstName} {currentUser && currentUser.lastName}</strong></div>
                     <div>
                         <ul className="contact">
-                            <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{user.email}'>{users.email}</a></li>
-                            <li id="github"><strong>GitHub:</strong>&nbsp; <a href={users.github}>{users.github}</a></li>
-                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={users.linkedin}>{users.linkedin}</a></li>
+                            <li id="email"><strong>Email:</strong>&nbsp; <a href='mailto:{currentUser.email}'>{currentUser && currentUser.email}</a></li>
+                            <li id="github"><strong>GitHub:</strong>&nbsp; <a href={currentUser && currentUser.github}>{currentUser && currentUser.github}</a></li>
+                            <li id="linked"><strong>LinkedIn:</strong>&nbsp; <a href={currentUser && currentUser.linkedin}>{currentUser && currentUser.linkedin}</a></li>
                         </ul>
                     </div>
                     <hr />
 
                     <div className="set"><strong>Skill Set</strong></div>
-                    <ul className="list">{users.skills ? users.skills.toString().split(',').map((data) => {
-                        return <li>{data}</li>
+                    <ul className="list">{currentUser && currentUser.skills ? currentUser.skills.toString().split(',').map((data, i) => {
+                        return <li key={i}>{data}</li>
                     }) : 'loading'}
                     </ul>
                     <hr />
                 </section>
                 <section id="userProjects">
-                    <div className="set"><strong>Current Projects</strong></div>
+                    <div className="set"><strong>Projects</strong></div>
                     <ul className="list">
-                        {projects._creator ? projects._creator.toString().split(',').map((data) => {
-                            return <li>{data.title}</li>
+                        {currentUser && currentUser.projects ? currentUser.projects.map((data, _id) => {
+                            return <li key={data._id}>{data.title}</li>
                         }) : 'loading'}
-                    </ul>
-                    <div className="set"><strong>Requested Projects</strong></div>
-                    <ul className="list">
-                        {projects.apply ? projects.apply.map((data) => {
-                            return <li>{data.title}</li>
-                        }) : 'loading'}
-                    </ul>
-                    <div className="set"><strong>Completed Projects</strong></div>
-                    <ul className="list">
-                        <li className="item">display list of projects participated on</li>
                     </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
-                        {users.projects ? users.projects.map((data) => {
-                            return <li>{data.title}</li>
-                        }) : 'loading'}
+                        {this.renderProjects()}
                     </ul>
                     <hr />
                     <div className="star">

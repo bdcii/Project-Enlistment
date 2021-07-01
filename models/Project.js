@@ -5,7 +5,7 @@ const projectSchema = new Schema(
     {
 
         _creator: {
-            type: Schema.Types.ObjectID,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         },
         title: {
@@ -27,14 +27,9 @@ const projectSchema = new Schema(
             ref: 'Comment'
         }],
         apply: [{
-            type: Schema.Types.ObjectID,
-            ref: 'User'
-        }],
-
-        date: {
-            type: Date, default: Date.now
-        }
-    });
+            type: Schema.ObjectId,
+        }]
+    })
 
 const Project = mongoose.model("Project", projectSchema);
 
