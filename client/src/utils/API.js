@@ -21,17 +21,17 @@ export default {
   getUsers: function() {
   return axios.get("/api/users");
   },
-  // Gets the project with the given id
+  // Gets the User with the given id
   getUser: function(id) {
   return axios.get("/api/users/" + id);
   },
-  // Deletes the project with the given id
+  // Deletes the user with the given id
   deleteUser: function(id) {
   return axios.delete("/api/users/" + id);
   }, 
-  // Saves a project to the database
+  // Saves a user to the database
   saveUser: function(userData) {
-  return axios.post("/api/users", userData);
+  return axios.post("/api/users/signup", userData);
   },
   userLogin: function(userData) {
     return axios.post('/api/users/login', userData)
