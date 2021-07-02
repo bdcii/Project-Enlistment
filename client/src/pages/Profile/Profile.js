@@ -18,32 +18,6 @@ class Profile extends Component {
         };
     }
 
-    // renderStars() {
-    //     let stars = [];
-    //     for (let i = 1; i <= 5; i++) {
-    //         // for (let userIndex = 0; userIndex >= 0; userIndex++) {
-    //         //     state.users[currentUserIndex].stars;
-    //         // }
-
-    //         if (i <= this.state.stars) {
-    //             stars.push(<span key={i} className="fa fa-star checked" onClick={
-    //                 () => {
-    //                     this.setState({ ...this.state, stars: i })
-    //                     // state.users[state.currentUsersIndex].stars
-    //                     // this.setState({ ...this.State, users: [...state.users] })
-    //                 }
-    //             }></span>)
-    //         } else {
-    //             stars.push(<span key={i} className="fa fa-star" onClick={
-    //                 () => {
-    //                     this.setState({ ...this.state, stars: i })
-    //                 }
-    //             }></span>)
-    //         }
-    //     }
-    //     return stars
-    // }
-
     componentDidMount() {
         fetch('/api/users/')
             .then(res => res.json())
@@ -57,7 +31,7 @@ class Profile extends Component {
     }
 
     ratingChanged = (newRating) => {
-        let average = (arr) => arr.reduce((a, b) => a + b) / arr.length;
+        let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
         // get user stars from db
         let currentStars = this.state.stars;
         currentStars.push(newRating);
@@ -127,73 +101,14 @@ class Profile extends Component {
 
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">
-                        {/* {this.renderStars()} */}
                         {<ReactStars
                             count={5}
                             onChange={this.ratingChanged}
-                            size={28}
+                            size={30}
                             edit={true}
                         />}
                     </div>
                     <p className="starStats">{currentUser && currentUser.firstName} has {this.state.avgRating} stars!</p>
-                    <hr />
-                    <div className="row">
-                        <div className="side">
-                            <div>5 stars</div>
-                        </div>
-                        <div className="middle">
-                            <div className="barContainer">
-                                <div className="bar-5"></div>
-                            </div>
-                        </div>
-                        <div className="side right">
-                            <div>100</div>
-                        </div>
-                        <div className="side">
-                            <div>4 stars</div>
-                        </div>
-                        <div className="middle">
-                            <div className="barContainer">
-                                <div className="bar-4"></div>
-                            </div>
-                        </div>
-                        <div className="side right">
-                            <div>54</div>
-                        </div>
-                        <div className="side">
-                            <div>3 stars</div>
-                        </div>
-                        <div className="middle">
-                            <div className="barContainer">
-                                <div className="bar-3"></div>
-                            </div>
-                        </div>
-                        <div className="side right">
-                            <div>8</div>
-                        </div>
-                        <div className="side">
-                            <div>2 stars</div>
-                        </div>
-                        <div className="middle">
-                            <div className="barContainer">
-                                <div className="bar-2"></div>
-                            </div>
-                        </div>
-                        <div className="side right">
-                            <div>2</div>
-                        </div>
-                        <div className="side">
-                            <div>1 star</div>
-                        </div>
-                        <div className="middle">
-                            <div className="barContainer">
-                                <div className="bar-1"></div>
-                            </div>
-                        </div>
-                        <div className="side right">
-                            <div>1</div>
-                        </div>
-                    </div>
                     <hr />
                 </section>
                 <br />
