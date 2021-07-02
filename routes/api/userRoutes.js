@@ -5,22 +5,26 @@ const User = require('../../models/User');
 
 
 
+
 //User Routes
 
 // login route
 router.post("/login", async (req, res) => {
   try {
 
-    
+    console.log(req.body.email);
+    console.log(req.body.password);
     const userData = await User.findOne({email: req.body.email});
-
+    console.log(userData);
     if(!userData) {
         res.status(400).json({message: "Incorrect email or password, please try again1!" });
         return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
-
+    const validPassword = await (req.body.password === userData.password);
+    console.log(validPassword);
+    
+    
     if(!validPassword) {
         res.status(400).json({ message: 'Incorrect email or password, please try again2!'});
         console.log(err);
@@ -35,6 +39,7 @@ router.post("/login", async (req, res) => {
     });
 
   } catch(err) {
+    console.log(err);
       res.status(400).json(err);
   }
 });
