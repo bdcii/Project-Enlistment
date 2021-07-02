@@ -1,17 +1,17 @@
-import React, {useState} from "react";
+import React, {Component} from "react";
 import "./Signin.css";
 import API from "../../utils/API";
-
-
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Row from 'react-bootstrap/Row';
 import { Card } from 'react-bootstrap';
 
 
-function Signin() {
-    
-    const [formObject, setFormObject] = useState({
+
+export default class Signin extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
         firstName: "",
         lastName: "",
         email: "",
@@ -20,59 +20,40 @@ function Signin() {
         linkedin: "",
         skills: ""
     
-    })
+    };
+    }
 
-    function handleSignUp(event) {
+    handleSignUp = (event) => {
         event.preventDefault();
-        if (formObject.title && formObject.author) {
+
             API.saveUser({ 
-                firstName: formObject.firstName,
-                lastName: formObject.lastName,
-                email: formObject.email,
-                password: formObject.password,
-                github: formObject.github,
-                linkedin: formObject.linkedin,
-                skills: formObject.skills   
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                password: this.state.password,
+                github: this.state.github,
+                linkedin: this.state.linkedin,
+                skills: this.state.skills   
             })
-            .then(() => setFormObject({
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "",
-                github: "",
-                linkedin: "",
-                skills: "" 
-            }))
+            .then(res => {
+               if(res.status === 200)
+               console.log("you have signed up!")
+            })
             .catch(err => console.log(err))
-        }
+        
     };
 
-    function handleInputChange(event) {
+    handleInputChange = (event) => {
         const {name, value} = event.target;
-        setFormObject({
-        ...formObject, [name]: value
+        this.setState({ [name]: value
         })
     };
 
 
-
-
-
-
-
-
-
-
-
-
-
+    render(){
     return( 
         <>
             <Container>
-
-
-
-
             <CardColumns>
             <Row>
             <Card className="card" style={{ width: "18rem" }}>
@@ -105,7 +86,7 @@ function Signin() {
                     type="submit" 
                     className="btn btn-primary register"
                 >
-                    Register
+                    Login
                 </button>
                 </div>
                 <br />
@@ -118,82 +99,80 @@ function Signin() {
             
             <CardColumns>
             <Row>
-            <Card className="card" style={{ width: "18rem" }}>
+            <Card className="card" style={{ width: "24rem" }}>
             <form>
                 <div className="container login">
                 <div className="form-group text-left">
                 <h2>Sign Up</h2>
                 <label for="first-name">First Name:</label>
-                <input type="first-name" 
-                    onChange={handleInputChange}
-                    className="form-control" 
-                    id="first-name" 
-                    aria-describedby="emailHelp" 
+                <input type="text" 
+                    onChange={this.handleInputChange}
+                    className="form-control"   
                     placeholder="Enter First Name"
-                    value={formObject.firstName}
+                    value={this.state.firstName}
                 />
                 <label for="first-name">Last Name:</label>
-                <input type="last-name" 
-                    onChange={handleInputChange}
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="last-name" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Last Name"
-                    value={formObject.lastName}
+                    value={this.state.lastName}
                 />
-                <label for="email">email:</label>
-                <input type="email" 
-                    onChange={handleInputChange}
+                <label for="email">Email:</label>
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="email" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Email"
-                    value={formObject.Email}
+                    value={this.state.Email}
                 />
                 <label for="create-password">Create Password:</label>
-                <input type="create-password" 
-                    onChange={handleInputChange}
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="create-password" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Password"
-                    value={formObject.password}
+                    value={this.state.password}
                 />
                 <label for="confirm-password">Confirm Password:</label>
-                <input type="confirm-password" 
-                    onChange={handleInputChange}
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="confirm-password" 
                     aria-describedby="emailHelp" 
-                    placeholder="confirm Password"
-                    value={formObject.password}
+                    placeholder="Confirm Password"
+                    value={this.state.password}
                 />
                 <label for="github">Github:</label>
-                <input type="github" 
-                    onChange={handleInputChange}
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="github" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Github Username"
-                    value={formObject.github}
+                    value={this.state.github}
                 />
                 <label for="LinkedIn">LinkedIn:</label>
-                <input type="LinkedIn" 
-                    onChange={handleInputChange}
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="LinkedIn" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter LinkedIn Username"
-                    value={formObject.linkedin}
+                    value={this.state.linkedin}
                 />
                 <label for="skills">skills:</label>
-                <input type="skills" 
-                    onChange={handleInputChange}
+                <input type="text" 
+                    onChange={this.handleInputChange}
                     className="form-control" 
                     id="skills" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Skills"
-                    value={formObject.skills}
+                    value={this.state.skills}
                 />
                 </div>
                 
@@ -201,6 +180,7 @@ function Signin() {
                 <button 
                     type="submit" 
                     className="btn btn-primary register"
+                    onClick={this.handleSignUp}
                 >
                     Register
                 </button>
@@ -210,13 +190,8 @@ function Signin() {
             </Card>
             </Row>
             </CardColumns>
-            
-            
             </Container>
-
-
     </>
-)
+)}
 }      
     
-export default Signin;
