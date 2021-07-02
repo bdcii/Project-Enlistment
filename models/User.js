@@ -57,6 +57,9 @@ const userSchema = new Schema({
 
   
   ],
+  stars: {
+    type: [Number]
+  },
   // availability: [
   //   {
   //     type: Schema.Types.ObjectId,
