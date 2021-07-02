@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ProjectForm.css";
-import { saveProject } from "../../utils/API";
+//import { saveProject } from "../../utils/API";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -16,9 +16,9 @@ function ProjectForm() {
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value 
     }
-    const onCreateClick = e => {
-        saveProject()
-    }
+    //const onCreateClick = e => {
+     //   saveProject()
+   // }
 
     return (
         <form>
@@ -63,14 +63,14 @@ function ProjectForm() {
                     <input
                         type="checkbox"
                         name="Open"
-                        checked={open}
+                        checked={setOpen}
                         onChange={handleChange}
                     />
                     Open
                     <input
                         type="checkbox"
                         name="Closed"
-                        checked={closed}
+                        checked={setClosed}
                         onChange={handleChange}
                     />
                     Closed
