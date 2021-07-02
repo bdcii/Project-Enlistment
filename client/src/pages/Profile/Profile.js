@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-// import ReactStars from 'react-stars';
+import ReactStars from 'react-stars';
+import ReactDOM from 'react-dom';
 import "./Profile.css";
 
-const ratingChanged = (newRating) => {
-    console.log(newRating)
 
-}
 
 // function Profile() {
 class Profile extends Component {
@@ -15,7 +13,8 @@ class Profile extends Component {
             user: null,
             projects: [],
             isLoaded: false,
-            stars: 3
+            stars: [],
+            avgRating: 0
         };
     }
 
@@ -57,6 +56,18 @@ class Profile extends Component {
             });
     }
 
+    ratingChanged = (newRating) => {
+        let average = (arr) => arr.reduce((a, b) => a + b) / arr.length;
+        // get user stars from db
+        let currentStars = this.state.stars;
+        currentStars.push(newRating);
+        // add new star value to user stars in db
+        let avgRating = average(currentStars);
+        this.setState({ avgRating, stars: currentStars });
+
+        console.log(newRating)
+    }
+
     //pull in projects
     renderProjects() {
         const { users, currentUserIndex } = this.state;
@@ -75,7 +86,7 @@ class Profile extends Component {
     render() {
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
-
+        const { newRating } = this.state;
         console.log(this.state);
         return (
             <>
@@ -117,13 +128,14 @@ class Profile extends Component {
                     <div className="set"><strong>User Rating</strong></div>
                     <div id="stars">
                         {/* {this.renderStars()} */}
-                        {/* {<ReactStars
+                        {<ReactStars
                             count={5}
-                            onChange={ratingChanged}
+                            onChange={this.ratingChanged}
                             size={28}
                             edit={true}
-                        />} */}
+                        />}
                     </div>
+                    <p className="starStats">{currentUser && currentUser.firstName} has {this.state.avgRating} stars!</p>
                     <hr />
                     <div className="row">
                         <div className="side">
