@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import "./Signin.css";
 import API from "../../utils/API";
-
-
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Row from 'react-bootstrap/Row';
@@ -24,7 +22,7 @@ function Signin() {
 
     function handleSignUp(event) {
         event.preventDefault();
-        if (formObject.title && formObject.author) {
+        if (formObject.firstName && formObject.lastName && formObject.email && formObject.password) {
             API.saveUser({ 
                 firstName: formObject.firstName,
                 lastName: formObject.lastName,
@@ -56,23 +54,9 @@ function Signin() {
 
 
 
-
-
-
-
-
-
-
-
-
-
     return( 
         <>
             <Container>
-
-
-
-
             <CardColumns>
             <Row>
             <Card className="card" style={{ width: "18rem" }}>
@@ -105,7 +89,7 @@ function Signin() {
                     type="submit" 
                     className="btn btn-primary register"
                 >
-                    Register
+                    Login
                 </button>
                 </div>
                 <br />
@@ -118,22 +102,21 @@ function Signin() {
             
             <CardColumns>
             <Row>
-            <Card className="card" style={{ width: "18rem" }}>
+            <Card className="card" style={{ width: "24rem" }}>
             <form>
                 <div className="container login">
                 <div className="form-group text-left">
                 <h2>Sign Up</h2>
                 <label for="first-name">First Name:</label>
-                <input type="first-name" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
-                    id="first-name" 
-                    aria-describedby="emailHelp" 
+                    id="first-name"  
                     placeholder="Enter First Name"
                     value={formObject.firstName}
                 />
                 <label for="first-name">Last Name:</label>
-                <input type="last-name" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="last-name" 
@@ -141,8 +124,8 @@ function Signin() {
                     placeholder="Enter Last Name"
                     value={formObject.lastName}
                 />
-                <label for="email">email:</label>
-                <input type="email" 
+                <label for="email">Email:</label>
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="email" 
@@ -151,7 +134,7 @@ function Signin() {
                     value={formObject.Email}
                 />
                 <label for="create-password">Create Password:</label>
-                <input type="create-password" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="create-password" 
@@ -160,16 +143,16 @@ function Signin() {
                     value={formObject.password}
                 />
                 <label for="confirm-password">Confirm Password:</label>
-                <input type="confirm-password" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="confirm-password" 
                     aria-describedby="emailHelp" 
-                    placeholder="confirm Password"
+                    placeholder="Confirm Password"
                     value={formObject.password}
                 />
                 <label for="github">Github:</label>
-                <input type="github" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="github" 
@@ -178,7 +161,7 @@ function Signin() {
                     value={formObject.github}
                 />
                 <label for="LinkedIn">LinkedIn:</label>
-                <input type="LinkedIn" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="LinkedIn" 
@@ -187,7 +170,7 @@ function Signin() {
                     value={formObject.linkedin}
                 />
                 <label for="skills">skills:</label>
-                <input type="skills" 
+                <input type="text" 
                     onChange={handleInputChange}
                     className="form-control" 
                     id="skills" 
@@ -201,6 +184,7 @@ function Signin() {
                 <button 
                     type="submit" 
                     className="btn btn-primary register"
+                    onClick={handleSignUp}
                 >
                     Register
                 </button>
