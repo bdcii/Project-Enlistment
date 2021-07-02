@@ -90,6 +90,8 @@ class Profile extends Component {
         console.log(this.state);
         return (
             <>
+                <br />
+                <br />
                 <h2 id="devProfile">Developer Profile</h2>
                 <hr />
                 <section id="profile">
