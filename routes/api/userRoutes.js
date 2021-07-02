@@ -1,10 +1,44 @@
 //Dependencies
 const router = require('express').Router();
-const User = require('../../models/User.js');
+const User = require('../../models/User');
 // const projectsController = require('../controllers/projectControllers')
 
 
+
 //User Routes
+
+// login route
+router.post("/login", async (req, res) => {
+  try {
+
+    
+    const userData = await User.findOne({email: req.body.email});
+
+    if(!userData) {
+        res.status(400).json({message: "Incorrect email or password, please try again1!" });
+        return;
+    }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if(!validPassword) {
+        res.status(400).json({ message: 'Incorrect email or password, please try again2!'});
+        console.log(err);
+        return;
+    }
+
+    req.session.save(() => {
+        req.session.email = userData.email;
+        req.session.logged_in = true;
+
+        res.status(200).json(userData);
+    });
+
+  } catch(err) {
+      res.status(400).json(err);
+  }
+});
+
 
 //Get all users
 router.get("/", (req, res) => {
@@ -41,13 +75,13 @@ router.get("/:id", (req, res) => {
 // });
 
 //Create user
-router.post('/', (req, res) => {
+router.post('/signup', (req, res) => {
   // const user = new User(body);
   // user.setFullName();
 
   User.create(req.body)
-    .then((dbProject) => {
-      res.json(dbProject);
+    .then((dbUser) => {
+      res.json(dbUser);
     })
     .catch((err) => {
       res.json(err);

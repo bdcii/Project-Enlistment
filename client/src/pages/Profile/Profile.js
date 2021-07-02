@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ReactStars from 'react-stars';
+import ReactDOM from 'react-dom';
 import "./Profile.css";
 
-const ratingChanged = (newRating) => {
-    console.log(newRating)
-}
+
 
 // function Profile() {
 class Profile extends Component {
@@ -15,19 +14,10 @@ class Profile extends Component {
             projects: [],
             isLoaded: false,
             stars: [],
-            // rating: 0,
+            avgRating: 0
         };
     }
 
-    // ratingChanged = (newRating) => {
-    //     console.log(newRating)
-    //     let rating = [];
-    //     this.setState({
-    //         rating: newRating
-    //     });
-    //     if (this.props.onChange)
-    //         this.props.onChange(rating);
-    // }
     // renderStars() {
     //     let stars = [];
     //     for (let i = 1; i <= 5; i++) {
@@ -66,6 +56,18 @@ class Profile extends Component {
             });
     }
 
+    ratingChanged = (newRating) => {
+        let average = (arr) => arr.reduce((a, b) => a + b) / arr.length;
+        // get user stars from db
+        let currentStars = this.state.stars;
+        currentStars.push(newRating);
+        // add new star value to user stars in db
+        let avgRating = average(currentStars);
+        this.setState({ avgRating, stars: currentStars });
+
+        console.log(newRating)
+    }
+
     //pull in projects
     renderProjects() {
         const { users, currentUserIndex } = this.state;
@@ -84,7 +86,7 @@ class Profile extends Component {
     render() {
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
-        // const { rating, stars, ratingChanged } = this.state;
+        const { newRating } = this.state;
         console.log(this.state);
         return (
             <>
@@ -128,12 +130,12 @@ class Profile extends Component {
                         {/* {this.renderStars()} */}
                         {<ReactStars
                             count={5}
-                            onChange={ratingChanged}
+                            onChange={this.ratingChanged}
                             size={28}
                             edit={true}
                         />}
-                        {/* <span onClick={() => { this.ratingChanged(stars) }}></span> */}
                     </div>
+                    <p className="starStats">{currentUser && currentUser.firstName} has {this.state.avgRating} stars!</p>
                     <hr />
                     <div className="row">
                         <div className="side">

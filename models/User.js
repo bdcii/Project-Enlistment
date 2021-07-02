@@ -7,12 +7,12 @@ const userSchema = new Schema({
   firstName: {
     type: String,
     trim: true,
-    required: "Enter your first name"
+    // required: "Enter your first name"
   },
   lastName: {
     type: String,
     trim: true,
-    required: "Enter your last name"
+    // required: "Enter your last name"
   },
   email: {
     type: String,
@@ -30,12 +30,12 @@ const userSchema = new Schema({
   github: {
     type: String,
     trim: true,
-    required: "Enter your GitHub page"
+    // required: "Enter your GitHub page"
   },
   linkedin: {
     type: String,
     trim: true,
-    required: "Enter your LinkedIn page"
+    // required: "Enter your LinkedIn page"
   },
   projects: [
     {
@@ -55,9 +55,9 @@ const userSchema = new Schema({
       ref: "Skills"
     }
   ],
-  // rating: {
-  //   type: Number
-  // }
+  stars: {
+    type: [Number]
+  },
   // availability: [
   //   {
   //     type: Schema.Types.ObjectId,
