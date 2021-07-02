@@ -38,8 +38,8 @@ function Developer() {
                 />
                 <FormBtn
                     disabled={!(formObject.comment)}
-                    // write code to push text to db of the project onclick, write code send an email to creator via nodemailer
-                    onClick={handleFormSubmit}
+                    //  write code send an email to creator via nodemailer 
+                    onClick={handleFormSubmit} // handleForm Submit && nodemailer???
                 >
                     Submit
                 </FormBtn>

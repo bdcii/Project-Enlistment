@@ -17,4 +17,4 @@ const commentsSchema = new Schema(
 
 const Comments = mongoose.model("Comments", commentsSchema);
 
-module.exports = Skills;
+module.exports = Comments;

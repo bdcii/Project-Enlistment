@@ -19,7 +19,7 @@ export default {
   },
   // Updates a project with the given id
   updateProject: function(id){
-    return axios.put("/api/projects/" + id);
+    return axios.patch("/api/projects/" + id);
   },
   // Gets all Users
   getUsers: function() {
