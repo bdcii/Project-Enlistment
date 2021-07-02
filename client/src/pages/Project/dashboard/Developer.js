@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API from "../../../utils/API";
 import { Col, Row, Container } from "../../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../../components/Form";
 
@@ -14,16 +15,14 @@ function Developer() {
     };
 
     function handleFormSubmit(event) {
-        // // event.preventDefault();
-        // // if (formObject.title && formObject.author) {
-        // //   API.saveBook({
-        // //     title: formObject.title,
-        // //     author: formObject.author,
-        // //     comment: formObject.comment
-        // //   })
-        // //     .then(res => loadBooks())
-        // //     .catch(err => console.log(err));
-        // }
+        event.preventDefault();
+        if (formObject.comment) {
+          API.updateProject({
+            comment: formObject.comment
+          })
+            .then(res => {return alert('Thanks for applying! The project creator will contact you if selected.') })
+            .catch(err => console.log(err));
+        }
     };
 
     return (<>
@@ -39,7 +38,8 @@ function Developer() {
                 />
                 <FormBtn
                     disabled={!(formObject.comment)}
-                    onClick={handleFormSubmit}
+                    //  write code send an email to creator via nodemailer 
+                    onClick={handleFormSubmit} // handleForm Submit && nodemailer???
                 >
                     Submit
                 </FormBtn>
