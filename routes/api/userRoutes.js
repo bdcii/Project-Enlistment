@@ -1,6 +1,8 @@
 //Dependencies
 const router = require('express').Router();
 const User = require('../../models/User');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 // const projectsController = require('../controllers/projectControllers')
 
 
@@ -9,42 +11,19 @@ const User = require('../../models/User');
 //User Routes
 
 // login route
-router.post("/login", async (req, res) => {
-  try {
-
-    console.log(req.body.email);
-    console.log(req.body.password);
-    const userData = await User.findOne({email: req.body.email});
-    console.log(userData);
-    if(!userData) {
-        res.status(400).json({message: "Incorrect email or password, please try again1!" });
-        return;
-    }
-
-    const validPassword = await (req.body.password === userData.password);
-    console.log(validPassword);
-    
-    
-    if(!validPassword) {
-        res.status(400).json({ message: 'Incorrect email or password, please try again2!'});
-        return;
-    }
-
-    
-    req.session.save(() => {
-        req.session.email = userData.email;
-        req.session.logged_in = true;
-
-        res.json({ user: userData, message: "You are now logged in"});
-
-      
-    });
-
-  } catch(err) {
-      res.status(400).json(err);
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) throw err;
+    if(!user) res.send("there is no user with those credentials");
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send("You have successfully logged in!");
+        console.log(req.user);
+      });
   }
+})(req, res, next);
 });
-
 
 //Get all users
 router.get("/", (req, res) => {
@@ -82,16 +61,21 @@ router.get("/:id", (req, res) => {
 
 //Create user
 router.post('/signup', (req, res) => {
-  // const user = new User(body);
-  // user.setFullName();
 
-  User.create(req.body)
-    .then((dbUser) => {
-      res.json(dbUser);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+  User.findOne({ username: req.body.username }, async (err, doc) => {
+    if (err) throw err;
+    if (doc) res.send("User Already Exists");
+    if (!doc) {
+  const encryptedPassword = await bcrypt.hash(req.body.password, 10);
+  
+  const newUser = new User({
+    username: req.body.username,
+    password: encryptedPassword,
+  });
+    await newUser.save();
+    res.send("User Created");
+    };
+  });
 });
 
 //Update user by id

@@ -1,6 +1,12 @@
 const express = require("express");
 const session = require('express-session');
 const app = express();
+const cors = require("cors");
+const passport = require("passport");
+// const passportLocal = require("passportLocal").Strategy
+const cookieParser = require("cookie-parser");
+// const bcrypt = require("bcryptjs");
+const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -9,8 +15,7 @@ const MongoStore = require("connect-mongo");
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: "mongodb://localhost/projectenlistment"})
 }
@@ -20,6 +25,17 @@ const sess = {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session(sess));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+})
+);
+app.use(cookieParser("secretcode")),
+app.use(passport.initialize());
+app.use(passport.session());
+require("./passportConfig")(passport);
 
 
 // Serve up static assets (usually on heroku)
