@@ -11,13 +11,13 @@ const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const utils = require("./utils/auth");
-const MongoStore = require("connect-mongo");
+// const MongoStore = require("connect-mongo");
 
 const sess = {
   secret: 'Super secret secret',
   resave: true,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: "mongodb://localhost/projectenlistment"})
+  // store: MongoStore.create({ mongoUrl: "mongodb://localhost/projectenlistment"})
 }
 
 
