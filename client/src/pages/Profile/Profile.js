@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import ReactStars from 'react-stars';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import "./Profile.css";
-
-
 
 // function Profile() {
 class Profile extends Component {
@@ -33,8 +31,14 @@ class Profile extends Component {
     ratingChanged = (newRating) => {
         let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
         // get user stars from db
+        const { users, currentUserIndex } = this.state;
+        const currentUser = users && users[currentUserIndex];
         let currentStars = this.state.stars;
-        currentStars.push(newRating);
+        if (currentUser) {
+            currentStars.push(newRating);
+        }
+        // let stars = [];
+
         // add new star value to user stars in db
         let avgRating = average(currentStars);
         this.setState({ avgRating, stars: currentStars });
@@ -56,7 +60,6 @@ class Profile extends Component {
         return 'loading';
     }
 
-    //Need to display user data based on logged in user; login in not yet ready
     render() {
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
