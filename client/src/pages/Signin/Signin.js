@@ -18,14 +18,23 @@ export default class Signin extends Component {
         password: "",
         github: "",
         linkedin: "",
-        skills: ""
+        // skills: ""
     
     };
     }
 
+
+    handleInputChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({ [name]: value
+        });
+    };
+
+
     handleSignUp = (event) => {
         event.preventDefault();
-
+        console.log(this.state.firstName)
             API.saveUser({ 
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
@@ -33,7 +42,7 @@ export default class Signin extends Component {
                 password: this.state.password,
                 github: this.state.github,
                 linkedin: this.state.linkedin,
-                skills: this.state.skills   
+                // skills: this.state.skills   
             })
             .then(res => {
                if(res.status === 200)
@@ -41,12 +50,6 @@ export default class Signin extends Component {
             })
             .catch(err => console.log(err))
         
-    };
-
-    handleInputChange = (event) => {
-        const {name, value} = event.target;
-        this.setState({ [name]: value
-        })
     };
 
 
@@ -95,85 +98,86 @@ export default class Signin extends Component {
             </form>
             </Card>
             </Row>
-            </CardColumns>
-            
+            </CardColumns> 
+             
             <CardColumns>
             <Row>
-            <Card className="card" style={{ width: "24rem" }}>
+            <Card className="card" style={{ width: "18rem" }}>
             <form>
                 <div className="container login">
                 <div className="form-group text-left">
                 <h2>Sign Up</h2>
-                <label for="first-name">First Name:</label>
-                <input type="text" 
+                <label htmlFor="firstName">First Name:</label>
+                <input type="text"
+                    id="firstName" 
                     onChange={this.handleInputChange}
                     className="form-control"   
                     placeholder="Enter First Name"
-                    value={this.state.firstName}
+                    defaultValue={this.state.firstName}
                 />
-                <label for="first-name">Last Name:</label>
+                <label htmlFor="first-name">Last Name:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="last-name" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Last Name"
-                    value={this.state.lastName}
+                    defaultValue={this.state.lastName}
                 />
-                <label for="email">Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="email" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Email"
-                    value={this.state.Email}
+                    defaultValue={this.state.email}
                 />
-                <label for="create-password">Create Password:</label>
+                <label htmlFor="create-password">Create Password:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="create-password" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Password"
-                    value={this.state.password}
+                    defaultValue={this.state.password}
                 />
-                <label for="confirm-password">Confirm Password:</label>
+                <label htmlFor="confirm-password">Confirm Password:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="confirm-password" 
                     aria-describedby="emailHelp" 
                     placeholder="Confirm Password"
-                    value={this.state.password}
+                    defaultValue={this.state.password}
                 />
-                <label for="github">Github:</label>
+                <label htmlFor="github">Github:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="github" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Github Username"
-                    value={this.state.github}
+                    defaultValue={this.state.github}
                 />
-                <label for="LinkedIn">LinkedIn:</label>
+                <label htmlFor="LinkedIn">LinkedIn:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="LinkedIn" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter LinkedIn Username"
-                    value={this.state.linkedin}
+                    defaultValue={this.state.linkedin}
                 />
-                <label for="skills">skills:</label>
+                {/* <label htmlFor="skills">skills:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
                     id="skills" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Skills"
-                    value={this.state.skills}
-                />
+                    defaultValue={this.state.skills}
+                /> */}
                 </div>
                 
                 <div>
