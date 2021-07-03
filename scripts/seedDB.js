@@ -63,6 +63,7 @@ const userSeed = [
   {
     firstName: "Sean",
     lastName: "Fitzmartin",
+    username: "sfitzmartin",
     email: "sfitzmartin22@gmail.com",
     password: "22seanfitz22",
     github: "https://github.com/sfitzmartin22",
@@ -73,6 +74,7 @@ const userSeed = [
   {
     firstName: "Tim",
     lastName: "Smith",
+    username: "tsmith",
     email: "tsmith@gmail.com",
     password: "22seanfitz22",
     github: "https://github.com/tsmith1",
@@ -83,6 +85,7 @@ const userSeed = [
   {
     firstName: "Scott",
     lastName: "Jones",
+    username: "sjones",
     email: "sjones@gmail.com",
     password: "22seanfitz22",
     github: "https://github.com/sjones2",
@@ -93,6 +96,7 @@ const userSeed = [
   {
     firstName: "Theresa",
     lastName: "Jacobs",
+    username: "tjacobs",
     email: "tjacobs@gmail.com",
     password: "22seanfitz22",
     github: "https://github.com/tjacobs1",
@@ -103,6 +107,7 @@ const userSeed = [
   {
     firstName: "Sally",
     lastName: "Sugar",
+    username: "ssugar",
     email: "ssugar@gmail.com",
     password: "22seanfitz22",
     github: "https://github.com/ssugar1",

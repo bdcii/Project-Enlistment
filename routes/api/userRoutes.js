@@ -14,6 +14,7 @@ const passport = require('passport');
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
+    console.log(user);
     if(!user) res.send("there is no user with those credentials");
     else {
       req.logIn(user, (err) => {
@@ -63,6 +64,7 @@ router.get("/:id", (req, res) => {
 router.post('/signup', (req, res) => {
 
   User.findOne({ username: req.body.username }, async (err, doc) => {
+    console.log(doc);
     if (err) throw err;
     if (doc) res.send("User Already Exists");
     if (!doc) {
@@ -70,7 +72,12 @@ router.post('/signup', (req, res) => {
   
   const newUser = new User({
     username: req.body.username,
-    password: encryptedPassword,
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    github: req.body.github,
+    linkedin: req.body.linkedin,
+    password: encryptedPassword
   });
     await newUser.save();
     res.send("User Created");
