@@ -16,10 +16,10 @@ passport.use(
             } else {
                 return done(null, false);
             }
-            })
-        })
+            });
+        });
     })
-)
+);
 
 passport.serializeUser((user, cb) => {
     cb(null, user.id);

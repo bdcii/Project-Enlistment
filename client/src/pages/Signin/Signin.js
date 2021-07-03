@@ -10,6 +10,8 @@ import Axios from "axios";
 
 
 function App() {
+    
+    //sign up
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerFirstName, setRegisterFirstName] = useState("");
@@ -17,8 +19,10 @@ function App() {
     const [registerUsername, setRegisterUsername] = useState("");
     const [registerGithub, setRegisterGithub] = useState("");
     const [registerLinkedin, setRegisterLinkedin] = useState("");
+    const [registerSkills, setRegisterSkills] = useState([]);
 
-    const [loginEmail, setLoginEmail] = useState("");
+    // sign in
+    const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [data, setData] = useState(null);  
 
@@ -33,21 +37,25 @@ const register = () => {
         lastName: registerLastName,
         username: registerUsername,
         github: registerGithub,
-        linkedin: registerLinkedin
+        linkedin: registerLinkedin,
+        skills: registerSkills
+
       },
       withCredentials: true,
-      url: "http://localhost:3001/api/users/signup",
+      url: "api/users/signup",
     }).then((res) => console.log(res));
   };
+  
+  
   const login = () => {
     Axios({
       method: "POST",
       data: {
-        email: loginEmail,
+        email: loginUsername,
         password: loginPassword,
       },
       withCredentials: true,
-      url: "http://localhost:3001/api/users/login",
+      url: "api/users/login",
     }).then((res) => console.log(res));
   };
 
@@ -84,17 +92,21 @@ return (
           placeholder="LinkedIn"
           onChange={(e) => setRegisterLinkedin(e.target.value)}
         />
+        <input
+          placeholder="Skills"
+          onChange={(e) => setRegisterSkills(e.target.value)}
+        />
         <button onClick={register}>Submit</button>
       </div>
 
       <div>
         <h1>Login</h1>
         <input
-          placeholder="email"
-          onChange={(e) => setLoginEmail(e.target.value)}
+          placeholder="Username"
+          onChange={(e) => setLoginUsername(e.target.value)}
         />
         <input
-          placeholder="password"
+          placeholder="Password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
