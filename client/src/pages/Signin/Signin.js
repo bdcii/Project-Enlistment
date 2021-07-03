@@ -24,6 +24,7 @@ export default class Signin extends Component {
     }
 
 
+
     handleInputChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -49,7 +50,6 @@ export default class Signin extends Component {
                console.log("you have signed up!")
             })
             .catch(err => console.log(err))
-        
     };
 
 
@@ -102,11 +102,12 @@ export default class Signin extends Component {
              
             <CardColumns>
             <Row>
-            <Card className="card" style={{ width: "18rem" }}>
+            <Card className="card" style={{ width: "24rem" }}>
             <form>
                 <div className="container login">
                 <div className="form-group text-left">
                 <h2>Sign Up</h2>
+
                 <label htmlFor="firstName">First Name:</label>
                 <input type="text"
                     id="firstName" 
@@ -122,6 +123,7 @@ export default class Signin extends Component {
                     id="last-name" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Last Name"
+
                     defaultValue={this.state.lastName}
                 />
                 <label htmlFor="email">Email:</label>
@@ -131,6 +133,7 @@ export default class Signin extends Component {
                     id="email" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Email"
+
                     defaultValue={this.state.email}
                 />
                 <label htmlFor="create-password">Create Password:</label>
@@ -140,6 +143,7 @@ export default class Signin extends Component {
                     id="create-password" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Password"
+
                     defaultValue={this.state.password}
                 />
                 <label htmlFor="confirm-password">Confirm Password:</label>
@@ -158,6 +162,7 @@ export default class Signin extends Component {
                     id="github" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter Github Username"
+
                     defaultValue={this.state.github}
                 />
                 <label htmlFor="LinkedIn">LinkedIn:</label>
