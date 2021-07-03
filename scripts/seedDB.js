@@ -33,7 +33,7 @@ const projectSeed = [
     description: "An application to display portfolios. Please only apply if you are a React guru and have strong communication skills.",
     open: true,
     dev_Need: 3,
-    // comment: "Call me the King of React! And don't get me started on communication - I love to communicate!",
+    comment: "Call me the King of React! And don't get me started on communication - I love to communicate!",
     date: new Date(Date.now()),
     _creator: "",
     apply: []
@@ -43,7 +43,7 @@ const projectSeed = [
     description: "A website that one can discuss topics in technology.",
     open: true,
     dev_Need: 3,
-    // comment: "My skills include React bootstrap, React, JS, and project management.",
+    comment: "My skills include React bootstrap, React, JS, and project management.",
     date: new Date(Date.now()),
     _creator: "",
     apply: []
@@ -78,7 +78,8 @@ const userSeed = [
     github: "https://github.com/tsmith1",
     linkedin: "https://www.linkedin.com/in/tsmith",
     skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
-    projects: []
+    projects: [],
+    stars: [5, 5, 4, 1, 2.5, 3, 1.5, 4]
   },
   {
     firstName: "Scott",
