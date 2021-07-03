@@ -18,7 +18,7 @@ export default class Signin extends Component {
         password: "",
         github: "",
         linkedin: "",
-        // skills: ""
+        skills: ""
     
     };
     }
@@ -42,7 +42,7 @@ export default class Signin extends Component {
                 password: this.state.password,
                 github: this.state.github,
                 linkedin: this.state.linkedin,
-                // skills: this.state.skills   
+                skills: this.state.skills   
             })
             .then(res => {
                if(res.status === 200)
@@ -169,7 +169,7 @@ export default class Signin extends Component {
                     placeholder="Enter LinkedIn Username"
                     defaultValue={this.state.linkedin}
                 />
-                {/* <label htmlFor="skills">skills:</label>
+                <label htmlFor="skills">skills:</label>
                 <input type="text" 
                     onChange={this.handleInputChange}
                     className="form-control" 
@@ -177,7 +177,7 @@ export default class Signin extends Component {
                     aria-describedby="emailHelp" 
                     placeholder="Enter Skills"
                     defaultValue={this.state.skills}
-                /> */}
+                />
                 </div>
                 
                 <div>
