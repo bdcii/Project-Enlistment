@@ -8,12 +8,21 @@ const passport = require('passport');
 
 
 
+
+// router.post("/login", 
+// passport.authenticate("local", (req, res) => {
+//   res.redirect("/")
+// }
+
+
+
 //User Routes
 
 // login route
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
+    res.json(user);
     console.log(user);
     if(!user) res.send("there is no user with those credentials");
     else {
@@ -21,6 +30,8 @@ router.post("/login", (req, res, next) => {
         if (err) throw err;
         res.send("You have successfully logged in!");
         console.log(req.user);
+        return res.redirect("/");
+        // res.json(user);
       });
   }
 })(req, res, next);
