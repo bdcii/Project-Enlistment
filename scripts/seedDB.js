@@ -69,7 +69,8 @@ const userSeed = [
     github: "https://github.com/sfitzmartin22",
     linkedin: "https://www.linkedin.com/in/sfitzmartin",
     skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
-    projects: []
+    projects: [],
+    stars: [5, 5, 4, 3, 3, 3.5, 4]
   },
   {
     firstName: "Tim",
@@ -92,7 +93,8 @@ const userSeed = [
     github: "https://github.com/sjones2",
     linkedin: "https://www.linkedin.com/in/sjones",
     skills: ["React", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"],
-    projects: []
+    projects: [],
+    stars: [5, 5, 3, 3, 3, 3.5, 4]
   },
   {
     firstName: "Theresa",
@@ -103,7 +105,8 @@ const userSeed = [
     github: "https://github.com/tjacobs1",
     linkedin: "https://www.linkedin.com/in/tjacobs",
     skills: ["HTML", "CSS", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"],
-    projects: []
+    projects: [],
+    stars: [5, 5, 3, 3, 3, 1.5, 1]
   },
   {
     firstName: "Sally",
@@ -114,7 +117,8 @@ const userSeed = [
     github: "https://github.com/ssugar1",
     linkedin: "https://www.linkedin.com/in/ssugar",
     skills: ["HTML", "CSS", "Bootstrap", "Angular", "SQL", "NoSQL", "Project Management"],
-    projects: []
+    projects: [],
+    stars: [5, 5, 3, 3, 3, 3.5, 4]
   },
 ];
 
