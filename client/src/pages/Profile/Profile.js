@@ -23,7 +23,7 @@ class Profile extends Component {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    currentUserIndex: data.findIndex((user) => { return user._id === '60dba14537b42f1d0070c620' })
+                    currentUserIndex: data.findIndex((user) => { return user._id === '60e07a8159bab601d42599fd' })
                 })
             });
     }
@@ -35,7 +35,7 @@ class Profile extends Component {
         const currentUser = users && users[currentUserIndex];
         let currentStars = this.state.stars;
         if (currentUser) {
-            currentStars.push(newRating);
+            currentStars.render(newRating);
         }
         // let stars = [];
 
