@@ -12,6 +12,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const utils = require("./utils/auth");
 // const MongoStore = require("connect-mongo");
+const nodemailer = require("nodemailer")
 
 const sess = {
   secret: 'Super secret secret',
@@ -36,6 +37,8 @@ app.use(cookieParser("secretcode")),
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
+
+
 
 
 // Serve up static assets (usually on heroku)
