@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { Component } from "react";
 import ReactStars from 'react-stars';
 // import ReactDOM from 'react-dom';
@@ -23,27 +24,32 @@ class Profile extends Component {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    currentUserIndex: data.findIndex((user) => { return user._id === '60e07a8159bab601d42599fd' })
+                    currentUserIndex: data.findIndex((user) => { return user._id === '60e35d1e7accf41a50e44087' }),
                 })
             });
     }
 
+    // onChangeStars(event) {
+    //     this.setState({
+    //         stars: event.target.value
+    //     });
+    // }
+
     ratingChanged = (newRating) => {
         let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
-        // get user stars from db
-        const { users, currentUserIndex } = this.state;
-        const currentUser = users && users[currentUserIndex];
-        let currentStars = this.state.stars;
-        if (currentUser) {
-            currentStars.render(newRating);
-        }
-        // let stars = [];
+        // need to get user stars from db
 
-        // add new star value to user stars in db
+        let currentStars = this.state.stars;
+        currentStars.push(newRating);
+        console.log(currentStars);
+        // need to add new star value to user stars in db
         let avgRating = average(currentStars);
         this.setState({ avgRating, stars: currentStars });
 
         console.log(newRating)
+        Axios.put('/api/users/60e35d1e7accf41a50e44087', { newRating })
+
+
     }
 
     //pull in projects
@@ -63,7 +69,7 @@ class Profile extends Component {
     render() {
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
-        const { newRating } = this.state;
+        // const { newRating } = this.state;
         console.log(this.state);
         return (
             <>
@@ -114,6 +120,7 @@ class Profile extends Component {
                         />}
                     </div>
                     <p className="starStats">{currentUser && currentUser.firstName} has {this.state.avgRating} stars!</p>
+                    {/* onChange={(e) => this.onChangeStars(e.target.value)} */}
                     <hr />
                 </section>
                 <br />
