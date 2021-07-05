@@ -4,8 +4,7 @@ const User = require('../../models/User');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 // const projectsController = require('../controllers/projectControllers')
-
-
+require("../../passportConfig")
 
 
 
@@ -22,8 +21,7 @@ const passport = require('passport');
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    res.json(user);
-    console.log(user);
+    // res.json(user);
     if(!user) res.send("there is no user with those credentials");
     else {
       req.logIn(user, (err) => {
@@ -35,6 +33,10 @@ router.post("/login", (req, res, next) => {
       });
   }
 })(req, res, next);
+});
+
+router.get("/", (req, res) => {
+  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
 //Get all users

@@ -1,6 +1,6 @@
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
-const localStrategy = require('passport-local').Strategy
+const localStrategy = require('passport-local').Strategy;
 
 
 module.exports = function(passport) {
@@ -32,5 +32,5 @@ passport.deserializeUser((id, cb) => {
         };
         cb(err, userInformation);
         });
-    })
+    });
 };
