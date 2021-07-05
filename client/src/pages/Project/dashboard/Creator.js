@@ -20,7 +20,7 @@ function Creator() {
   return (<>
     <h1>Owner Dashboard</h1>
     {/* List developers that you have selected to join the project. Ability to edit list/remove developers? */}
-    <h4>Current project members:</h4>
+    {/* <h4>Current project members:</h4> */}
 
     {/* ***code below must be updated to reference users that the owner selected to join project(give option to edit/update?)
                       
@@ -51,13 +51,14 @@ function Creator() {
 
     {project.apply ? (
       <List>
-        {project.apply.map(apply => (
-          <ListItem key={apply._id}>
-
-            <Link to={"/users/" + apply._id}>
-              <strong>
-                Applicant!
-              </strong>
+        {project.apply.map(userId => (
+          
+          <ListItem key={userId}>
+            {/* console.log(project.apply); */}
+            <Link to={"/users/" + userId}>
+              
+                <p>Applicant!</p>
+              
             </Link>
             {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
           </ListItem>
