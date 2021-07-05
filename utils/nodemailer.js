@@ -10,7 +10,7 @@ const sendEmail = async () => {
     service: "gmail",
     auth: {
       user: "smartprojectrecruiter@gmail.com", 
-      pass: "SmartPr0j3ct!"
+      pass: "use dotenv"
     }
   });
   // send mail with defined transport object
