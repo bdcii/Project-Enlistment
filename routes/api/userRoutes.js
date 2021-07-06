@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 // const projectsController = require('../controllers/projectControllers')
 require("../../passportConfig")
-
+const passportLocal = require("passport-local").Strategy;
 
 
 // router.post("/login", 
@@ -18,25 +18,32 @@ require("../../passportConfig")
 //User Routes
 
 // login route
-router.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
-    // res.json(user);
-    if(!user) res.send("there is no user with those credentials");
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        res.send("You have successfully logged in!");
-        console.log(req.user);
-        return res.redirect("/");
-        // res.json(user);
-      });
-  }
-})(req, res, next);
-});
+// router.post("/login", (req, res, next) => {
+//   passport.authenticate("local", (err, user, info) => {
+//     if (err) throw err;
+//     console.log(user);
+//     if(!user) res.send("there is no user with those credentials");
+//     else {
+//       req.logIn(user, (err) => {
+//         if (err) throw err;
+//         res.send("You have successfully logged in!");
+//         console.log(req.user);
+//         return res.redirect("/");
+//         // res.json(user);
+//       });
+//   }
+// })(req, res, next);
+// });
 
-router.get("/", (req, res) => {
-  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+router.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+
+router.get("/current-user", (req, res) => {
+  res.json(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
 //Get all users
