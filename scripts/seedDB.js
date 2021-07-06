@@ -13,47 +13,59 @@ const projectSeed = [
     title: "Project-Enlistment",
     description: "An application to find developers that are interested in working on a project.",
     open: true,
-    dev_Need: 5,
-    date: new Date(Date.now()),
+    size: 5,
+    comment: "Great idea.",
+    startDate: new Date(Date.now()),
+    endDate: new Date(Date.now()),
     _creator: "",
-    apply: []
+    apply: [],
+    skills: ["Bootstrap", "React", "React-Bootstrap", "JavaScript", "Project Management"],
+    technologies: "React, JavaScript, Bootstrap, MongoDB"
   },
   {
     title: "Weather application",
     description: "An application that displays weather information. In need of developers who are skilled at API and styling.",
     open: true,
-    dev_Need: 5,
+    size: 5,
     comment: "I love working with API's and front-end development.",
-    date: new Date(Date.now()),
+    startDate: new Date(Date.now()),
+    endDate: new Date(Date.now()),
     _creator: "",
-    apply: []
+    apply: [],
+    skills: ["Bootstrap", "JavaScript", "CSS", "Project Management"],
+    technologies: "HTML, CSS, JavaScript, Bootstrap, API"
   },
   {
     title: "Portfolio Website",
     description: "An application to display portfolios. Please only apply if you are a React guru and have strong communication skills.",
     open: true,
-    dev_Need: 3,
+    size: 3,
     comment: "Call me the King of React! And don't get me started on communication - I love to communicate!",
-    date: new Date(Date.now()),
+    startDate: new Date(Date.now()),
+    endDate: new Date(Date.now()),
     _creator: "",
-    apply: []
+    apply: [],
+    skills: ["Bootstrap", "React", "React-Bootstrap", "JavaScript", "Project Management"]
   },
   {
     title: "Tech Blog",
     description: "A website that one can discuss topics in technology.",
     open: true,
-    dev_Need: 3,
+    size: 3,
     comment: "My skills include React bootstrap, React, JS, and project management.",
-    date: new Date(Date.now()),
+    startDate: new Date(Date.now()),
+    endDate: new Date(Date.now()),
     _creator: "",
-    apply: []
+    apply: [],
+    skills: ["Bootstrap", "MongoDB", "Express", "JavaScript", "Time Management"]
   },
   {
     title: "Game Website",
     description: "A webite for games.",
     open: true,
-    dev_Need: 4,
-    date: new Date(Date.now()),
+    size: 4,
+    startDate: new Date(Date.now()),
+    endDate: new Date(Date.now()),
     _creator: "",
     apply: []
   },

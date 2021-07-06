@@ -88,19 +88,19 @@ router.post('/signup', (req, res) => {
     if (err) throw err;
     if (doc) res.send("User Already Exists");
     if (!doc) {
-  const encryptedPassword = await bcrypt.hash(req.body.password, 10);
-  
-  const newUser = new User({
-    username: req.body.username,
-    email: req.body.email,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    github: req.body.github,
-    linkedin: req.body.linkedin,
-    password: encryptedPassword
-  });
-    await newUser.save();
-    res.send("User Created");
+      const encryptedPassword = await bcrypt.hash(req.body.password, 10);
+
+      const newUser = new User({
+        username: req.body.username,
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        github: req.body.github,
+        linkedin: req.body.linkedin,
+        password: encryptedPassword
+      });
+      await newUser.save();
+      res.send("User Created");
     };
   });
 });
@@ -108,7 +108,8 @@ router.post('/signup', (req, res) => {
 //Update user by id
 router.put('/:id', (req, res) => {
   let updates = req.body
-  User.findByIdAndUpdate({ _id: req.params.id }, updates, { new: true, runValidators: true })
+  console.log(req.body);
+  User.findByIdAndUpdate({ _id: req.params.id }, { $push: { stars: updates.newRating } }, { new: true, runValidators: true })
     .then((dbProject) => {
       res.json(dbProject)
     })

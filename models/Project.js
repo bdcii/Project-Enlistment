@@ -19,13 +19,22 @@ const projectSchema = new Schema(
         open: {
             type: Boolean
         },
-        dev_Need: {
-            type: Number
-        },
         comment: [{
             type: String,
             ref: 'Comment'
         }],
+        startDate: {
+            type: Date
+        },
+        endDate: {
+            type: Date
+        },
+        size: {
+            type: Number
+        },
+        technologies: {
+            type: String
+        },
         apply: [{
             type: Schema.ObjectId,
         }]
