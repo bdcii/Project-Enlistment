@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 // const projectsController = require('../controllers/projectControllers')
 require("../../passportConfig")
-const passportLocal = require("passport-local").Strategy;
+// const passportLocal = require("passport-local").Strategy;
 
 
 // router.post("/login", 
@@ -18,32 +18,26 @@ const passportLocal = require("passport-local").Strategy;
 //User Routes
 
 // login route
-// router.post("/login", (req, res, next) => {
-//   passport.authenticate("local", (err, user, info) => {
-//     if (err) throw err;
-//     console.log(user);
-//     if(!user) res.send("there is no user with those credentials");
-//     else {
-//       req.logIn(user, (err) => {
-//         if (err) throw err;
-//         res.send("You have successfully logged in!");
-//         console.log(req.user);
-//         return res.redirect("/");
-//         // res.json(user);
-//       });
-//   }
-// })(req, res, next);
-// });
+router.post("/login", (req, res, next) => {
+  console.log(req.body);
+  passport.authenticate("local", (err, user, info) => {
+    if (err) throw err;
+    if(!user) res.send("there is no user with those credentials");
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        // res.send("You have successfully logged in!");
+        // console.log(req.user);
+        return res.redirect("/");
+        // res.json(user);
+      });
+  }
+})(req, res, next);
+});
 
-router.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
-  });
-
-
+// if !req.user then 
 router.get("/current-user", (req, res) => {
-  res.json(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
 //Get all users
@@ -88,19 +82,19 @@ router.post('/signup', (req, res) => {
     if (err) throw err;
     if (doc) res.send("User Already Exists");
     if (!doc) {
-      const encryptedPassword = await bcrypt.hash(req.body.password, 10);
-
-      const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        github: req.body.github,
-        linkedin: req.body.linkedin,
-        password: encryptedPassword
-      });
-      await newUser.save();
-      res.send("User Created");
+  const encryptedPassword = await bcrypt.hash(req.body.password, 10);
+  
+  const newUser = new User({
+    username: req.body.username,
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    github: req.body.github,
+    linkedin: req.body.linkedin,
+    password: encryptedPassword
+  });
+    await newUser.save();
+    res.send("User Created");
     };
   });
 });
@@ -108,8 +102,7 @@ router.post('/signup', (req, res) => {
 //Update user by id
 router.put('/:id', (req, res) => {
   let updates = req.body
-  console.log(req.body);
-  User.findByIdAndUpdate({ _id: req.params.id }, { $push: { stars: updates.newRating } }, { new: true, runValidators: true })
+  User.findByIdAndUpdate({ _id: req.params.id }, updates, { new: true, runValidators: true })
     .then((dbProject) => {
       res.json(dbProject)
     })

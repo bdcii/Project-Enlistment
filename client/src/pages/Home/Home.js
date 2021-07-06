@@ -21,7 +21,7 @@ export function ProjectListItem({ project }) {
                   <p className="projDesc">{project.description}</p>
                   <p className="projDev">Developers Needed: {project.dev_Need}</p>
                 </Card.Text>
-                <Card.Link href={"/users/" + project.user_id} className="projMan">
+                <Card.Link href={"/users/" + project._creator} className="projMan">
                   <strong>Project Manager</strong>
                 </Card.Link>
               </Card.Body>

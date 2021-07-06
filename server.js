@@ -3,14 +3,14 @@ const session = require('express-session');
 const app = express();
 const cors = require("cors");
 const passport = require("passport");
-const passportLocal = require("passport-local").Strategy
+// const passportLocal = require("passport-local").Strategy
 const cookieParser = require("cookie-parser");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const utils = require("./utils/auth");
+// const utils = require("./utils/auth");
 // const MongoStore = require("connect-mongo");
 const nodemailer = require("nodemailer")
 const User = require("./models/User");
@@ -24,8 +24,8 @@ const sess = {
 
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 app.use(session(sess));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
