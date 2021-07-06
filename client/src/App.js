@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavTabs from "./components/NavTabs/NavTabs.js";
@@ -7,9 +7,10 @@ import Signin from "./pages/Signin/Signin.js";
 import Profile from "./pages/Profile/Profile.js";
 // import Login from './components/Login/Login';
 // import useToken from './components/App/useToken';
-import Project from "./pages/Project/dashboard/Project"
-import ProjectForm from "./pages/Project/newProject/ProjectForm"
-import sprlogo from "./assets/sprlogo.png"
+import Project from "./pages/Project/dashboard/Project";
+import ProjectForm from "./pages/Project/newProject/ProjectForm";
+import sprlogo from "./assets/sprlogo.png";
+import ProjManager from "./pages/ProjManager/ProjManager"
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/users/:id" component={ProjManager} />
                 <Route exact path="/projects/:id">
                     <Project />
                 </Route>

@@ -1,142 +1,115 @@
 import React, { useState } from "react";
 import "./ProjectForm.css";
-import API from '../../../utils/API';
-//import DatePicker from "react-datepicker";
-
-//function MyComponent() {
-
-//const [date, setDate] = useState(new Date());
-
-// const handleChange = date => setDate(date);
+//import { saveProject } from "../../utils/API";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
-// return <DatePicker selected={date} onChange={handleChange} />;
 
-// }
+
 
 function ProjectForm() {
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [open, setOpen] = useState(false);
+    const [closed, setClosed] = useState(false);
     const handleChange = e => {
-        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-        console.log(e.target);
-        setState({
-            ...state,
-            [e.target.getAttribute('id')]: value,
-        })
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value 
     }
-    const [state, setState] = useState({
-        isChecked: false,
-    });
+    //const onCreateClick = e => {
+     //   saveProject()
+   // }
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        console.log('listening');
-        console.log(state);
-        if (state.title) {
-            // && state.user._creator
-            API.saveProject({
-                title: state.title,
-                _creator: '60e35d1e7accf41a50e44087',
-                description: state.description,
-                technologies: state.technologies,
-                open: state.open,
-                startDate: state.startDate,
-                endDate: state.endDate,
-                size: state.size,
-                skills: state.skills
-            })
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
-        };
-    }
     return (
         <form>
             <div className="Container-1">
                 <div className="form-group text-left">
-                    <label htmlFor="ProjectName">Project Name</label>
-                    <input type="Text"
+                    <div className="projName"><label htmlFor="ProjectName">Project Name:</label></div>
+                    <div className="projNameInput"><input type="Text"
                         className="form-control"
                         id="title"
                         aria-describedby="ProjectName"
                         placeholder="Enter Project Name"
                         onChange={handleChange}
-                    />
+                    /></div>
 
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="ProjectDescription">Project Description</label>
-                    <textarea type="text"
+                    <div className="projDesc"><label htmlFor="ProjectDescription">Project Description:</label></div>
+                    <div className="projDescInput"><textarea type="text"
                         className="form-control"
                         id="description"
                         placeholder="Project Description"
                         onChange={handleChange}
-                    />
+                    /></div>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="Technologies">Technologies</label>
-                    <textarea type="Text"
+                    <div className="tech"><label htmlFor="Technologies">Technologies:</label></div>
+                    <div className="techInput"><textarea type="Text"
                         className="form-control"
                         id="technologies"
-                        placeholder="Enter technologies you would like to use on project"
+                        placeholder="Enter Technologies Used in Project"
                         onChange={handleChange}
-                    />
+                    /></div>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="Technologies">Project Start Date</label>
-                    <textarea type="Text"
+                    <div className="startDate"><label htmlFor="Technologies">Project Start Date:</label></div>
+                    <div className="startDateInput"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} 
                         className="form-control"
                         id="startDate"
-                        placeholder="Enter technologies you would like to use on project"
-                        onChange={handleChange}
-                    />
+                        placeholder="Enter Project Start Date"
+                    /></div>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="Technologies">Project End Date</label>
-                    <textarea type="Text"
+                    <div className="endDate"><label htmlFor="Technologies">Project End Date:</label></div>
+                    <div className="endDateInput"><DatePicker selected={endDate} onChange={(date) => setEndDate(date)} 
                         className="form-control"
                         id="endDate"
-                        placeholder="Enter technologies you would like to use on project"
-                        onChange={handleChange}
-                    />
+                        placeholder="Enter Project End Date"
+                    /></div>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="Technologies">Status</label>
-                    <input
+                    <div className="status"><label htmlFor="Technologies">Status:</label></div>
+                    <div className="statusInput"><input
                         type="checkbox"
-                        name="isChecked"
-                        id="open"
-                        checked={state.open}
+                        name="Closed"
+                        checked={setClosed}
                         onChange={handleChange}
-                    />
+                    /></div>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="Technologies">Team Size</label>
-                    <textarea type="Text"
+                    <div className="size"><label htmlFor="Technologies">Team Size:</label></div>
+                    <div className="sizeInput"><textarea type="Text"
                         className="form-control"
                         id="size"
-                        placeholder="Enter technologies you would like to use on project"
+                        placeholder="Enter Number of Team Members"
                         onChange={handleChange}
-                    />
+                    /></div>
                 </div>
                 <div className="form-group text-left">
-                    <label htmlFor="Technologies">Skills Wanted</label>
-                    <textarea type="Text"
+                    <div className="skills"><label htmlFor="Technologies">Skills Wanted:</label></div>
+                    <div className="skillsInput"><textarea type="Text"
                         className="form-control"
                         id="skills"
-                        placeholder="Enter technologies you would like to use on project"
+                        placeholder="Enter Skills Needed for the Project"
                         onChange={handleChange}
-                    />
+                    /></div>
                 </div>
+                <br />
                 <button
-                    type="submit"
-                    className="btn btn-primary"
-                    onClick={handleFormSubmit}
-                >
-                    Create project
-                </button>
-            </div>
+                    onClick={e => {
 
+                    }}
+                    type="submit"
+                    className="CreateButton"
+                >
+                    Create Project
+                </button>
+
+            </div>
+            <br />
         </form>
     )
-}
 
+}
 export default ProjectForm;
