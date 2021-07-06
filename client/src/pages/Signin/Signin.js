@@ -6,7 +6,7 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import Row from 'react-bootstrap/Row';
 import { Card } from 'react-bootstrap';
 import Axios from "axios";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 
 
 
@@ -26,6 +26,7 @@ function App() {
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [data, setData] = useState(null);  
+    const history = useHistory();
 
 
 const register = () => {
@@ -58,7 +59,7 @@ const register = () => {
       withCredentials: true,
       url: "http://localhost:3001/api/users/login",
     }).then((res) => {if (res.status === 200) { 
-        return res.redirect("/")
+        return history.push("/")
   };
 })
   }
