@@ -110,15 +110,27 @@ a[href^="mailto"] {
 }
 
 @media only screen and (min-width: 600px) {
-  .name, #email, #github, #linked, 
-  .set, .list, #stars, .starStats {
-      font-size: 25px;
+  .name,
+  #email,
+  #github,
+  #linked,
+  .set,
+  .list,
+  #stars,
+  .starStats {
+    font-size: 25px;
   }
 }
 
 @media only screen and (min-width: 800px) {
-  .name, #email, #github, #linked, 
-  .set, .list, #stars, .starStats {
-      font-size: 28px;
+  .name,
+  #email,
+  #github,
+  #linked,
+  .set,
+  .list,
+  #stars,
+  .starStats {
+    font-size: 28px;
   }
 }
