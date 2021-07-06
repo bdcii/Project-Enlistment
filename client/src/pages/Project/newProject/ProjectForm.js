@@ -1,53 +1,25 @@
 import React, { useState } from "react";
 import "./ProjectForm.css";
-import API from '../../../utils/API';
-//import DatePicker from "react-datepicker";
-
-//function MyComponent() {
-
-//const [date, setDate] = useState(new Date());
-
-// const handleChange = date => setDate(date);
+//import { saveProject } from "../../utils/API";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
-// return <DatePicker selected={date} onChange={handleChange} />;
 
-// }
+
 
 function ProjectForm() {
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [open, setOpen] = useState(false);
+    const [closed, setClosed] = useState(false);
     const handleChange = e => {
-        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-        console.log(e.target);
-        setState({
-            ...state,
-            [e.target.getAttribute('id')]: value,
-        })
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value 
     }
-    const [state, setState] = useState({
-        isChecked: false,
-    });
+    //const onCreateClick = e => {
+     //   saveProject()
+   // }
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        console.log('listening');
-        console.log(state);
-        if (state.title) {
-            // && state.user._creator
-            API.saveProject({
-                title: state.title,
-                _creator: '60e35d1e7accf41a50e44087',
-                description: state.description,
-                technologies: state.technologies,
-                open: state.open,
-                startDate: state.startDate,
-                endDate: state.endDate,
-                size: state.size,
-                skills: state.skills
-            })
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
-        };
-    }
     return (
         <form>
             <div className="Container-1">
@@ -102,9 +74,8 @@ function ProjectForm() {
                     <div className="status"><label htmlFor="Technologies">Status:</label></div>
                     <div className="statusInput"><input
                         type="checkbox"
-                        name="isChecked"
-                        id="open"
-                        checked={state.open}
+                        name="Closed"
+                        checked={setClosed}
                         onChange={handleChange}
                     /></div>
                 </div>
@@ -128,9 +99,11 @@ function ProjectForm() {
                 </div>
                 <br />
                 <button
+                    onClick={e => {
+
+                    }}
                     type="submit"
-                    className="btn btn-primary"
-                    onClick={handleFormSubmit}
+                    className="CreateButton"
                 >
                     Create Project
                 </button>
@@ -139,6 +112,6 @@ function ProjectForm() {
             <br />
         </form>
     )
-}
 
+}
 export default ProjectForm;
