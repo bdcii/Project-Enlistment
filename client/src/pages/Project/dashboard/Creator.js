@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
+import API from "../../../utils/API";
 import { Col, Row, Container } from "../../../components/Grid";
 import { List, ListItem } from "../../../components/List";
 import { Link, useParams } from "react-router-dom";
 
 
+
 function Creator() {
+
+  //sets project component's initial state
+  const [project, setProject] = useState({})
+
+  const { id } = useParams()
+  useEffect(() => {
+    API.getProject(id)
+      .then(res => setProject(res.data))
+      .catch(err => console.log(err));
+  }, [])
   return (<>
     <h1>Owner Dashboard</h1>
     {/* List developers that you have selected to join the project. Ability to edit list/remove developers? */}
-    <h4>Current project members:</h4>
+    {/* <h4>Current project members:</h4> */}
 
     {/* ***code below must be updated to reference users that the owner selected to join project(give option to edit/update?)
                       
@@ -36,24 +48,44 @@ function Creator() {
 
     {/* *** Code below needs to be updated to reference users that have filled out a form and shown interest in joining specific project. 
                   add buttons that allow project owner to add users to project/remove from candidate pool */}
-    {/* can this be project.apply === true???
-    {project.apply.length ? (
+
+    {project.apply ? (
       <List>
-        {project.apply.map(applicant => (
-          <ListItem key={project.apply}>
-            <Link to={"/users/" + user._id}>
-              <strong>
-                {user.skills}
-                {project.comment}
-              </strong>
+        {project.apply.map(userId => (
+          
+          <ListItem key={userId}>
+            {/* console.log(project.apply); */}
+            <Link to={"/users/" + userId}>
+              
+                <p>Applicant!</p>
+              
             </Link>
             {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
-          {/* </ListItem>
+          </ListItem>
         ))}
-      </List> */}
-    {/* ) : (
-      <h3>No Results to Display</h3>
-    )} */} 
+      </List>
+    ) : (
+      <h3>No applicants yet!</h3>
+    )}
+
+{/* code to display comments of users interested in joining project */}
+{project.comment ? (
+      <List>
+        {project.comment.map(apply => (
+          <ListItem key={project.comment}>
+
+           
+              <strong>
+                {project.comment}
+              </strong>
+          
+            {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
+          </ListItem>
+        ))}
+      </List>
+    ) : (
+      <h3>No applicants yet!</h3>
+    )}
   </>
   )
 }

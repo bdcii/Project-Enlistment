@@ -17,6 +17,10 @@ export default {
   saveProject: function(projectData) {
     return axios.post("/api/projects", projectData);
   },
+  // Updates a project with the given id
+  updateProject: function(id){
+    return axios.put("/api/projects/" + id);
+  },
   // Gets all Users
   getUsers: function() {
   return axios.get("/api/users");

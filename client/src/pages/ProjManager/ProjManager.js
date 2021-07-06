@@ -1,10 +1,10 @@
 import Axios from "axios";
 import React, { Component } from "react";
 import ReactStars from 'react-stars';
-import "./Profile.css";
+import "./ProjManager.css";
 
 // function Profile() {
-class Profile extends Component {
+class ProjManager extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class Profile extends Component {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    currentUserIndex: data.findIndex((user) => { return user._id === '60e35d1e7accf41a50e44087' }),
+                    currentUserIndex: data.findIndex((user) => { return user._id === project._creator }),
                 })
             });
     }
@@ -37,6 +37,7 @@ class Profile extends Component {
         this.setState({ avgRating, stars: currentStars });
 
         console.log(newRating)
+        //id for project._creator needs to go here
         Axios.put('/api/users/60e35d1e7accf41a50e44087', { newRating })
     }
 
@@ -74,21 +75,21 @@ class Profile extends Component {
                         </ul>
                     </div>
                     <hr />
-
-                    <div className="set"><strong>Skill Set</strong></div>
+                    {/* remove skill set for project manager? */}
+                    {/* <div className="set"><strong>Skill Set</strong></div>
                     <ul className="list">{currentUser && currentUser.skills ? currentUser.skills.toString().split(',').map((data, i) => {
                         return <li key={i}>{data}</li>
                     }) : 'loading'}
                     </ul>
-                    <hr />
+                    <hr /> */}
                 </section>
                 <section id="userProjects">
-                    <div className="set"><strong>Projects</strong></div>
+                    {/* <div className="set"><strong>Projects</strong></div>
                     <ul className="list">
                         {currentUser && currentUser.projects ? currentUser.projects.map((data, _id) => {
                             return <li key={data._id}>{data.title}</li>
                         }) : 'loading'}
-                    </ul>
+                    </ul> */}
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
                         {this.renderProjects()}
@@ -102,7 +103,7 @@ class Profile extends Component {
                         {<ReactStars
                             count={5}
                             onChange={this.ratingChanged}
-                            size={35}
+                            size={30}
                             edit={true}
                         />}
                     </div>
@@ -114,4 +115,4 @@ class Profile extends Component {
         )
     }
 }
-export default Profile;
+export default ProjManager;

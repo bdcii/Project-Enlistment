@@ -14,12 +14,17 @@ const userSchema = new Schema({
     trim: true,
     // required: "Enter your last name"
   },
+  username: {
+    type: String,
+    trim: true,
+    // required: "Enter your last name"
+  },
   email: {
     type: String,
     trim: true,
     unique: true,
-    required: "Enter your email address",
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    // required: "Enter your email address",
+    // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
   password: {
     type: String,
@@ -54,8 +59,6 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Skills"
     },
-
-  
   ],
   stars: {
     type: [Number]

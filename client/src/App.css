@@ -1,8 +1,8 @@
 .header {
     background-color: rgb(0, 121, 107);
     border-radius: 5px;
-    margin: 10px;
-    padding: 5px 10px;
+    margin: 5px 0;
+    padding: 5px 0px;
 }
 
 .logoTitleButtons {
@@ -23,17 +23,19 @@
     text-align: center;
     align-content: center;
     justify-content: center;
-    margin: 2%;
+    margin: 2% 0;
+    border-color: black;
 }
 
 .appLogo {
     display: flex;
     margin: 5%;
-    padding: 2%;
+    padding: 6% 5%;
     text-align: center;
     align-items: center;
     align-content: center;
     justify-content: center;
+    border: 5px solid rgb(178, 223, 219);
     border-radius: 5px;
     max-width: 90%;
     height: auto;
@@ -46,6 +48,7 @@
     justify-content: center;
     vertical-align: middle;
     align-items: center;
+    margin: 7%;
 }
 
 .nav {
@@ -53,7 +56,7 @@
     text-align: center;
     grid-template-areas: 
         "nav1 nav2 nav3 nav4";
-    padding: 2px;
+    padding: 5px;
     margin: 5px;
 }
 
