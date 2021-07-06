@@ -38,7 +38,7 @@ class ProjManager extends Component {
 
         console.log(newRating)
         //id for project._creator needs to go here
-        Axios.put('/api/users/60e35d1e7accf41a50e44087', { newRating })
+        Axios.put('/api/users/:id', { newRating })
     }
 
     //pull in projects

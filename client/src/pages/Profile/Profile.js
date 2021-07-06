@@ -23,7 +23,7 @@ class Profile extends Component {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    currentUserIndex: data.findIndex((user) => { return user._id === '60e4dfffc5bf4349d0864c8f' }),
+                    currentUserIndex: data.findIndex((user) => { return user._id === this.props.match.params.id }),
                 })
             });
     }
@@ -37,7 +37,7 @@ class Profile extends Component {
         this.setState({ avgRating, stars: currentStars });
 
         console.log(newRating)
-        Axios.put('/api/users/60e4dfffc5bf4349d0864c8f', { newRating })
+        Axios.put('/api/users/:id', { newRating })
     }
 
     //pull in projects
