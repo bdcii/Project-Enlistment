@@ -10,25 +10,25 @@ import { Card } from 'react-bootstrap';
 export function ProjectListItem({ project }) {
   return (
 
-      <ListItem key={project._id}>
+    <ListItem key={project._id}>
 
-        <CardColumns>
-          <Row>
-            <Card className="card" style={{ width: "18rem" }}>
-              <Card.Body className="cardBody">
-                <Card.Link href={"/projects/" + project._id} className="projTitle">{project.title}</Card.Link>
-                <Card.Text>
-                  <p className="projDesc">{project.description}</p>
-                  <p className="projDev">Developers Needed: {project.dev_Need}</p>
-                </Card.Text>
-                <Card.Link href={"/users/" + project.user_id} className="projMan">
-                  <strong>Project Manager</strong>
-                </Card.Link>
-              </Card.Body>
-            </Card>
-          </Row>
-        </CardColumns>
-      </ListItem>
+      <CardColumns>
+        <Row>
+          <Card className="card" style={{ width: "18rem" }}>
+            <Card.Body className="cardBody">
+              <Card.Link href={"/projects/" + project._id} className="projTitle">{project.title}</Card.Link>
+              <Card.Text>
+                <p className="projDesc">{project.description}</p>
+                <p className="projDev">Developers Needed: {project.size}</p>
+              </Card.Text>
+              <Card.Link href={"/users/" + project.user_creator} className="projMan">
+                <strong>Project Manager</strong>
+              </Card.Link>
+            </Card.Body>
+          </Card>
+        </Row>
+      </CardColumns>
+    </ListItem>
 
 
   )

@@ -23,74 +23,81 @@ function ProjectForm() {
     return (
         <form>
             <div className="Container-1">
-                <div className="Name">
-                    <label htmlFor="ProjectName">Project Name</label>
-                    <input type="Text"
-                        className="Name-input"
-                        id="Name"
+                <div className="form-group text-left">
+                    <div className="projName"><label htmlFor="ProjectName">Project Name:</label></div>
+                    <div className="projNameInput"><input type="Text"
+                        className="form-control"
+                        id="title"
                         aria-describedby="ProjectName"
                         placeholder="Enter Project Name"
-                    />
-
-                </div>
-                <div className="Project-Description">
-                    <label htmlFor="ProjectDescription">Project Description</label>
-                    <textarea type="text"
-                        className="Description-text"
-                        id="ProjectDescription"
-                        placeholder="Project Description"
-                    />
-                </div>
-                <div className="Technologies">
-                    <label htmlFor="Technologies">Technologies</label>
-                    <textarea type="Text"
-                        className="Tech-text"
-                        id="Technologies"
-                        placeholder="Enter technologies you would like to use on project"
-                    />
-                </div>
-                <div className="Start-Date">
-                    <label htmlFor="ProjectStartDate">Project Start Date</label>
-                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-                </div>
-                <div className="End-Date">
-                    <label htmlFor="ProjectEndDate">Project End Date</label>
-                    <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
-                </div>
-
-                <div className="Status">
-                    <label htmlFor="Status">Status</label>
-                    <input
-                        type="checkbox"
-                        name="Open"
-                        checked={setOpen}
                         onChange={handleChange}
-                    />
-                    Open
-                    <input
+                    /></div>
+
+                </div>
+                <div className="form-group text-left">
+                    <div className="projDesc"><label htmlFor="ProjectDescription">Project Description:</label></div>
+                    <div className="projDescInput"><textarea type="text"
+                        className="form-control"
+                        id="description"
+                        placeholder="Project Description"
+                        onChange={handleChange}
+                    /></div>
+                </div>
+                <div className="form-group text-left">
+                    <div className="tech"><label htmlFor="Technologies">Technologies:</label></div>
+                    <div className="techInput"><textarea type="Text"
+                        className="form-control"
+                        id="technologies"
+                        placeholder="Enter Technologies Used in Project"
+                        onChange={handleChange}
+                    /></div>
+                </div>
+                <div className="form-group text-left">
+                    <div className="startDate"><label htmlFor="Technologies">Project Start Date:</label></div>
+                    <div className="startDateInput"><textarea type="Text"
+                        className="form-control"
+                        id="startDate"
+                        placeholder="Enter Project Start Date"
+                        onChange={handleChange}
+                    /></div>
+                </div>
+                <div className="form-group text-left">
+                    <div className="endDate"><label htmlFor="Technologies">Project End Date:</label></div>
+                    <div className="endDateInput"><textarea type="Text"
+                        className="form-control"
+                        id="endDate"
+                        placeholder="Enter Project End Date"
+                        onChange={handleChange}
+                    /></div>
+                </div>
+                <div className="form-group text-left">
+                    <div className="status"><label htmlFor="Technologies">Status:</label></div>
+                    <div className="statusInput"><input
                         type="checkbox"
                         name="Closed"
                         checked={setClosed}
                         onChange={handleChange}
-                    />
-                    Closed
+                    /></div>
                 </div>
-                <div className="Team-Size">
-                    <label htmlFor="Technologies">Team Size</label>
-                    <input type="Text"
-                        className="Team-input"
-                        id="Team Size"
-                        placeholder="Enter team Size"
-                    />
+                <div className="form-group text-left">
+                    <div className="size"><label htmlFor="Technologies">Team Size:</label></div>
+                    <div className="sizeInput"><textarea type="Text"
+                        className="form-control"
+                        id="size"
+                        placeholder="Enter Number of Team Members"
+                        onChange={handleChange}
+                    /></div>
                 </div>
-                <div className="Skills">
-                    <label htmlFor="Skillsneeded">Skills Needed</label>
-                    <textarea type="Text"
-                        className="Skills-text"
-                        id="Skills Needed"
-                        placeholder="List the skills you need for project"
-                    />
+                <div className="form-group text-left">
+                    <div className="skills"><label htmlFor="Technologies">Skills Wanted:</label></div>
+                    <div className="skillsInput"><textarea type="Text"
+                        className="form-control"
+                        id="skills"
+                        placeholder="Enter Skills Needed for the Project"
+                        onChange={handleChange}
+                    /></div>
                 </div>
+                <br />
                 <button
                     onClick={e => {
 
@@ -98,10 +105,11 @@ function ProjectForm() {
                     type="submit"
                     className="CreateButton"
                 >
-                    Create project
+                    Create Project
                 </button>
-            </div>
 
+            </div>
+            <br />
         </form>
     )
 

@@ -1,55 +1,44 @@
-/* Format Style */
-.CreateButton {
-    margin-left: 480px;
-    background-color: teal;
+.projName, .projDesc, .tech, 
+.startDate, .endDate, .status,
+.size, .skills {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 121, 107);
+    /* margin: 20px, 0, 5px, 5px; */
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
 
-.Name {
-    text-align: center;
+::placeholder {
+    font-family: arial;
+    color: black;
+    font-size: 18px;
+    justify-content: left;
+    vertical-align: center;
 }
 
-.Name-input {
-    align-items: center;
+.projNameInput, .projDescInput, .techInput, 
+.startDateInput, .endDateInput, .statusInput,
+.sizeInput, .skillsInput {
+padding: 5px;
 }
 
-.Project-Description {
-    text-align: center;
-}
-.Desription-text {
-    align-items: center;
-}
-
-.Technologies {
-    text-align: center;
-}
-.Tech-text {
-    align-items: center;
+input, textarea {
+    font: arial;
+    padding: 10px;
+    width: 160%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 121, 107);
+    box-shadow: 1px 1px 1px rgb(107, 202, 185);
 }
 
-.Start-Date {
-    text-align: center;
+#open {
+    box-shadow: none;
 }
 
-.End-Date {
-    text-align: center;
-}
-
-.Status {
-    text-align: center;
-}
-
-.Team-Size {
-    text-align: center;
-}
-
-.Team-input {
-    align-items: center;
-}
-
-.Skills {
-    text-align: center;
-}
-
-.Skills-text {
-    align-items: center;
+button {
+    padding: 10px;
+    background-color: rgb(192, 255, 255);
 }
