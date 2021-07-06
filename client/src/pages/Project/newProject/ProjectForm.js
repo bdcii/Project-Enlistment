@@ -37,6 +37,7 @@ function ProjectForm() {
                 title: state.title,
                 _creator: '60e35d1e7accf41a50e44087',
                 description: state.description,
+                technologies: state.technologies,
                 open: state.open,
                 startDate: state.startDate,
                 endDate: state.endDate,

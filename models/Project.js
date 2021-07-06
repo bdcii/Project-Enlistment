@@ -32,6 +32,9 @@ const projectSchema = new Schema(
         size: {
             type: Number
         },
+        technologies: {
+            type: String
+        },
         apply: [{
             type: Schema.ObjectId,
         }]
