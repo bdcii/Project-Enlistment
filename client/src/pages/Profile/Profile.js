@@ -1,7 +1,6 @@
 import Axios from "axios";
 import React, { Component } from "react";
 import ReactStars from 'react-stars';
-// import ReactDOM from 'react-dom';
 import "./Profile.css";
 
 // function Profile() {
@@ -103,7 +102,7 @@ class Profile extends Component {
                         {<ReactStars
                             count={5}
                             onChange={this.ratingChanged}
-                            size={30}
+                            size={35}
                             edit={true}
                         />}
                     </div>
