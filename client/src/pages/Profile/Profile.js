@@ -28,28 +28,17 @@ class Profile extends Component {
                 })
             });
     }
-
-    // onChangeStars(event) {
-    //     this.setState({
-    //         stars: event.target.value
-    //     });
-    // }
-
+    //user rating
     ratingChanged = (newRating) => {
         let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
-        // need to get user stars from db
-
         let currentStars = this.state.stars;
         currentStars.push(newRating);
         console.log(currentStars);
-        // need to add new star value to user stars in db
         let avgRating = average(currentStars);
         this.setState({ avgRating, stars: currentStars });
 
         console.log(newRating)
         Axios.put('/api/users/60e35d1e7accf41a50e44087', { newRating })
-
-
     }
 
     //pull in projects
@@ -69,8 +58,7 @@ class Profile extends Component {
     render() {
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
-        // const { newRating } = this.state;
-        console.log(this.state);
+
         return (
             <>
                 <br />
@@ -120,7 +108,6 @@ class Profile extends Component {
                         />}
                     </div>
                     <p className="starStats">{currentUser && currentUser.firstName} has {this.state.avgRating} stars!</p>
-                    {/* onChange={(e) => this.onChangeStars(e.target.value)} */}
                     <hr />
                 </section>
                 <br />

@@ -19,7 +19,8 @@ const projectSeed = [
     endDate: new Date(Date.now()),
     _creator: "",
     apply: [],
-    skills: ["Bootstrap", "React", "React-Bootstrap", "JavaScript", "Project Management"]
+    skills: ["Bootstrap", "React", "React-Bootstrap", "JavaScript", "Project Management"],
+    technologies: "React, JavaScript, Bootstrap, MongoDB"
   },
   {
     title: "Weather application",
@@ -31,7 +32,8 @@ const projectSeed = [
     endDate: new Date(Date.now()),
     _creator: "",
     apply: [],
-    skills: ["Bootstrap", "JavaScript", "CSS", "Project Management"]
+    skills: ["Bootstrap", "JavaScript", "CSS", "Project Management"],
+    technologies: "HTML, CSS, JavaScript, Bootstrap, API"
   },
   {
     title: "Portfolio Website",
