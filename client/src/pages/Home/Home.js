@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Home.css';
 import { List, ListItem } from "../../components/List";
 import API from "../../utils/API";
-import Container from 'react-bootstrap/Container';
+// import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Row from 'react-bootstrap/Row';
 import { Card } from 'react-bootstrap';
@@ -21,7 +21,7 @@ export function ProjectListItem({ project }) {
                 <p className="projDesc">{project.description}</p>
                 <p className="projDev">Developers Needed: {project.size}</p>
               </Card.Text>
-              <Card.Link href={"/users/" + project.user_creator} className="projMan">
+              <Card.Link href={"/users/" + project._creator} className="projMan">
                 <strong>Project Manager</strong>
               </Card.Link>
             </Card.Body>
