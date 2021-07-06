@@ -19,7 +19,7 @@ hr {
 
 .name {
   margin: 5px;
-  margin-left: 45px;
+  /* margin-left: 45px; */
   padding: 5px 5px 0px 45px;
 }
 
@@ -28,7 +28,7 @@ hr {
   border-radius: 2px;
   /* box-shadow: 0 3px 6px #999, 0 3px 6px #999; */
   align-content: center;
-  margin-left: 45px;
+  /* margin-left: 45px; */
 }
 
 .contact nav ul li {
@@ -37,7 +37,7 @@ hr {
   /* flex-wrap: wrap; */
   align-content: center;
   justify-content: center;
-  margin-left: 45px;
+  /* margin-left: 45px; */
 }
 
 a .contact nav ul li {
@@ -59,7 +59,7 @@ a:visited .contact nav ul li {
   display: inline-flex;
   flex-direction: row;
   margin: 5px;
-  padding: 5px 5px 0px 45px;
+  padding: 5px 5px 0px 5px;
 }
 
 a[href^="mailto"] {
@@ -77,19 +77,19 @@ a[href^="mailto"] {
   display: inline-flex;
   flex-direction: row;
   margin: 5px;
-  padding: 5px 5px 0px 45px;
+  padding: 5px 5px 0px 5px;
 }
 
 .set,
 .list,
 .userProjects {
   margin: 5px;
-  margin-left: 45px;
+  /* margin-left: 45px; */
   padding: 5px 5px 0px 45px;
 }
 
 #stars {
-  margin-left: 90px;
+  margin-left: 45px;
 }
 
 #average {
@@ -100,5 +100,25 @@ a[href^="mailto"] {
   .side,
   .middle {
     width: 100%;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  #linked {
+    padding: 5px 5px 0px 45px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .name, #email, #github, #linked, 
+  .set, .list, #stars, .starStats {
+      font-size: 25px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .name, #email, #github, #linked, 
+  .set, .list, #stars, .starStats {
+      font-size: 28px;
   }
 }
