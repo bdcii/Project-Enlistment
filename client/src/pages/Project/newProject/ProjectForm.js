@@ -54,20 +54,18 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="startDate"><label htmlFor="Technologies">Project Start Date:</label></div>
-                    <div className="startDateInput"><textarea type="Text"
+                    <div className="startDateInput"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} 
                         className="form-control"
                         id="startDate"
                         placeholder="Enter Project Start Date"
-                        onChange={handleChange}
                     /></div>
                 </div>
                 <div className="form-group text-left">
                     <div className="endDate"><label htmlFor="Technologies">Project End Date:</label></div>
-                    <div className="endDateInput"><textarea type="Text"
+                    <div className="endDateInput"><DatePicker selected={endDate} onChange={(date) => setEndDate(date)} 
                         className="form-control"
                         id="endDate"
                         placeholder="Enter Project End Date"
-                        onChange={handleChange}
                     /></div>
                 </div>
                 <div className="form-group text-left">
