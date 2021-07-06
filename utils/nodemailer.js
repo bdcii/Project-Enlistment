@@ -9,7 +9,7 @@ const sendEmail = async () => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "smartprojectrecruiter@gmail.com", 
+      user: "use dotenv", 
       pass: "use dotenv"
     }
   });
