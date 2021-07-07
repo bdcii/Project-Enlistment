@@ -10,14 +10,43 @@
 }
 
 ::placeholder {
-    font-size: 18px;
+    font-size: 16px;
+    color: gray;
     justify-content: left;
     text-align: left;
     margin: 5px;
     padding: 5px;
 }
 
-input {
-    width: 200px;
-    height: 30px;
+.entryLabel {
+    font-size: 20px;
 }
+
+.entry {
+    font-size: 16px;
+    color: gray;
+    width: 58%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .register, .login {
+      font-size: 50px;
+    }
+
+    .entryLabel {
+        font-size: 30px;
+    }
+
+    .entry {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    ::placeholder {
+        font-size: 25px;
+    }
+
+  }

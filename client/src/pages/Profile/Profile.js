@@ -23,7 +23,7 @@ class Profile extends Component {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    currentUserIndex: data.findIndex((user) => { return user._id === this.props.match.params.id }),
+                    currentUserIndex: data.findIndex((user) => { return user._id === user._id }),
                 })
             });
     }
