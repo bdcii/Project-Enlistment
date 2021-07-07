@@ -11,7 +11,7 @@ function ProjectForm() {
     const [endDate, setEndDate] = useState(new Date());
     const [open, setOpen] = useState(false);
     const [closed, setClosed] = useState(false);
-    const { user } = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         setState({

@@ -21,15 +21,15 @@ require("../../passportConfig")
 router.post("/login", (req, res, next) => {
   console.log(req.body);
   passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
+    if (err) res.json(err);
     if(!user) res.send("there is no user with those credentials");
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
         // res.send("You have successfully logged in!");
         // console.log(req.user);
-        return res.redirect("/");
-        // res.json(user);
+        // return res.redirect("/");
+        res.json(user);
       });
   }
 })(req, res, next);
@@ -139,14 +139,9 @@ router.delete('/:id', (req, res) => {
 });
 
 // logout
-router.post('/logout', (req, res) => {
-  if (req.user) {
-      req.user.destroy(() => {
-          res.status(204).end();
-      });
-  } else {
-      res.status(404).end();
-  }
+router.get('/logout', (req, res) => {
+      req.logout();
+      res.redirect("/")
 });
 
 module.exports = router;

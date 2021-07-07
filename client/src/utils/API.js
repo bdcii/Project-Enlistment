@@ -21,6 +21,7 @@ export default {
   updateProjectComment: function(id, comment){
     return axios.put("/api/projects/" + id, {comment});
   },
+  
 
   //remove applicant from project
   removeProjectApply: function(id, apply){

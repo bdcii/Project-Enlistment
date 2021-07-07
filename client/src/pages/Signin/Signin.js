@@ -60,13 +60,23 @@ const register = () => {
       },
       withCredentials: true,
       url: "http://localhost:3001/api/users/login",
-    }).then((res) => {if (res.status === 200) { 
-        setUser(res.data);
-        return history.push("/")
-  };
+    }).then((res) => {if (res.data === "there is no user with those credentials") { 
+        
+      console.log(res)
+      alert(res.data);
+        // setUser(res.data);
+        return history.push("/signin")
+  } else if 
+    (res.status === 200) {
+    setUser(res.data);
+    alert("You have succesfully logged in!");
+    return history.push("/")
+  } else {
+    return history.push("/signin")
+  }
 })
   }
-
+  
   const getUser = () => {
     Axios({
       method: "GET",
