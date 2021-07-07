@@ -9,8 +9,8 @@ import "react-datepicker/dist/react-datepicker.css";
 function ProjectForm() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [open, setOpen] = useState(false);
-    const [closed, setClosed] = useState(false);
+   // const [open, setOpen] = useState();
+  //  const [closed, setClosed] = useState();
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         setState({
@@ -92,13 +92,18 @@ function ProjectForm() {
                     /></div>
                 </div>
                 <div className="form-group text-left">
-                    <div className="status"><label htmlFor="Technologies">Status:</label></div>
+                    <div className="status"><label htmlFor="StatusInput">Status:</label></div>
                     <div className="statusInput"><input
                         type="checkbox"
-                        name="Closed"
-                        checked={setClosed}
+                        name="Open"
                         onChange={handleChange}
-                    /></div>
+                    />
+                    Open
+                    <input
+                    type="checkbox"
+                    name="Closed"
+                    onChange={handleChange}
+                />Closed</div>
                 </div>
                 <div className="form-group text-left">
                     <div className="size"><label htmlFor="Technologies">Team Size:</label></div>
