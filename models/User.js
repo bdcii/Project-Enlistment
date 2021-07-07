@@ -64,6 +64,11 @@ const userSchema = new Schema({
   stars: {
     type: [Number]
   },
+  member_Of: [
+    {
+    type: String
+    }
+  ]
   // availability: [
   //   {
   //     type: Schema.Types.ObjectId,

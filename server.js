@@ -34,6 +34,10 @@ app.use(cors({
   credentials: true,
 })
 );
+// app.use(cors({
+//   origin: "https://api.nodemailer.com/user",
+//   credentials: true,
+// }))
 app.use(cookieParser("Super secret secret")),
 app.use(passport.initialize());
 app.use(passport.session());
