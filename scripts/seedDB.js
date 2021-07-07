@@ -49,7 +49,7 @@ const projectSeed = [
   },
   {
     title: "Tech Blog",
-    description: "A website that one can discuss topics in technology.",
+    description: "A website where developers and tech geeks can discuss topics in technology.",
     open: true,
     size: 3,
     comment: "My skills include React bootstrap, React, JS, and project management.",
@@ -61,7 +61,7 @@ const projectSeed = [
   },
   {
     title: "Game Website",
-    description: "A webite for games.",
+    description: "A website for fun and addicting games. Check out our games and forget about all those boring chores!",
     open: true,
     size: 4,
     startDate: new Date(Date.now()),

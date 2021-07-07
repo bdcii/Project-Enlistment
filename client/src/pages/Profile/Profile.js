@@ -97,9 +97,9 @@ class Profile extends Component {
                     <div className="star">
                     </div>
 
-                    <div className="set"><strong>User Rating</strong></div>
+                    <div className="set userRating"><strong>User Rating</strong></div>
                     <div id="stars">
-                        {<ReactStars
+                        {<ReactStars className="starString"
                             count={5}
                             onChange={this.ratingChanged}
                             size={35}
