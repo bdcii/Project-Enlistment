@@ -31,17 +31,6 @@ router.get("/:id", (req, res) => {
         })
 })
 
-// router.get("/:id", (req, res) => {
-//     Project.find({ _creator: req.params.id })
-//         .populate("users")
-//         .then((dbProject) => {
-
-//             res.json(dbProject);
-//         })
-//         .catch((err) => {
-//             res.json(err);
-//         })
-// })
 
 
 // create project //
@@ -63,10 +52,10 @@ router.put('/:id', (req, res) => {
         { new: true, runValidators: true }
     )
         .then((dbProject) => {
-            res.json(dbProject)
+            res.status(200).json(dbProject)
         })
         .catch((err) => {
-            res.json(err)
+            res.status(400).json(err)
         });
 });
 
@@ -82,19 +71,3 @@ router.delete('/:id', (req, res) => {
 
 module.exports = router;
 
-// const router = require("express").Router();
-// const booksController = require("../../controllers/booksController");
-
-// // Matches with "/api/books"
-// router.route("/")
-//   .get(booksController.findAll)
-//   .post(booksController.create);
-
-// // Matches with "/api/books/:id"
-// router
-//   .route("/:id")
-//   .get(booksController.findById)
-//   .put(booksController.update)
-//   .delete(booksController.remove);
-
-// module.exports = router;

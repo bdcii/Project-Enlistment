@@ -17,9 +17,24 @@ export default {
   saveProject: function(projectData) {
     return axios.post("/api/projects", projectData);
   },
-  // Updates a project with the given id
-  updateProject: function(id){
-    return axios.put("/api/projects/" + id);
+  // Updates a project comment with the given id
+  updateProjectComment: function(id, comment){
+    return axios.put("/api/projects/" + id, {comment});
+  },
+
+  //remove applicant from project
+  removeProjectApply: function(id, apply){
+    return axios.delete("/api/projects/" + id, {apply});
+  },
+
+  //add Developer to project.  Needs to reference Project ID, as well as the project property of the User document
+  updateProjectMembership: function(id, apply){
+    return axios.put("/api/projects/" + id, {apply});
+  },
+  
+  //Update project status
+  updateProjectStatus: function(id, status){
+    return axios.put("/api/projects/" + id, {open: status});
   },
   // Gets all Users
   getUsers: function() {

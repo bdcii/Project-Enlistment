@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import API from "../../../utils/API";
+import DeleteBtn from "../../../components/DeleteBtn";
+import AddBtn from "../../../components/AddBtn";
 import { Col, Row, Container } from "../../../components/Grid";
 import { List, ListItem } from "../../../components/List";
 import { Link, useParams } from "react-router-dom";
+import Status from "./Status"
+
 
 
 
@@ -19,34 +23,16 @@ function Creator() {
   }, [])
   return (<>
     <h1>Owner Dashboard</h1>
-    {/* List developers that you have selected to join the project. Ability to edit list/remove developers? */}
-    {/* <h4>Current project members:</h4> */}
+    <Status/>
+  
 
-    {/* ***code below must be updated to reference users that the owner selected to join project(give option to edit/update?)
-                      
-                      {books.length ? (
-                <List>
-                  {books.map(book => (
-                    <ListItem key={book._id}>
-                      <Link to={"/books/" + book._id}>
-                        <strong>
-                          {book.title} by {book.author}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteBook(book._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )} */}
-
+   
     {/* Pull a list of developers that have shown interest in joining project.  Should be able to click link to their personal
                       profile.  Buttons to Add/Remove developers? */}
     <h4>Select developers to join your project below!</h4>
 
 
-    {/* *** Code below needs to be updated to reference users that have filled out a form and shown interest in joining specific project. 
+    {/* ***reference users that have filled out form and shown interest in joining specific project. 
                   add buttons that allow project owner to add users to project/remove from candidate pool */}
 
     {project.apply ? (
@@ -54,13 +40,14 @@ function Creator() {
         {project.apply.map(userId => (
           
           <ListItem key={userId}>
-            {/* console.log(project.apply); */}
+           
             <Link to={"/users/" + userId}>
               
                 <p>Applicant!</p>
               
             </Link>
-            {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
+            <AddBtn onClick={() => API.updateProjectMembership(userId)}/>
+           <DeleteBtn onClick={() => API.removeProjectApply(userId)} />
           </ListItem>
         ))}
       </List>
@@ -79,7 +66,6 @@ function Creator() {
                 {project.comment}
               </strong>
           
-            {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
           </ListItem>
         ))}
       </List>
