@@ -30,3 +30,23 @@
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+@media only screen and (min-width: 600px) {
+    .register, .login {
+      font-size: 50px;
+    }
+
+    .entryLabel {
+        font-size: 30px;
+    }
+
+    .entry {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    ::placeholder {
+        font-size: 25px;
+    }
+
+  }
