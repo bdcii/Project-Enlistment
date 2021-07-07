@@ -1,42 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./ProjectForm.css";
 //import { saveProject } from "../../utils/API";
 import API from '../../../utils/API';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import UserContext from "../../../utils/UserContext";
 
 function ProjectForm() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [open, setOpen] = useState(false);
     const [closed, setClosed] = useState(false);
+    const {user} = useContext(UserContext);
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         setState({
             ...state,
             [e.target.name]: value,
-            ...state,
+            // ...state,
             [e.target.getAttribute('id')]: value,
         })
     }
+    
 
     const [state, setState] = useState({
         isChecked: false,
+        // user:data
     });
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (state.title && state.user._creator) {
+        if (state.title && user && user.id) {
             API.saveProject({
                 title: state.title,
-                _creator: state.user,
+                _creator: user.id,
                 description: state.description,
                 open: state.open,
                 startDate: state.startDate,
                 endDate: state.endDate,
                 size: state.size,
-                skills: state.skills
+                skills: state.skills                
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
