@@ -11,8 +11,8 @@ import "react-datepicker/dist/react-datepicker.css";
 function ProjectForm() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [open, setOpen] = useState(false);
-    const [closed, setClosed] = useState(false);
+    const [open, setOpen] = useState();
+    const [closed, setClosed] = useState();
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value 
     }
@@ -74,7 +74,6 @@ function ProjectForm() {
                         type="checkbox"
                         name="Closed"
                         checked={setClosed}
-                        onChange={handleChange}
                     /></div>
                 </div>
                 <div className="form-group text-left">
