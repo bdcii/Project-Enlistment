@@ -11,17 +11,17 @@ function ProjectForm() {
     const [endDate, setEndDate] = useState(new Date());
     const [open, setOpen] = useState(false);
     const [closed, setClosed] = useState(false);
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         setState({
             ...state,
-            [e.target.name]: value,
+            // [e.target.name]: value,
             // ...state,
             [e.target.getAttribute('id')]: value,
         })
     }
-    
+
 
     const [state, setState] = useState({
         isChecked: false,
@@ -39,7 +39,7 @@ function ProjectForm() {
                 startDate: state.startDate,
                 endDate: state.endDate,
                 size: state.size,
-                skills: state.skills                
+                skills: state.skills,
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
@@ -101,12 +101,12 @@ function ProjectForm() {
                         name="Open"
                         onChange={handleChange}
                     />
-                    Open
-                    <input
-                    type="checkbox"
-                    name="Closed"
-                    onChange={handleChange}
-                />Closed</div>
+                        Open
+                        <input
+                            type="checkbox"
+                            name="Closed"
+                            onChange={handleChange}
+                        />Closed</div>
                 </div>
                 <div className="form-group text-left">
                     <div className="size"><label htmlFor="Technologies">Team Size:</label></div>
