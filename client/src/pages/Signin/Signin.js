@@ -82,59 +82,110 @@ return (
     <div className="App">
       <div>
         <h1>Register</h1>
-        <input
-          placeholder="Email"
-          onChange={(e) => setRegisterEmail(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <input
-          placeholder="First Name"
-          onChange={(e) => setRegisterFirstName(e.target.value)}
-        />
-        <input
-          placeholder="Last Name"
-          onChange={(e) => setRegisterLastName(e.target.value)}
-        />
-        <input
-          placeholder="Username"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <input
-          placeholder="GitHub"
-          onChange={(e) => setRegisterGithub(e.target.value)}
-        />
-        <input
-          placeholder="LinkedIn"
-          onChange={(e) => setRegisterLinkedin(e.target.value)}
-        />
-        <input
-          placeholder="Skills"
-          onChange={(e) => setRegisterSkills(e.target.value)}
-        />
+        <br />
+        <div className="entryLabel">Email:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter Email"
+            onChange={(e) => setRegisterEmail(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">Password:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter Password"
+            onChange={(e) => setRegisterPassword(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">First Name:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter First Name"
+            onChange={(e) => setRegisterFirstName(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">Last Name:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter Last Name"
+            onChange={(e) => setRegisterLastName(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">Username:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter Username"
+            onChange={(e) => setRegisterUsername(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">GitHub Account:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter GitHub Account Link"
+            onChange={(e) => setRegisterGithub(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">LinkedIn Profile:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter LinkedIn Profile Link"
+            onChange={(e) => setRegisterLinkedin(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">LinkedIn Profile:</div>
+        <div className="entry">
+          <input
+            placeholder="Skills"
+            onChange={(e) => setRegisterSkills(e.target.value)}
+          />
+        </div>
+
         <button onClick={register}>Submit</button>
       </div>
+      <br />
+      <hr />
+      <br />
 
       <div>
         <h1>Login</h1>
+        <br />
+
+        <div className="entryLabel">Username:</div>
+        <div className="entry">
+          <input
+            placeholder="Enter Username"
+            onChange={(e) => setLoginUsername(e.target.value)}
+          />
+        </div>
+
+        <div className="entryLabel">Password:</div>
+        <div className="entry">
         <input
-          placeholder="Username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          placeholder="Password"
+          placeholder="Enter Password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
+        </div>
+
         <button onClick={login}>Submit</button>
       </div>
+      <br />
+      <hr />
+      <br />
+
       <div>
         <h1>Get User</h1>
+        <br />
         <button onClick={getUser}>Submit</button>
         {data ? <h1>Welcome Back {data.username}</h1> : null}
       </div>
-
+      <br />
     </div>
   );
 }
