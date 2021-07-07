@@ -68,6 +68,16 @@ router.delete('/:id', (req, res) => {
             res.statsus(422).json(err));
 });
 
+//delete developer from Apply field
+router.delete('/apply/:id', (req, res) => {
+    let updates = req.body
+    Project.findById({ _id: req.params.id },
+        updates)
+        .then(dbProject => res.json(dbProject))
+        .catch(err =>
+            res.statsus(422).json(err));
+});
+
 
 module.exports = router;
 
