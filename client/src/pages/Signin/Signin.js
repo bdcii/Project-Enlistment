@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import "./Signin.css";
 import API from "../../utils/API";
 import Container from 'react-bootstrap/Container';
@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import { Card } from 'react-bootstrap';
 import Axios from "axios";
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
+import UserContext from "../../utils/UserContext";
 
 
 
@@ -27,6 +28,7 @@ function App() {
     const [loginPassword, setLoginPassword] = useState("");
     const [data, setData] = useState(null);  
     const history = useHistory();
+    const {setUser} = useContext(UserContext);
 
 
 const register = () => {
@@ -59,6 +61,7 @@ const register = () => {
       withCredentials: true,
       url: "http://localhost:3001/api/users/login",
     }).then((res) => {if (res.status === 200) { 
+        setUser(res.data);
         return history.push("/")
   };
 })

@@ -37,8 +37,10 @@ router.post("/login", (req, res, next) => {
 
 // if !req.user then 
 router.get("/current-user", (req, res) => {
-  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
-});
+  if (!req.user) {res.status(404).send()} else {res.json(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+  }
+  });
+
 
 //Get all users
 router.get("/", (req, res) => {
