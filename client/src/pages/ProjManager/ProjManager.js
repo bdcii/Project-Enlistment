@@ -1,6 +1,7 @@
 import Axios from "axios";
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import ReactStars from 'react-stars';
+import UserContext from "../../utils/UserContext";
 import "./ProjManager.css";
 
 // function Profile() {
@@ -38,14 +39,18 @@ class ProjManager extends Component {
 
         console.log(newRating)
         //id for project._creator needs to go here
-        Axios.put('/api/users/:id', { newRating })
+        Axios.put('/api/users', { newRating })
     }
 
     //pull in projects
     renderProjects() {
         const { users, currentUserIndex } = this.state;
+        // const { user } = this.state.user;
         const currentUser = users && users[currentUserIndex];
+        // if (user) {
         if (currentUser) {
+            // const projects = user.projects.reduce((listProject, project) => {
+            //     if (project._creator === user._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
             const projects = currentUser.projects.reduce((listProject, project) => {
                 if (project._creator === currentUser._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
                 return listProject
@@ -56,6 +61,7 @@ class ProjManager extends Component {
     }
 
     render() {
+        // const { user } = this.state;
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
 
