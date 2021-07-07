@@ -88,8 +88,12 @@ a[href^="mailto"] {
   padding: 5px 5px 0px 45px;
 }
 
-#stars {
-  margin-left: 90px;
+.starString,
+.userRating {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 #average {
