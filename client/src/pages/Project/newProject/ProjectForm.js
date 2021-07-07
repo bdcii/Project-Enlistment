@@ -95,13 +95,18 @@ function ProjectForm() {
                     /></div>
                 </div>
                 <div className="form-group text-left">
-                    <div className="status"><label htmlFor="Technologies">Status:</label></div>
+                    <div className="status"><label htmlFor="StatusInput">Status:</label></div>
                     <div className="statusInput"><input
                         type="checkbox"
-                        name="Closed"
-                        checked={setClosed}
+                        name="Open"
                         onChange={handleChange}
-                    /></div>
+                    />
+                    Open
+                    <input
+                    type="checkbox"
+                    name="Closed"
+                    onChange={handleChange}
+                />Closed</div>
                 </div>
                 <div className="form-group text-left">
                     <div className="size"><label htmlFor="Technologies">Team Size:</label></div>
