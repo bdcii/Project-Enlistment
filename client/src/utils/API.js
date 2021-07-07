@@ -18,8 +18,13 @@ export default {
     return axios.post("/api/projects", projectData);
   },
   // Updates a project with the given id
-  updateProject: function(id){
-    return axios.put("/api/projects/" + id);
+  updateProjectComment: function(id, comment){
+    return axios.put("/api/projects/" + id, {comment});
+  },
+  
+  //Update project status
+  updateProjectStatus: function(id, status){
+    return axios.put("/api/projects/" + id, {open: status});
   },
   // Gets all Users
   getUsers: function() {
