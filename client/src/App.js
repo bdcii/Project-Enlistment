@@ -15,6 +15,7 @@ import API from "./utils/API"
 import UserContext from "./utils/UserContext"
 
 
+
 function App() {
 const [ user, setUser ] = useState(null);
 
@@ -27,7 +28,7 @@ const [ user, setUser ] = useState(null);
         } )
         .catch(err => console.log(err))  
 
-    }, []);
+    },[]);
   
         
     return (
@@ -45,8 +46,7 @@ const [ user, setUser ] = useState(null);
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/users/:id" component={ProjManager} />
-                <Route exact path="/projects/:id">
-                    <Project />
+                <Route exact path="/projects/:id"><Project />
                 </Route>
                 <Route exact path="/projectform" component={ProjectForm} />
 

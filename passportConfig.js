@@ -7,19 +7,16 @@ const passport = require('passport');
 module.exports = function(passport) {
 passport.use(new localStrategy(
     function(username, password, done) {
-        console.log(username);
-        console.log(password);
       User.findOne({ username: username }, function (err, user) {
-        console.log(user);
-        if (err) { return done(err); }
-        if (!user) { return done(null, false); }
+        if (err)  return done(err);
+        if (!user) return done(null, false, {message: 'User not found'}); 
         bcrypt.compare(password, user.password, (err, result) => {
-        console.log(result);
         if (err) throw err;
-        if (result === true) {
-        return done(null, user); 
+        if (result === false) {
+        return done(null, false, {message: 'incorrect password'}); 
           } else {
-            return done(null, false);
+            return done(null, user); 
+ 
           }
       });
     });

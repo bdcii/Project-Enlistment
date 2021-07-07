@@ -123,5 +123,15 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+// logout
+router.post('/logout', (req, res) => {
+  if (req.user) {
+      req.user.destroy(() => {
+          res.status(204).end();
+      });
+  } else {
+      res.status(404).end();
+  }
+});
 
 module.exports = router;
