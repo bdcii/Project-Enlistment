@@ -75,21 +75,9 @@ class ProjManager extends Component {
                         </ul>
                     </div>
                     <hr />
-                    {/* remove skill set for project manager? */}
-                    {/* <div className="set"><strong>Skill Set</strong></div>
-                    <ul className="list">{currentUser && currentUser.skills ? currentUser.skills.toString().split(',').map((data, i) => {
-                        return <li key={i}>{data}</li>
-                    }) : 'loading'}
-                    </ul>
-                    <hr /> */}
+
                 </section>
                 <section id="userProjects">
-                    {/* <div className="set"><strong>Projects</strong></div>
-                    <ul className="list">
-                        {currentUser && currentUser.projects ? currentUser.projects.map((data, _id) => {
-                            return <li key={data._id}>{data.title}</li>
-                        }) : 'loading'}
-                    </ul> */}
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
                         {this.renderProjects()}
@@ -98,12 +86,12 @@ class ProjManager extends Component {
                     <div className="star">
                     </div>
 
-                    <div className="set"><strong>User Rating</strong></div>
+                    <div className="set userRating"><strong>User Rating</strong></div>
                     <div id="stars">
-                        {<ReactStars
+                        {<ReactStars className="starString"
                             count={5}
                             onChange={this.ratingChanged}
-                            size={30}
+                            size={35}
                             edit={true}
                         />}
                     </div>
