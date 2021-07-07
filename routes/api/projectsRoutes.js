@@ -36,6 +36,7 @@ router.get("/:id", (req, res) => {
 // create project //
 router.post('/', (req, res) => {
     Project.create(req.body)
+        .populate("users")
         .then((dbProject) => {
             res.json(dbProject);
         })
