@@ -82,7 +82,7 @@ return (
     <div className="App">
       <div>
         <br />
-        <h1>Register</h1>
+        <h1 className="register">Register</h1>
         <br />
         <div className="entryLabel">Email:</div>
         <div className="entry">
@@ -155,7 +155,7 @@ return (
       <br />
 
       <div>
-        <h1>Login</h1>
+        <h1 className="login">Login</h1>
         <br />
 
         <div className="entryLabel">Username:</div>
