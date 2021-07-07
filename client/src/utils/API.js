@@ -24,12 +24,14 @@ export default {
 
   //remove applicant from project
   removeProjectApply: function(id, apply){
-    return axios.delete("/api/projects/" + id, {apply});
+    console.log(apply)
+    return axios.delete("/api/projects/apply" + id, {apply});
   },
 
-  //add Developer to project.  Needs to reference Project ID, as well as the project property of the User document
-  updateProjectMembership: function(id, apply){
-    return axios.put("/api/projects/" + id, {apply});
+  //add Developer to project.  Needs to get Project ID, as well as the project property of the User document
+  updateProjectMembership: function(id, projectId){
+    console.log(projectId)
+    return axios.put("/api/users/member_Of/" + id, {member_Of: projectId} );
   },
   
   //Update project status

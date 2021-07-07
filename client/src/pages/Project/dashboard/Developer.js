@@ -9,6 +9,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 function Developer() {
+    
     const [formObject, setFormObject] = useState({})
 
      //sets project component's initial state
@@ -35,6 +36,7 @@ function Developer() {
          if (formObject.comment) {
              //find way to get to project creator email, place in parentheses of sendEmail
              sendEmail()
+             console.log(formObject.comment)
             API.updateProjectComment(id, formObject.comment)
                 .then(res => { return alert('Thanks for applying! The project creator will contact you if selected.') })
                 .catch(err => console.log(err));

@@ -80,6 +80,7 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/sfitzmartin22",
     linkedin: "https://www.linkedin.com/in/sfitzmartin",
+    member_Of:[],
     skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
     projects: [],
     stars: [5, 5, 4, 3, 3, 3.5, 4]
@@ -92,6 +93,7 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/tsmith1",
     linkedin: "https://www.linkedin.com/in/tsmith",
+    member_Of:[],
     skills: ["Bootstrap", "React", "React-Bootstrap", "Python", "JavaScript", "Project Management"],
     projects: [],
     stars: [5, 5, 4, 1, 2.5, 3, 1.5, 4]
@@ -104,6 +106,7 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/sjones2",
     linkedin: "https://www.linkedin.com/in/sjones",
+    member_Of:[],
     skills: ["React", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"],
     projects: [],
     stars: [5, 5, 3, 3, 3, 3.5, 4]
@@ -115,6 +118,7 @@ const userSeed = [
     email: "tjacobs@gmail.com",
     password: "22seanfitz22",
     github: "https://github.com/tjacobs1",
+    member_Of:[],
     linkedin: "https://www.linkedin.com/in/tjacobs",
     skills: ["HTML", "CSS", "Bootstrap", "Python", "SQL", "NoSQL", "Project Management"],
     projects: [],
@@ -128,6 +132,7 @@ const userSeed = [
     password: "22seanfitz22",
     github: "https://github.com/ssugar1",
     linkedin: "https://www.linkedin.com/in/ssugar",
+    member_Of:[],
     skills: ["HTML", "CSS", "Bootstrap", "Angular", "SQL", "NoSQL", "Project Management"],
     projects: [],
     stars: [5, 5, 3, 3, 3, 3.5, 4]

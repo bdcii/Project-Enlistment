@@ -46,7 +46,7 @@ function Creator() {
                 <p>Applicant!</p>
               
             </Link>
-            <AddBtn onClick={() => API.updateProjectMembership(userId)}/>
+            <AddBtn onClick={() => API.updateProjectMembership(userId, project._id)}/>
            <DeleteBtn onClick={() => API.removeProjectApply(userId)} />
           </ListItem>
         ))}

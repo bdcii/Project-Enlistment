@@ -34,7 +34,7 @@ function Project() {
                     <h1>{project.title}</h1>
                     <p>Status: {project.open ? 'Open' : 'Closed'}</p>
                     <p>About: {project.description}</p>
-                    <p>Developers needed: {project.size}</p>
+                    <p>Developers needed: {project.dev_Need}</p>
                     <Link to={"/users/" + project._creator}>
                         View Project Owner's Profile</Link>
                 </Col>

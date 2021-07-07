@@ -118,6 +118,21 @@ router.put('/:id', (req, res) => {
     });
 });
 
+//route to update members of project
+router.put('/member_Of/:id', (req, res) => {
+  let updates = req.body
+  console.log(req.body);
+  User.findByIdAndUpdate({ _id: req.params.id }, 
+    updates,
+    { new: true, runValidators: true })
+    .then((dbProject) => {
+      res.json(dbProject)
+    })
+    .catch((err) => {
+      res.json(err)
+    });
+});
+
 // delete user by ID  *not sure if needed. Maybe provide user option to close/disable account?
 router.delete('/:id', (req, res) => {
   User.findById({ _id: req.params.id })
