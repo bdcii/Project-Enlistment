@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import "./ProjectForm.css";
 //import { saveProject } from "../../utils/API";
+import API from '../../../utils/API';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-
-
 
 
 function ProjectForm() {
@@ -14,11 +12,36 @@ function ProjectForm() {
     const [open, setOpen] = useState(false);
     const [closed, setClosed] = useState(false);
     const handleChange = e => {
-        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value 
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
+        setState({
+            ...state,
+            [e.target.name]: value,
+            ...state,
+            [e.target.getAttribute('id')]: value,
+        })
     }
-    //const onCreateClick = e => {
-     //   saveProject()
-   // }
+
+    const [state, setState] = useState({
+        isChecked: false,
+    });
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (state.title && state.user._creator) {
+            API.saveProject({
+                title: state.title,
+                _creator: state.user,
+                description: state.description,
+                open: state.open,
+                startDate: state.startDate,
+                endDate: state.endDate,
+                size: state.size,
+                skills: state.skills
+            })
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        };
+    }
 
     return (
         <form>
@@ -54,7 +77,7 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="startDate"><label htmlFor="Technologies">Project Start Date:</label></div>
-                    <div className="startDateInput"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} 
+                    <div className="startDateInput"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)}
                         className="form-control"
                         id="startDate"
                         placeholder="Enter Project Start Date"
@@ -62,7 +85,7 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="endDate"><label htmlFor="Technologies">Project End Date:</label></div>
-                    <div className="endDateInput"><DatePicker selected={endDate} onChange={(date) => setEndDate(date)} 
+                    <div className="endDateInput"><DatePicker selected={endDate} onChange={(date) => setEndDate(date)}
                         className="form-control"
                         id="endDate"
                         placeholder="Enter Project End Date"
@@ -97,11 +120,9 @@ function ProjectForm() {
                 </div>
                 <br />
                 <button
-                    onClick={e => {
-
-                    }}
                     type="submit"
                     className="CreateButton"
+                    onClick={handleFormSubmit}
                 >
                     Create Project
                 </button>
