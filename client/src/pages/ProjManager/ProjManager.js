@@ -63,7 +63,7 @@ class ProjManager extends Component {
             <>
                 <br />
                 <br />
-                <h2 id="devProfile">Developer Profile</h2>
+                <h2 id="devProfile">Project Manager Profile</h2>
                 <hr />
                 <section id="profile">
                     <div className="name"><strong>Name: {currentUser && currentUser.firstName} {currentUser && currentUser.lastName}</strong></div>
