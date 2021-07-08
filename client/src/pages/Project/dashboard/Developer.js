@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import API from "../../../utils/API";
 import { Col, Row, Container } from "../../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../../components/Form";
 import Axios from "axios";
 import sendEmail from "../../../utils/nodemailer"
 import { Link, useParams } from "react-router-dom";
+import UserContext from "../../../utils/UserContext";
+
 
 
 
 function Developer() {
     
     const [formObject, setFormObject] = useState({})
+    const { user } = useContext(UserContext);
 
      //sets project component's initial state
     //  const [project, setProject] = useState({})
