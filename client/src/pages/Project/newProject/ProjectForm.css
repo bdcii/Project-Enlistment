@@ -63,3 +63,53 @@ button {
     padding: 10px;
     background-color: rgb(192, 255, 255);
 }
+
+@media only screen and (min-width: 500px) {
+    .enterProject {
+        width: 91vw;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .enterProject {
+        font-size: 40px;
+        width: 92vw;
+    }
+    
+    .loginAlert {
+        font-size: 24px;
+    }
+
+    .projName, .projDesc, .tech, 
+    .startDate, .endDate, .status, 
+    .size, .skills {
+        font-size: 35px;
+    }
+
+    ::placeholder {
+        font-size: 24px;
+    }
+
+    .statusIn {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .enterProject {
+        width: 93vw;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .enterProject {
+        width: 95vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .enterProject {
+        width: 96vw;
+    }
+}
