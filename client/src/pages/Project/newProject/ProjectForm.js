@@ -56,7 +56,12 @@ function ProjectForm() {
 
     return (
         <form>
-            <header>Please enter your project below, you must be signed in to add a project.</header>
+            <br />
+  
+            <h1 className="enterProject">Enter New Project</h1>
+            <div className="loginAlert">** Must be logged in **</div>
+
+
             <div className="Container-1">
                 <div className="form-group text-left">
                     <div className="projName"><label htmlFor="ProjectName">Project Name:</label></div>
@@ -74,7 +79,7 @@ function ProjectForm() {
                     <div className="projDescInput"><textarea type="text"
                         className="form-control"
                         id="description"
-                        placeholder="Project Description"
+                        placeholder="Enter Project Description"
                         onChange={handleChange}
                     /></div>
                 </div>
@@ -89,7 +94,7 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="startDate"><label htmlFor="Technologies">Project Start Date:</label></div>
-                    <div className="startDateInput"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)}
+                    <div className="startDateInput"><DatePicker className="datePickStart" selected={startDate} onChange={(date) => setStartDate(date)}
                         className="form-control"
                         id="startDate"
                         placeholder="Enter Project Start Date"
@@ -97,7 +102,7 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="endDate"><label htmlFor="Technologies">Project End Date:</label></div>
-                    <div className="endDateInput"><DatePicker selected={endDate} onChange={(date) => setEndDate(date)}
+                    <div className="endDateInput"><DatePicker className="datePickEnd" selected={endDate} onChange={(date) => setEndDate(date)}
                         className="form-control"
                         id="endDate"
                         placeholder="Enter Project End Date"
@@ -105,17 +110,19 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="status"><label htmlFor="StatusInput">Status:</label></div>
-                    <div className="statusInput"><input
-                        type="checkbox"
-                        name="Open"
-                        onChange={handleChange}
-                    />
-                        Open
-                        <input
+                    <div className="statusInput"><span className="statusIn">
+                        Open<input
+                            type="checkbox"
+                            name="Open"
+                            onChange={handleChange}
+                        /></span>
+                        <span className="statusIn">
+                        Closed<input
                             type="checkbox"
                             name="Closed"
                             onChange={handleChange}
-                        />Closed</div>
+                        /></span>
+                    </div>
                 </div>
                 <div className="form-group text-left">
                     <div className="size"><label htmlFor="Technologies">Team Size:</label></div>
