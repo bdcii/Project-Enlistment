@@ -61,6 +61,7 @@ function ProjectForm() {
             <h1 className="enterProject">Enter New Project</h1>
             <div className="loginAlert">** Must be logged in **</div>
 
+
             <div className="Container-1">
                 <div className="form-group text-left">
                     <div className="projName"><label htmlFor="ProjectName">Project Name:</label></div>
