@@ -70,13 +70,15 @@ router.delete('/:id', (req, res) => {
 });
 
 //delete developer from Apply field
-router.delete('/apply/:id', (req, res) => {
+router.put('/apply/:id', (req, res) => {
     let updates = req.body
-    Project.findById({ _id: req.params.id },
-        updates)
+    console.log(req.body);
+    Project.findByIdAndUpdate({ _id: req.params.id },
+        updates,
+        { new: true, runValidators: true })
         .then(dbProject => res.json(dbProject))
         .catch(err =>
-            res.statsus(422).json(err));
+            res.status(422).json(err));
 });
 
 

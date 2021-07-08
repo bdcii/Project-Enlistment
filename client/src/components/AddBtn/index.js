@@ -6,7 +6,7 @@ import "./style.css";
 function AddBtn(props) {
   return (
     <button className="add-btn" {...props} role="button" tabIndex="0">
-      O
+      Add
     </button>
   );
 }
