@@ -47,7 +47,13 @@ const register = () => {
       },
       withCredentials: true,
       url: "api/users/signup",
-    }).then((res) => console.log(res));
+    }).then((res) => { if (res.status === 200) {
+      alert("you have successfully signed up!");
+      console.log(res)
+      return history.push("/signin")
+    }}
+    
+    );
   };
   
   

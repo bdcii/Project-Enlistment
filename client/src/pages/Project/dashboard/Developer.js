@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import API from "../../../utils/API";
 import { Col, Row, Container } from "../../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../../components/Form";
 import Axios from "axios";
 import sendEmail from "../../../utils/nodemailer"
 import { Link, useParams } from "react-router-dom";
+import UserContext from "../../../utils/UserContext";
+
 
 
 
 function Developer() {
-    
-    const [formObject, setFormObject] = useState({})
 
-     //sets project component's initial state
+    const [formObject, setFormObject] = useState({})
+    const { user } = useContext(UserContext);
+
+    //sets project component's initial state
     //  const [project, setProject] = useState({})
 
 
-     const { id } = useParams()
+    const { id } = useParams()
     //  useEffect(() => {
     //      API.getProject(id)
     //          .then(res => setProject(res.data))
@@ -29,16 +32,19 @@ function Developer() {
         setFormObject({ ...formObject, [name]: value })
     };
 
-   
+
 
     function handleFormSubmit(event) {
         event.preventDefault();
-         if (formObject.comment) {
-             //find way to get to project creator email, place in parentheses of sendEmail
-             sendEmail()
-             console.log(formObject.comment)
+        if (formObject.comment) {
+            //find way to get to project creator email, place in parentheses of sendEmail
+            sendEmail()
+            console.log(formObject.comment)
             API.updateProjectComment(id, formObject.comment)
                 .then(res => { return alert('Thanks for applying! The project creator will contact you if selected.') })
+                .catch(err => console.log(err));
+            API.updateProjectApplicant(id, user.id)
+                .then(res => console.log('success!!'))
                 .catch(err => console.log(err));
         }
     };
@@ -48,17 +54,17 @@ function Developer() {
         <h1>Want to join? Fill out the form below!</h1>
         <div>
             <form>
-            
+
                 <TextArea
                     onChange={handleInputChange}
                     name="comment"
                     placeholder="Tell the project owner why you'd be a good fit!"
-                  
+
                 />
                 <FormBtn
                     disabled={!(formObject.comment)}
-                    
-                    onClick={handleFormSubmit} 
+
+                    onClick={handleFormSubmit}
                 >
                     Submit
                 </FormBtn>
