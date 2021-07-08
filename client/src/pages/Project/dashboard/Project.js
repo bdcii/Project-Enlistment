@@ -11,7 +11,7 @@ import UserContext from "../../../utils/UserContext";
 import ProjManager from '../../ProjManager/ProjManager';
 
 //This is a test value to see if I can get the Creator and Developer views to toggle
-const test = false;
+const test = true;
 
 function Project() {
 
