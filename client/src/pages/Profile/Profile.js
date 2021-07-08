@@ -10,7 +10,8 @@ function Profile() {
     const [stars, setStars] = useState([]);
     const [avgRating, setAvgRating] = useState([]);
     const [users, setUsers] = useState();
-    const [title, setProjects] = useState([]);
+    const [projects, setProjects] = useState([]);
+
 
     useEffect(() => {
         API.getUsers(users)
@@ -19,10 +20,13 @@ function Profile() {
     }, [])
 
     useEffect(() => {
-        API.getProjects(title)
-            .then(res => setProjects(res.data))
-            .catch(err => console.log(err));
-    }, [])
+        if (user) {
+            API.getProjects(user.projects)
+                .then(res => setProjects(res.data))
+                .catch(err => console.log(err));
+
+        }
+    }, [user])
 
     const ratingChanged = (newRating) => {
         let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
@@ -39,12 +43,12 @@ function Profile() {
 
     const renderProjects = () => {
         if (user) {
-            const projects = user.projects.reduce((listProject, project) => {
-                projects.find({ _id: projects._id })
+            const projEls = projects.reduce((listProject, project) => {
+
                 if (project._creator === user.id) { listProject.push(<li key={project._id}>{project.title}</li>) }
                 return listProject
             }, [])
-            return projects
+            return projEls
         }
         return 'loading';
     };
@@ -77,14 +81,16 @@ function Profile() {
             <section id="userProjects">
                 <div className="set"><strong>Projects</strong></div>
                 <ul className="list">
-                    {user && user.projects ? user.projects.map((projects, _id) => {
-                        console.log(user.projects)
-                        return <li key={projects._id}>{projects.title}</li>
-                    }) : 'loading'}
+                    {projects.map((project, i) => {
+                        return <li key={project._id}>{project.title}</li>
+                    }
+
+                    )}
+
                 </ul>
                 <div className="set"><strong>Managed Projects</strong></div>
                 <ul className="list">
-                    {renderProjects}
+                    {renderProjects()}
                 </ul>
                 <hr />
                 <div className="star">
