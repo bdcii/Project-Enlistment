@@ -57,8 +57,10 @@ function ProjectForm() {
     return (
         <form>
             <br />
+  
             <h1 className="enterProject">Enter New Project</h1>
             <div className="loginAlert">** Must be logged in **</div>
+
             <div className="Container-1">
                 <div className="form-group text-left">
                     <div className="projName"><label htmlFor="ProjectName">Project Name:</label></div>
@@ -76,7 +78,7 @@ function ProjectForm() {
                     <div className="projDescInput"><textarea type="text"
                         className="form-control"
                         id="description"
-                        placeholder="Project Description"
+                        placeholder="Enter Project Description"
                         onChange={handleChange}
                     /></div>
                 </div>
@@ -107,17 +109,19 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="status"><label htmlFor="StatusInput">Status:</label></div>
-                    <div className="statusInput"><input
-                        type="checkbox"
-                        name="Open"
-                        onChange={handleChange}
-                    />
-                        Open
-                        <input
+                    <div className="statusInput"><span>
+                        Open<input
+                            type="checkbox"
+                            name="Open"
+                            onChange={handleChange}
+                        /></span>
+
+                        Closed<input
                             type="checkbox"
                             name="Closed"
                             onChange={handleChange}
-                        />Closed</div>
+                        />
+                    </div>
                 </div>
                 <div className="form-group text-left">
                     <div className="size"><label htmlFor="Technologies">Team Size:</label></div>

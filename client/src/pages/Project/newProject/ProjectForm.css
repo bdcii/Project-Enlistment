@@ -12,7 +12,7 @@
 .projName, .projDesc, .tech, 
 .startDate, .endDate, .status,
 .size, .skills {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: rgb(0, 121, 107);
     /* margin: 20px, 0, 5px, 5px; */
@@ -32,7 +32,8 @@
 .projNameInput, .projDescInput, .techInput, 
 .startDateInput, .endDateInput, .statusInput,
 .sizeInput, .skillsInput {
-padding: 5px;
+    font-size: 20px;
+    padding: 5px;
 }
 
 input, textarea {
@@ -43,6 +44,15 @@ input, textarea {
     border-radius: 5px;
     border: 1px solid rgb(0, 121, 107);
     box-shadow: 1px 1px 1px rgb(107, 202, 185);
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    width: 20px;
+    border: none;
+    box-shadow: none;
+    margin-left: 10px;
+    margin-right: 30px; 
 }
 
 #open {
