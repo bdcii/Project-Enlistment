@@ -84,7 +84,7 @@ button {
     .projName, .projDesc, .tech, 
     .startDate, .endDate, .status, 
     .size, .skills {
-        font-size: 35px;
+        font-size: 25px;
     }
 
     ::placeholder {
