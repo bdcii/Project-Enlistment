@@ -10,7 +10,7 @@ function Profile() {
     const [stars, setStars] = useState([]);
     const [avgRating, setAvgRating] = useState([]);
     const [users, setUsers] = useState();
-    const [projects, setProjects] = useState([]);
+    // const [userProjects, setProjects] = useState([]);
 
     useEffect(() => {
         API.getUsers(users)
@@ -18,6 +18,11 @@ function Profile() {
             .catch(err => console.log(err));
     }, [])
 
+    // useEffect(() => {
+    //     API.getProjects(userProjects)
+    //         .then(res => setProjects(res.data))
+    //         .catch(err => console.log(err));
+    // }, [])
 
     const ratingChanged = (newRating) => {
         let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
@@ -35,6 +40,7 @@ function Profile() {
     const renderProjects = () => {
         if (user) {
             const projects = user.projects.reduce((listProject, project) => {
+                projects.find({ _id: projects._id })
                 if (project._creator === user.id) { listProject.push(<li key={project._id}>{project.title}</li>) }
                 return listProject
             }, [])
@@ -42,6 +48,7 @@ function Profile() {
         }
         return 'loading';
     };
+
 
     return (
         <>
