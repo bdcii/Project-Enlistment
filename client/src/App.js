@@ -17,43 +17,43 @@ import UserContext from "./utils/UserContext"
 
 
 function App() {
-const [ user, setUser ] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-    //   fetch currentuser
-    API.getUser()
-        .then(res => {
-            setUser(res.data)
-            console.log(res.data)
-        } )
-        .catch(err => console.log(err))  
+        //   fetch currentuser
+        API.getUser()
+            .then(res => {
+                setUser(res.data)
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
 
-    },[]);
-  
-        
+    }, []);
+
+
     return (
         <>
-         <UserContext.Provider value={{user, setUser}}>
-            <Router>
-                <div className="header">
-                    <div className="logoTitleButtons">
-                        <img src={sprlogo} alt="App logo" className="appLogo" id="appLogo" />
-                        <h1 id="navTitle">Smart Project Recruiter</h1>
+            <UserContext.Provider value={{ user, setUser }}>
+                <Router>
+                    <div className="header">
+                        <div className="logoTitleButtons">
+                            <img src={sprlogo} alt="App logo" className="appLogo" id="appLogo" />
+                            <h1 id="navTitle">Smart Project Recruiter</h1>
+                        </div>
+                        <NavTabs></NavTabs>
                     </div>
-                    <NavTabs></NavTabs>
-                </div>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/signin" component={Signin} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/users/:id" component={ProjManager} />
-                <Route exact path="/projects/:id"><Project />
-                </Route>
-                <Route exact path="/projectform" component={ProjectForm} />
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/signin" component={Signin} />
+                    <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/users/:id" component={ProjManager} />
+                    <Route exact path="/projects/:id"><Project />
+                    </Route>
+                    <Route exact path="/projectform" component={ProjectForm} />
 
-                <div id="footer">
-                    <NavTabs></NavTabs>
-                </div>
-            </Router>
+                    <div id="footer">
+                        <NavTabs></NavTabs>
+                    </div>
+                </Router>
             </UserContext.Provider>
         </>
     )

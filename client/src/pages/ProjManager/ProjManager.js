@@ -5,13 +5,13 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import "./ProjManager.css";
 
-function Profile() {
+function ProjManager() {
     const { user } = useContext(UserContext);
     const [stars, setStars] = useState([]);
     const [avgRating, setAvgRating] = useState([]);
     const [users, setUsers] = useState();
-    const { projects } = useState();
-    // const [userProjects, setProjects] = useState([]);
+    const [projects, setProjects] = useState([]);
+
 
     useEffect(() => {
         API.getUsers(users)
@@ -19,11 +19,14 @@ function Profile() {
             .catch(err => console.log(err));
     }, [])
 
-    // useEffect(() => {
-    //     API.getProjects(userProjects)
-    //         .then(res => setProjects(res.data))
-    //         .catch(err => console.log(err));
-    // }, [])
+    useEffect(() => {
+        if (user) {
+            API.getProjects(user.projects)
+                .then(res => setProjects(res.data))
+                .catch(err => console.log(err));
+
+        }
+    }, [user])
 
     const ratingChanged = (newRating) => {
         let average = (arr) => Math.round(arr.reduce((a, b) => a + b) / arr.length);
@@ -38,19 +41,18 @@ function Profile() {
         Axios.put('/api/users/:id', { newRating })
     };
 
-    useEffect(() => {
-        // const renderProjects = () => {
-        if (projects) {
-            const userProjects = user.projects.reduce((listProject, project) => {
-                userProjects.find({ _id: projects._id })
+    const renderProjects = () => {
+        if (user) {
+            const projEls = projects.reduce((listProject, project) => {
+
                 if (project._creator === user.id) { listProject.push(<li key={project._id}>{project.title}</li>) }
                 return listProject
             }, [])
-            return userProjects
+            return projEls
         }
         return 'loading';
-        // };
-    }, [])
+    };
+
 
     return (
         <>
@@ -68,17 +70,27 @@ function Profile() {
                     </ul>
                 </div>
                 <hr />
+
+                <div className="set"><strong>Skill Set</strong></div>
+                <ul className="list">{user && user.skills ? user.skills.toString().split(',').map((data, i) => {
+                    return <li key={i}>{data}</li>
+                }) : 'loading'}
+                </ul>
+                <hr />
             </section>
             <section id="userProjects">
                 <div className="set"><strong>Projects</strong></div>
                 <ul className="list">
-                    {user && user.projects ? user.projects.map((data, _id) => {
-                        return <li key={data._id}>{data.title}</li>
-                    }) : 'loading'}
+                    {projects.map((project, i) => {
+                        return <li key={project._id}>{project.title}</li>
+                    }
+
+                    )}
+
                 </ul>
                 <div className="set"><strong>Managed Projects</strong></div>
                 <ul className="list">
-                    {/* {renderProjects} */}
+                    {renderProjects()}
                 </ul>
                 <hr />
                 <div className="star">
@@ -101,4 +113,4 @@ function Profile() {
     )
 }
 
-export default Profile;
+export default ProjManager;
