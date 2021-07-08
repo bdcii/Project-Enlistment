@@ -18,6 +18,6 @@ This Smart Project Recruiter is an online, web-based project recruitment tool cr
 GitHub Repository: https://github.com/bdcii/Project-Enlistment
 
 ## Deployment
-Heroku Deployment:
+Heroku Deployment: https://smart-project-recruiter.herokuapp.com/
 
 ## Images
