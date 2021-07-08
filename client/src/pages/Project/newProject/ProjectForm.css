@@ -63,3 +63,29 @@ button {
     padding: 10px;
     background-color: rgb(192, 255, 255);
 }
+
+@media only screen and (min-width: 600px) {
+
+    .enterProject {
+        font-size: 40px;
+        width: 90vw;
+    }
+    
+    .loginAlert {
+        font-size: 24px;
+    }
+
+    .projName, .projDesc, .tech, 
+    .startDate, .endDate, .status, 
+    .size, .skills {
+        font-size: 35px;
+    }
+
+    ::placeholder {
+        font-size: 24px;
+    }
+
+    .statusIn {
+        font-size: 28px;
+    }
+}

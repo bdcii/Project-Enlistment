@@ -93,7 +93,7 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="startDate"><label htmlFor="Technologies">Project Start Date:</label></div>
-                    <div className="startDateInput"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)}
+                    <div className="startDateInput"><DatePicker className="datePickStart" selected={startDate} onChange={(date) => setStartDate(date)}
                         className="form-control"
                         id="startDate"
                         placeholder="Enter Project Start Date"
@@ -101,7 +101,7 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="endDate"><label htmlFor="Technologies">Project End Date:</label></div>
-                    <div className="endDateInput"><DatePicker selected={endDate} onChange={(date) => setEndDate(date)}
+                    <div className="endDateInput"><DatePicker className="datePickEnd" selected={endDate} onChange={(date) => setEndDate(date)}
                         className="form-control"
                         id="endDate"
                         placeholder="Enter Project End Date"
@@ -109,18 +109,18 @@ function ProjectForm() {
                 </div>
                 <div className="form-group text-left">
                     <div className="status"><label htmlFor="StatusInput">Status:</label></div>
-                    <div className="statusInput"><span>
+                    <div className="statusInput"><span className="statusIn">
                         Open<input
                             type="checkbox"
                             name="Open"
                             onChange={handleChange}
                         /></span>
-
+                        <span className="statusIn">
                         Closed<input
                             type="checkbox"
                             name="Closed"
                             onChange={handleChange}
-                        />
+                        /></span>
                     </div>
                 </div>
                 <div className="form-group text-left">
