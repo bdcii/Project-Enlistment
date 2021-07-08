@@ -40,6 +40,11 @@ background-color: rgb(178, 223, 219);
 }
 
 @media only screen and (min-width: 600px) {
+
+    body {
+        font-size: 22px;
+    }
+
     button {
         font-size: 22px;
     }
