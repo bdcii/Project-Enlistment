@@ -4,6 +4,7 @@ import "./ProjectForm.css";
 import API from '../../../utils/API';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { BrowserRouter, useHistory } from "react-router-dom";
 import UserContext from "../../../utils/UserContext";
 
 function ProjectForm() {
@@ -11,7 +12,8 @@ function ProjectForm() {
     const [endDate, setEndDate] = useState(new Date());
     const [open, setOpen] = useState(false);
     const [closed, setClosed] = useState(false);
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const history = useHistory();
     const handleChange = e => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         setState({
@@ -41,14 +43,20 @@ function ProjectForm() {
                 size: state.size,
                 skills: state.skills,
             })
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
-                
-        };
-    }
+                .then(res => {if (res.status === 200) {
+                 console.log(res)
+                 alert("You have successfully added a new project");
+                 return history.push("/")
+                } else {
+                alert("Your project was not added, please make sure you are logged in as that is a requirement.  If you are already logged in, please refresh the page and try again.");
+                return history.push("/projectform")
+            };
+    })
+    }}
 
     return (
         <form>
+            <header>Please enter your project below, you must be signed in to add a project.</header>
             <div className="Container-1">
                 <div className="form-group text-left">
                     <div className="projName"><label htmlFor="ProjectName">Project Name:</label></div>
