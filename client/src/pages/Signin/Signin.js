@@ -50,7 +50,7 @@ const register = () => {
     }).then((res) => { if (res.status === 200) {
       alert("you have successfully signed up!");
       console.log(res)
-      return history.push("/signin")
+      return history.push("/")
     }}
     
     );
@@ -82,6 +82,7 @@ const register = () => {
   }
 })
   }
+
   
   const getUser = () => {
     Axios({
@@ -156,7 +157,7 @@ return (
           />
         </div>
 
-        <div className="entryLabel">LinkedIn Profile:</div>
+        <div className="entryLabel">Skills:</div>
         <div className="entry">
           <input
             placeholder="Skills"
@@ -192,6 +193,7 @@ return (
 
         <button onClick={login}>Submit</button>
       </div>
+
       <br />
 
     </div>

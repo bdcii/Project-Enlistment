@@ -62,5 +62,9 @@ export default {
   },
   userLogin: function (userData) {
     return axios.post('/api/users/login', userData)
+  },
+
+  userLogout: function () {
+    return axios.get('/api/users/logout')
   }
 };

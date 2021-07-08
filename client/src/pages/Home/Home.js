@@ -9,7 +9,7 @@ import { Card } from 'react-bootstrap';
 
 export function ProjectListItem({ project }) {
   return (
-
+    
     <ListItem key={project._id}>
 
       <CardColumns>
@@ -48,6 +48,10 @@ function Home() {
       .then(res => setProjects(res.data))
       .catch(err => console.log(err))
   };
+
+  const logout = () => {
+    API.userLogout();
+    }
 
   return (<List>{projects.map(project => (<ProjectListItem project={project} key={project._id} />))}</List>)
 };
