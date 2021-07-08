@@ -1,3 +1,14 @@
+.enterProject {
+    width: 85vw;
+    padding: 5px;
+}
+
+.loginAlert {
+    text-align: center;
+    font-weight: bold;
+    color:rgb(0, 121, 107);
+}
+
 .projName, .projDesc, .tech, 
 .startDate, .endDate, .status,
 .size, .skills {
@@ -27,7 +38,7 @@ padding: 5px;
 input, textarea {
     font: arial;
     padding: 10px;
-    width: 160%;
+    width: 80vw;
     line-height: 1.5;
     border-radius: 5px;
     border: 1px solid rgb(0, 121, 107);
