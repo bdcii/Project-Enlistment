@@ -10,7 +10,7 @@ import Developer from "./Developer";
 import ProjManager from '../../ProjManager/ProjManager';
 
 //This is a test value to see if I can get the Creator and Developer views to toggle
-const test = true;
+const test = false;
 
 function Project() {
     //sets project component's initial state
