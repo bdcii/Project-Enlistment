@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 // get project by id //
 router.get("/:id", (req, res) => {
     Project.findById(req.params.id)
-        .populate("users")
+        // .populate("users")
         .then((dbProject) => {
 
             res.json(dbProject);

@@ -1,10 +1,10 @@
 import Axios from "axios";
-import React, { Component, useContext } from "react";
+import React, { Component } from "react";
 import ReactStars from 'react-stars';
-import UserContext from "../../utils/UserContext";
-import "./ProjManager.css";
+import "./Profile.css";
 
-class ProjManager extends Component {
+// function Profile() {
+class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class ProjManager extends Component {
                 this.setState({
                     isLoaded: true,
                     users: data,
-                    currentUserIndex: data.findIndex((user) => { return user._id === this.props.match.params.id }),
+                    currentUserIndex: data.findIndex((user) => { return user._id === user.id }),
                 })
             });
     }
@@ -37,19 +37,14 @@ class ProjManager extends Component {
         this.setState({ avgRating, stars: currentStars });
 
         console.log(newRating)
-        //id for project._creator needs to go here
-        Axios.put('/api/users', { newRating })
+        Axios.put('/api/users/:id', { newRating })
     }
 
     //pull in projects
     renderProjects() {
         const { users, currentUserIndex } = this.state;
-        // const { user } = this.state.user;
         const currentUser = users && users[currentUserIndex];
-        // if (user) {
         if (currentUser) {
-            // const projects = user.projects.reduce((listProject, project) => {
-            //     if (project._creator === user._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
             const projects = currentUser.projects.reduce((listProject, project) => {
                 if (project._creator === currentUser._id) { listProject.push(<li key={project._id}>{project.title}</li>) }
                 return listProject
@@ -60,7 +55,6 @@ class ProjManager extends Component {
     }
 
     render() {
-
         const { users, currentUserIndex } = this.state;
         const currentUser = users && users[currentUserIndex];
 
@@ -68,7 +62,7 @@ class ProjManager extends Component {
             <>
                 <br />
                 <br />
-                <h2 id="devProfile">Project Manager Profile</h2>
+                <h2 id="devProfile">Developer Profile</h2>
                 <hr />
                 <section id="profile">
                     <div className="name"><strong>Name: {currentUser && currentUser.firstName} {currentUser && currentUser.lastName}</strong></div>
@@ -81,8 +75,20 @@ class ProjManager extends Component {
                     </div>
                     <hr />
 
+                    <div className="set"><strong>Skill Set</strong></div>
+                    <ul className="list">{currentUser && currentUser.skills ? currentUser.skills.toString().split(',').map((data, i) => {
+                        return <li key={i}>{data}</li>
+                    }) : 'loading'}
+                    </ul>
+                    <hr />
                 </section>
                 <section id="userProjects">
+                    <div className="set"><strong>Projects</strong></div>
+                    <ul className="list">
+                        {currentUser && currentUser.projects ? currentUser.projects.map((data, _id) => {
+                            return <li key={data._id}>{data.title}</li>
+                        }) : 'loading'}
+                    </ul>
                     <div className="set"><strong>Managed Projects</strong></div>
                     <ul className="list">
                         {this.renderProjects()}
@@ -108,4 +114,4 @@ class ProjManager extends Component {
         )
     }
 }
-export default ProjManager;
+export default Profile;
